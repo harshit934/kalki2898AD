@@ -1,0 +1,58 @@
+/* Phase 5.4E health presentation: true values, no stamina resource. */
+.game-hud .health-status{width:300px;padding:11px 14px;background:#182b22e0;border-left:3px solid var(--teal)}
+.game-hud .health-track{height:12px;margin-top:8px;border:1px solid #c9c39b55}
+.game-hud .health-value,.game-hud .hud-label{font-size:12px;line-height:1.5}
+.health-fill,.boss-health-fill{transition:width 160ms ease-out}
+.game-shell .boss-health-hud{width:min(680px,55vw);max-width:calc(100vw - 120px);top:12px;padding:10px 15px;background:#1b2923eb;border:1px solid var(--ui-bronze);border-top:3px solid var(--gold)}
+.game-shell .boss-health-track{height:14px;margin-top:8px;background:#101c18}
+.game-shell .boss-health-heading{font:13px/1.5 var(--font-mono);gap:15px}
+.game-shell .boss-health-value{font:13px/1.5 var(--font-mono);color:var(--ui-stone);margin-top:5px}
+.game-hud .health-status.damaged{border-color:var(--coral)}
+.game-shell .boss-health-hud:has(.boss-health-fill.phase-3){border-top-color:var(--coral)}
+.campaign-panel .mission-art{aspect-ratio:2.8/1}.campaign-panel .mission-card{box-shadow:0 8px 24px #111b1733}.campaign-panel .mission-card .mission-action{letter-spacing:.035em}
+@media(max-width:650px){.game-hud .health-status{width:210px;padding:8px 10px}.game-hud.hud-minimal .health-status{width:190px}.game-shell .boss-health-hud{top:62px;left:12px;right:12px;width:auto;max-width:none;padding:8px 10px}.game-shell .boss-health-heading{font-size:11px;gap:9px}.game-shell .boss-health-track{height:12px}.game-shell .boss-health-value{font-size:12px}.game-hud.boss-mode .mission-objective{top:165px}.game-hud .health-track{height:10px}}
+@media(max-height:560px) and (min-width:651px){.game-hud .health-status{width:205px;padding:6px 8px}.game-hud .health-track{height:10px}.game-shell .boss-health-hud{width:49vw;max-width:none;padding:6px 10px;top:8px}.game-shell .boss-health-heading{font-size:11px}.game-shell .boss-health-track{height:10px;margin-top:4px}.game-shell .boss-health-value{font-size:11px}.game-hud.boss-mode .mission-objective{top:90px}.game-hud .objective-details{max-height:65px}}
+@media(prefers-reduced-motion:reduce){.health-fill,.boss-health-fill{transition:none}}
+html[data-interface-motion=reduced] .health-fill,html[data-interface-motion=reduced] .boss-health-fill{transition:none}
+.boss-health-value{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}.boss-attack-label{font:11px/1.5 var(--font-mono);color:var(--gold);text-transform:uppercase;letter-spacing:.035em;max-width:100%}
+@media(max-width:650px){.boss-attack-label{font-size:10px}.game-hud.boss-mode .mission-objective{top:190px}}
+.game-hud .health-status{position:relative;overflow:hidden}.game-hud .health-status.damaged{border-color:var(--ui-line);border-left-color:var(--teal)}.game-hud .health-status.critical{border-left-color:var(--coral)}.health-damage-pulse{position:absolute;inset:0;background:#ea7d6055;pointer-events:none;animation:health-damage-pulse .65s ease-out both}@keyframes health-damage-pulse{from{opacity:1}to{opacity:0}}
+@media(prefers-reduced-motion:reduce){.health-damage-pulse{animation:none;opacity:0}}
+html[data-interface-motion=reduced] .health-damage-pulse{animation:none;opacity:0}
+/* Cinematic archive treatment; original concept art stays separate from gameplay evidence. */
+.campaign-screen{isolation:isolate}.campaign-screen::before{content:'';position:absolute;inset:0 0 auto;height:380px;background:linear-gradient(90deg,#15251ae8,#19231b99),var(--campaign-view) center 38%/cover;opacity:.65;pointer-events:none;z-index:-1}
+.campaign-panel{position:relative}.campaign-panel>.campaign-back{float:right;position:relative;z-index:1}.campaign-kicker{font-size:11px;line-height:1.5;margin:0 0 4px}.campaign-panel>h1{font-size:clamp(32px,3vw,44px);line-height:1.1;margin:5px 0}.campaign-intro{font-size:13px;line-height:1.5;margin:5px 0 8px}.arc-heading{display:flex;align-items:center;gap:15px;flex-wrap:wrap;padding:9px 0;margin-bottom:4px}.arc-heading h2{font-size:24px;margin:0}.arc-heading .eyebrow,.arc-heading>p:last-child{margin:0}.archive-scroll-cue{margin:4px 0 12px}.arc-tabs{clear:both}
+.mission-card-heading{order:0}.mission-card-body>.mission-region{order:1}.mission-card-body>h2{order:2}.mission-card-body>.mission-boss{order:3}.mission-card-body>.mission-reward{order:4}.mission-card-body>.mission-action{order:5;margin-top:8px}.mission-card-body>.mission-description{order:6;margin-top:10px}
+@media(min-width:651px) and (max-height:800px){.campaign-panel .mission-art{aspect-ratio:5/1}.arc-tabs button{min-height:54px}.campaign-panel .mission-card-body{padding:12px}.campaign-panel .mission-boss,.campaign-panel .mission-reward{margin:3px 0;font-size:11px}.campaign-panel .mission-region{font-size:11px;margin:3px 0}.campaign-panel .mission-card h2{font-size:23px}.arc-tabs button strong{font-size:12px}.campaign-panel>h1{font-size:36px}}
+@media(max-width:650px){.campaign-panel>.campaign-back{float:none;margin-bottom:10px}.campaign-panel .mission-art{aspect-ratio:2.8/1}.arc-heading{gap:7px}.arc-heading>p:last-child{flex-basis:100%}.campaign-panel .mission-card-body>.mission-action{min-height:48px}}
+/* Keep landscape vitals above the entire touch joystick, including its rim. */
+@media(max-height:560px) and (min-width:651px){
+ .touch-controls-always .game-hud .hud-vitals{grid-template-columns:205px 60px;align-items:start;max-width:275px}
+ .touch-controls-always .game-hud .health-status{grid-column:1;grid-row:1}
+ .touch-controls-always .game-hud .hud-small-status{grid-column:1;grid-row:2}
+ .touch-controls-always .game-hud .hud-status-toggle{grid-column:2;grid-row:2;align-self:start;min-height:44px}
+}
+@media(pointer:coarse) and (max-height:560px) and (min-width:651px){
+ .game-hud .hud-vitals{grid-template-columns:205px 60px;align-items:start;max-width:275px}
+ .game-hud .health-status{grid-column:1;grid-row:1}
+ .game-hud .hud-small-status{grid-column:1;grid-row:2}
+ .game-hud .hud-status-toggle{grid-column:2;grid-row:2;align-self:start;min-height:44px}
+}
+
+.mission-unbuilt{width:100%;height:100%;display:flex;flex-direction:column;justify-content:center;gap:12px;padding:20px;color:var(--ui-stone);background:#26372f}.mission-unbuilt span,.mission-unbuilt small{font:11px/1.5 var(--font-mono);color:var(--gold)}.mission-unbuilt strong{font:24px/1.2 Georgia,serif}
+
+/* Final bounded E pass: status stays above the portrait player, never over torso. */
+@media(max-width:650px){
+ .game-shell .game-hud .hud-vitals{top:64px;bottom:auto;left:12px;max-width:210px;gap:4px}
+ .game-shell .game-hud.boss-mode .hud-vitals{top:150px}
+ .game-shell .game-hud .hud-small-status{display:grid;grid-template-columns:auto auto;max-width:210px;gap:4px 8px;padding:6px 8px}
+ .game-shell .game-hud .companion-indicator{grid-column:1/-1;max-width:195px}
+ .game-shell .game-hud .hud-small-status .hud-label{font-size:9px}
+ .game-shell .game-hud .score-status strong,.game-shell .game-hud .overdrive-status strong{font-size:12px}
+ .game-shell .game-hud .companion-indicator strong{font-size:10px}
+ .game-shell .game-hud .hud-status-toggle{min-height:32px;padding:5px 9px}
+ .game-shell .game-hud .mission-objective{top:64px;max-width:145px;right:12px}
+ .game-shell .game-hud.boss-mode .mission-objective{top:150px}
+ .game-shell .game-hud .objective-details{max-height:150px}
+}
+@media(max-height:560px) and (min-width:651px){.game-shell .boss-health-hud{width:46vw}}

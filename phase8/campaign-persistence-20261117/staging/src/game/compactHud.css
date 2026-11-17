@@ -1,0 +1,45 @@
+/* Keep the centre of the view clear; share the Phase 5 palette and typography. */
+.game-shell.is-playing .game-header{top:12px;left:18px;right:auto;width:auto;min-height:30px;height:30px;padding:4px 10px;border:0;background:rgba(28,44,39,.38);border-radius:3px;gap:8px;pointer-events:none}
+.is-playing .game-header .wordmark{font-size:13px}.is-playing .game-header .mission-label,.is-playing .game-header .build-label{display:none}
+.game-shell.is-playing .game-pause-button{top:12px;right:18px;width:36px;height:36px;min-width:36px;padding:8px;background:rgba(31,52,44,.65);border:1px solid #c6b17b88}
+.game-shell .game-hud{position:static;inset:auto;display:contents;pointer-events:none}.game-hud [hidden]{display:none!important}
+.hud-vitals{position:absolute;left:20px;bottom:20px;z-index:5;display:grid;gap:6px;max-width:calc(100vw - 40px);pointer-events:none}
+.game-hud .health-status{grid-column:auto;width:190px;min-height:0;padding:8px 10px;border:1px solid #e8b94f44;border-left:2px solid var(--teal);background:rgba(25,43,37,.62);border-radius:3px}
+.game-hud .health-track{height:5px;margin-top:5px;background:rgba(216,216,182,.23)}.game-hud .health-status.critical{border-left-color:var(--coral)}
+.game-hud .hud-label,.game-hud .health-value{font-size:9px;line-height:1.3;color:#f3e4cd;letter-spacing:.06em}
+.hud-small-status{display:flex;gap:12px;align-items:center;flex-wrap:wrap;max-width:330px;padding:0 4px;pointer-events:none}
+.game-hud .score-status,.game-hud .overdrive-status{display:flex;align-items:center;gap:6px;min-height:0;padding:0;background:none;border:0;grid-column:auto;color:#f2d9b8}
+.game-hud .score-status strong,.game-hud .overdrive-status strong{font-size:11px;line-height:1.3;color:#f8e8ca;font-weight:500;text-shadow:0 1px 3px #18372f}
+.game-hud .score-status .hud-label{font-size:7px;color:#efddbe}.game-hud .score-status strong span{font-size:9px;color:#cdd9c1;letter-spacing:0}
+.overdrive-icon{color:var(--gold);font-size:22px;line-height:1}.game-hud .companion-indicator{flex-basis:100%;gap:8px}.game-hud .companion-indicator .hud-label{color:#98d5bf}.game-hud .companion-indicator strong{font-size:9px}
+.hud-status-toggle{justify-self:start;pointer-events:auto;background:rgba(29,47,40,.5);color:#eddfc3;border:1px solid #cfbe8c66;min-height:28px;padding:5px 9px;border-radius:2px;font:8px var(--font-mono);letter-spacing:.1em}
+.game-hud .mission-objective{position:absolute;top:58px;right:18px;left:auto;bottom:auto;z-index:6;order:initial;display:block;min-width:0;max-width:228px;width:fit-content;margin:0;padding:0;background:rgba(25,44,38,.6);border:1px solid #d4be7f55;border-radius:3px;pointer-events:auto}
+.hud-objective-toggle{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:34px;width:100%;border:0;background:transparent;color:#f0dfbe;padding:9px 11px;font:9px var(--font-mono);letter-spacing:.09em}
+.hud-objective-toggle span{color:var(--gold);font-size:13px}.objective-details{display:grid;gap:9px;padding:4px 11px 12px}.game-hud .mission-objective strong{font-size:8px;line-height:1.6;gap:12px}.game-hud .objective-next{font-size:8px;line-height:1.6;max-width:205px;color:#e8d8be}
+.hud-briefing{position:static;min-height:34px;padding:7px;background:rgba(63,85,68,.35);border:1px solid #c6bd8c66;color:#f2d9b8;font:9px/1.4 var(--font-mono);text-align:left}
+.hud-minimal .health-status{width:150px;background:rgba(25,43,37,.4);padding:6px 8px}.hud-minimal .hud-status-toggle{font-size:7px;min-height:25px}
+.game-shell .boss-health-hud{top:16px;left:50%;right:auto;width:min(390px,48vw);transform:translateX(-50%);padding:7px 12px;background:rgba(28,43,38,.5);border:0;border-radius:3px;z-index:5}.boss-health-heading{font-size:8px;line-height:1.4}.boss-health-track{height:5px;border:0;margin-top:5px}.boss-health-value{font-size:8px;margin-top:3px}
+.game-shell .combat-dialogue{top:auto;bottom:28px;left:50%;right:auto;transform:translateX(-50%);max-width:min(400px,45vw);padding:9px 13px;background:rgba(29,47,40,.66);border:0;border-left:2px solid var(--teal);font-size:11px;pointer-events:none;animation:hud-message 3.2s both}
+.combat-dialogue span{font-size:8px;color:var(--gold)}.combat-dialogue p{font-size:11px;line-height:1.5;margin:4px 0 0}
+.game-shell .contract-status{top:62px;left:18px;max-width:min(330px,calc(100vw - 36px));padding:9px 12px;background:rgba(26,47,40,.66);border:1px solid #ddbd6b55;border-left:2px solid var(--teal);font:11px/1.5 system-ui;border-radius:3px}
+.contract-status>strong{font:9px/1.5 var(--font-mono);letter-spacing:.05em}.contract-status p{margin:5px 0}.contract-status details summary{cursor:pointer;font:8px var(--font-mono);letter-spacing:.1em;color:var(--gold);min-height:28px;padding-top:7px}.contract-status button{min-height:32px;margin:5px 6px 0 0;padding:6px 8px;background:rgba(68,93,74,.5);border-color:#b4b88c88;font-size:9px}
+.game-shell .damage-indicator{font-size:10px;pointer-events:none}.scene-coordinate{display:none}
+@keyframes hud-message{0%{opacity:0}8%,82%{opacity:1}100%{opacity:0}}
+@media(max-width:650px){
+ .game-shell.is-playing .game-header{top:10px;left:12px;height:28px;min-height:28px;padding:4px 8px}.game-shell.is-playing .game-pause-button{top:10px;right:12px}
+ .game-hud .hud-vitals{left:12px;bottom:calc(202px + env(safe-area-inset-bottom,0px));gap:5px;max-width:calc(100vw - 24px)}
+ .game-hud .health-status{width:156px;min-height:0;padding:7px 9px}.game-hud .hud-small-status{gap:10px;max-width:260px}.game-hud .score-status,.game-hud .overdrive-status,.game-hud .companion-indicator{min-height:0;padding:0;grid-column:auto;display:flex}.game-hud .companion-indicator[hidden]{display:none!important}
+ .game-hud .mission-objective{top:55px;right:12px;left:auto;max-width:210px;margin:0}.game-hud.boss-mode .mission-objective{top:100px;margin:0}.hud-objective-toggle{min-height:36px;font-size:8px}.objective-details{gap:8px;padding:3px 10px 10px}
+ .game-shell .boss-health-hud{top:51px;left:12px;right:12px;transform:none;width:auto;padding:7px 10px;max-width:calc(100vw - 24px)}
+ .game-shell .combat-dialogue{bottom:290px;left:12px;right:12px;transform:none;max-width:calc(100vw - 24px);padding:8px 11px}.combat-dialogue p{font-size:10px}.game-shell .contract-status{top:54px;left:12px;max-width:calc(100vw - 70px);font-size:10px;padding:8px 10px}
+ .hud-minimal .health-status{width:140px}.hud-small-status .companion-indicator{max-width:260px}.hud-small-status .hud-label{letter-spacing:0}
+}
+@media(max-height:560px) and (min-width:651px){.hud-vitals{bottom:12px;left:12px}.game-hud .mission-objective{top:54px;right:12px}.game-shell .contract-status{top:50px;max-width:290px;font-size:10px}.game-shell .combat-dialogue{bottom:14px;max-width:35vw}}
+@media(prefers-reduced-motion:reduce){.game-shell .combat-dialogue{animation:none}}
+.game-shell:has(.game-pause-dialog) .combat-dialogue{animation-play-state:paused}
+.mission1-scan-prompt{position:fixed;left:20px;bottom:160px;z-index:25;max-width:220px;padding:10px 12px;border:1px solid #bba377;background:rgba(30,48,45,.86);color:#f2d9b8;font:11px/1.4 monospace;cursor:pointer}
+.mission1-relay-objectives{border-bottom:1px solid #52635c;padding-bottom:8px;margin-bottom:8px}
+.objective-details{max-height:min(60svh,480px);overflow-y:auto}
+.mission1-relay-objectives p,.mission1-relay-objectives small{font-size:11px;line-height:1.5;white-space:normal}
+.combat-dialogue small{display:block;font-size:11px;line-height:1.5;color:#e7d6bd}
+@media(max-width:600px){.mission1-scan-prompt{left:14px;bottom:310px;max-width:190px;font-size:10px}}

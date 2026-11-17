@@ -1,0 +1,343 @@
+# Phase8.7 tests
+
+**CONDITIONAL PASS for isolated power prototype and offline validation. Browser/visual acceptance BLOCKED; normal story unlock BLOCKED by unimplemented Arc10 lead-in.**
+
+319 automated checks:311 PASS/8 NOT APPLICABLE/0 FAIL. Two successful disposable fresh-process save/load checks bring totals to313 PASS/8 not applicable.
+
+## Acceptance evidence by feature
+
+- PASS(CPU):real director start,timeline completion,Skip,hold release and5 replays/once-only callbacks. UNVERIFIED:actual animation completion,framing,clipping,return camera and movement in browser.
+- PASS(CPU/source):actual existing GLB animation references,gold weapon configuration,activation/deactivation and1.2/1.3 multipliers. UNVERIFIED:rendered appearance/manifestation/trails.
+- PASS(actual Node adapters):Strike defeats a real enemy-store target once with range/LOS restriction;Shield spends35 and reduces20 damage to7;ultimate Skip applies120 boss damage,spends full meter,leaves only bounded hit recovery and no completion/reward mutation.
+- PASS:energy clamping,insufficient-energy rejection,cooldowns,pending/cancel protection,availability boundaries,real-hit recovery and no recovery from restored health.
+- PASS(source/shared action):keyboard and touch queue bindings,old control mappings retained. UNVERIFIED:actual keyboard/mobile interaction and responsive layout.
+- PASS:effect pool dedupe/unsubscribe,gameplay subscription disposal,32-point actual CPU aura callback and pause/hide behavior. UNVERIFIED:R3F/WebGL resource release and live GPU behavior.
+- PASS:older defaults locked,isolated power save reload preserves energy42/unlock and existing Mission1 completion,selected/unlocked Mission2,rewards,healing inventory and an existing disposable upgrade field. Load writes0. These are fresh Node processes with a localStorage facade,not actual browser refresh/restart.
+- PASS:safe memory-storage installation precedes imports;normal bundle lacks development entry/helper;test route seeds no future completions.
+- BLOCKED:normal Mission99→100 awakening because99 is not implemented. Policy rejection verified;synthetic positive rule is not a natural campaign playthrough.
+- BLOCKED:all actual browser cinematic/combat/visual/performance/persistence acceptance due current resource pressure. No screenshot or real playback proof claimed.
+- PREPARED ONLY:cinematic sound cue hooks;no new audio plays or is rights-cleared.
+
+## Executed case inventory
+
+- PASS: combat-results.json:C01 — Basic combo cycles1–2–3, expires and resets on heavy
+- PASS: combat-results.json:C02 — Actual light/heavy damage wiring and cooldown/buffer preserve shared input actions
+- PASS: combat-results.json:C03 — Guard reduces damage and timed parry consumes one guard window
+- PASS: combat-results.json:C04 — Dodge active immunity rejects damage; no dodge/control values changed
+- PASS: combat-results.json:C05 — Actual enemy damage, hit time, defeat IDs and repeated-hit rejection
+- PASS: combat-results.json:AI01 — Existing detection, approach and melee range semantics
+- PASS: combat-results.json:AI02 — Ranged and elite patterns differ and lock target, with LOS and recovery
+- PASS: combat-results.json:D01 — Five distinct profiles adjust damage/aggression/reaction/recovery/tells rather than health
+- PASS: combat-results.json:D02 — Encounter role composition differs across all five profiles without adding enemies or IDs
+- PASS: combat-results.json:D03 — Numerical fairness floors preserve escape and recovery windows
+- PASS: combat-results.json:B01 — Boss retains valid health, three phases and distinct attack patterns
+- PASS: combat-results.json:B02 — Mission1 boss pressure changes with difficulty, with safe minimum tell
+- PASS: combat-results.json:H01 — Real heal restores35, clamps max and consumes exactly one charge
+- PASS: combat-results.json:H02 — Full health, no charges, death and incompatible actions reject healing without charge loss
+- PASS: combat-results.json:H03 — Healing cooldown enforced after animation; configuration and keyboard/mobile share one action
+- PASS: combat-results.json:S01 — Old saves receive optional defaults without altering campaign data
+- PASS: combat-results.json:S02 — Checkpoint preserves health, objectives, actual enemy defeat and contract progress on reload
+- PASS: combat-results.json:S03 — Invalid checkpoint version rejected; missing enemy health falls back to correct full health
+- PASS: combat-results.json:S04 — Persistence bridge is mounted and removes all listeners/subscriptions on cleanup
+- PASS: combat-results.json:S05 — Continue has explicit resume path, stable origin and no automatic new-game reset
+- PASS: assistant-results.json:A01 — Twelve unique local suggestions and common request classification
+- PASS: assistant-results.json:A02 — All nineteen existing routes produce actual current data; 81 planned routes reveal no fake encounters
+- PASS: assistant-results.json:A03 — All Arc1 stages report exact objective text and position, not generic patrol-only guidance
+- PASS: assistant-results.json:A04 — Completed contract steps and world-object counts use authoritative records
+- PASS: assistant-results.json:A05 — Round mismatch does not reuse old contract; mission changes remove stale title/objective
+- PASS: assistant-results.json:A06 — Boss state, health, phase and actual arc attack patterns match live data
+- PASS: assistant-results.json:A07 — Enemy facts use actual configured types, remaining IDs and scaled damage
+- PASS: assistant-results.json:A08 — Health, healing, charge counts and unavailable inventory/skills are accurately bounded
+- PASS: assistant-results.json:A09 — Exploration reports actual hub and active extension objects only
+- PASS: assistant-results.json:A10 — Recorded awards separate from configured rewards; replay does not fabricate payout
+- PASS: assistant-results.json:A11 — Next planned mission stays unavailable; full campaign progress not inferred
+- PASS: assistant-results.json:A12 — Character knowledge uses current mission only and does not imply designed NPC is rendered
+- PASS: assistant-results.json:A13 — Mission10 recap uses actual history and exposes missing chapters
+- PASS: assistant-results.json:A14 — Unknown questions and Telugu service requests fail safely without invented information
+- PASS: assistant-results.json:A15 — Death, boss defeat and relic states produce correct next action
+- PASS: assistant-results.json:A16 — All queries are read-only to campaign, combat, gameplay, objective and exploration state
+- PASS: assistant-results.json:A17 — Meaningful store subscription updates and cleanup; no emissions after unsubscribe
+- PASS: assistant-results.json:A18 — Conversation history bounded, copied, cleared and isolated across mission/round keys
+- PASS: assistant-results.json:A19 — No voice adapter means text fallback; optional preferences clamp without network
+- PASS: assistant-results.json:A20 — Mock voice overlap prevention, interruption, mute, volume, skip and resource cleanup
+- PASS: assistant-results.json:A21 — Mock pending voice is cancelled after Skip; no late playback after dispose
+- PASS: assistant-results.json:A22 — Mock protected gameplay and missing/failed assets cannot block text or propagate errors
+- PASS: assistant-results.json:A23 — Legacy Mission1/Telugu/progress, Bujji and audio remain byte-identical;86 combat/save extensions tested separately
+- PASS: assistant-results.json:A24 — UI has accessible close/form, text fallback, optional settings and no gameplay mutations
+- PASS: character-results.json:C01 — Eleven unique established identities; no designed role spawned
+- PASS: character-results.json:C02 — Every campaign character and parallel guardian context maps to registry
+- PASS: character-results.json:C03 — Existing model and player animation references resolve
+- PASS: character-results.json:C04 — Bujji GLB has valid embedded buffer, meshes and materials; no invented skeletal clips
+- PASS: character-results.json:C05 — New campaign uses factual not-started context and explicit launch offer
+- PASS: character-results.json:C06 — All ten actual contract prompts and current objectives reused verbatim
+- PASS: character-results.json:C07 — Planned and paused candidate missions do not receive fabricated conversations
+- PASS: character-results.json:C08 — Recorded completion and named actual rewards only; no duplicate reward writes
+- PASS: character-results.json:C09 — Range, vertical distance and invalid position gate world conversation
+- PASS: character-results.json:C10 — Actual adapter opens and dismisses without campaign/gameplay/save mutation
+- PASS: character-results.json:C11 — Pause, cinematic hold, death, wrong mission and remote position reject talk
+- PASS: character-results.json:C12 — Active Arc1 partner remains available; live mission change cannot return stale title
+- PASS: character-results.json:C13 — Actual procedural meeting callback gives bounded hover, turn and lean
+- PASS: character-results.json:C14 — Interaction lifecycle closes on pause, mission/round/roam changes and removes listener
+- PASS: character-results.json:C15 — Unmodified Bujji, combat bookkeeping, audio and exploration implementations byte-identical;86 changes tested separately
+- PASS: character-results.json:C16 — Integration includes real hub interaction and mount; no standalone-only prototype
+- PASS: divine-core-results.json:D01 — Energy clamps finite values to0–100
+- PASS: divine-core-results.json:D02 — Old/missing power saves remain locked; valid unlock preserves bounded state
+- PASS: divine-core-results.json:D03 — Planned lead-in and boss prototype do not satisfy story unlock
+- PASS: divine-core-results.json:D04 — Unknown ability, locked/deactivated weapon, blocked state, energy and cooldown reject
+- PASS: divine-core-results.json:D05 — Strike respects forward cone/range/height; ultimate is bounded area
+- PASS: divine-core-results.json:D06 — Real core spends strike cost once, damages once and enforces cooldown
+- PASS: divine-core-results.json:D07 — Shield has bounded duration and reduction, not invulnerability
+- PASS: divine-core-results.json:D08 — Ultimate requires full meter; recovery remains clamped
+- PASS: divine-core-results.json:D09 — Disposed core rejects requests and leaves no timers
+- PASS: divine-core-results.json:D10 — Cinematic uses existing actor, finite ordered shots, original text and no unverified audio
+- PASS: integration-results.json:I01 — Real director completes awakening and releases game hold once
+- PASS: integration-results.json:I02 — Skip and repeated replay do not duplicate completion or retain session
+- PASS: integration-results.json:I03 — Story route stays locked when Arc10 lead-in is not implemented
+- PASS: integration-results.json:I04 — Development storage never reads or writes original browser storage
+- PASS: integration-results.json:I05 — Separate test entry installs barrier before dynamic game imports; not imported by main
+- PASS: integration-results.json:I06 — One pending ultimate cannot be queued twice
+- PASS: integration-results.json:I07 — Disposed/cancelled cinematic cannot later spend energy or damage
+- PASS: integration-results.json:I08 — Actual combat health loss recovers bounded energy during player attack
+- PASS: integration-results.json:I09 — Weapon activation changes actual attack multipliers, preserves heal inventory and progress
+- PASS: integration-results.json:I10 — Real shield hook reduces incoming damage but does not change player max health
+- PASS: integration-results.json:I11 — Phase7 effect pool receives only unique current divine events and detaches
+- PASS: integration-results.json:I12 — Existing keybinds retained and new keyboard/mobile HUD use same queue
+- PASS: integration-results.json:I13 — Actor animation references exist in actual GLB metadata without decoding textures/meshes
+- PASS: integration-results.json:I14 — Distinct build outputs compile; normal bundle does not contain development storage seed/entry
+- PASS: integration-results.json:I15 — Actual Strike adapter applies enemy defeat once, spends energy and gains only bounded combat recovery
+- PASS: integration-results.json:I16 — Actual Shield adapter spends35 energy and updates real damage reduction
+- PASS: integration-results.json:I17 — Actual weapon toggle persists activation without changing completion/rewards/health inventory
+- PASS: integration-results.json:I18 — Pause/protected state at cinematic completion cancels late ability application
+- PASS: integration-results.json:I19 — Restored health without a new hit timestamp cannot fabricate recovered energy
+- PASS: integration-results.json:I20 — Actual aura frame callback updates32 finite particles, pauses and hides without allocation of new geometry
+- PASS: integration-results.json:I21 — Disposing actual gameplay bridge detaches combat energy recovery subscriptions
+- PASS: integration-results.json:I22 — Cooldown availability updates at deadlines without per-frame React publications
+- PASS: integration-results.json:I23 — Actual LOS adapter blocks damage behind fixed geometry while preserving cast cost
+- PASS: integration-results.json:I24 — Actual ultimate Skip applies bounded boss damage and cost, releases control hold and preserves mission records
+- PASS: validation/asset-results.json:A01 — models/soldier-source.glb has valid geometry/material/embedded references
+- PASS: validation/asset-results.json:A02 — environment/mission1/warden-body-v1.glb has valid geometry/material/embedded references
+- PASS: validation/asset-results.json:A03 — environment/mission1/warden-leg-v1.glb has valid geometry/material/embedded references
+- PASS: validation/asset-results.json:A04 — environment/mission1/warden-weapon-v1.glb has valid geometry/material/embedded references
+- PASS: validation/asset-results.json:A05 — Local Draco runtime assets for Warden loader exist
+- PASS: validation/asset-results.json:A06 — All literal relative source imports resolve offline
+- PASS: validation/asset-results.json:A07 — Unmodified attack timing, combat damage bookkeeping and all audio remain unchanged; authorized86 edits covered by combat tests
+- PASS: validation/asset-results.json:A08 — Warden source and configuration unchanged in this correction
+- PASS: validation/boss-intro-results.json:BM01 — Unfinished objectives cannot activate boss marker
+- PASS: validation/boss-intro-results.json:BM02 — Existing completed arena prerequisites enable marker
+- PASS: validation/boss-intro-results.json:BM03 — Distant interaction is rejected
+- PASS: validation/boss-intro-results.json:BM04 — Paused gameplay cannot activate intro
+- PASS: validation/boss-intro-results.json:BM05 — Explicit boss activation uses actual name and arena coordinates
+- PASS: validation/boss-intro-results.json:BM06 — Duplicate boss activation rejected
+- PASS: validation/boss-intro-results.json:BM07 — Skip enters return and releases session when handoff completes
+- PASS: validation/boss-intro-results.json:BM08 — Presentation does not change completion/rewards/unlocks
+- PASS: validation/boss-intro-results.json:BM09 — Exit cleanup is idempotent
+- PASS: validation/boss-intro-results.json:BM10 — Other missions retain existing encounter activation
+- PASS: validation/camera-results.json:C01 — Exact key positions and bounded coordinate interpolation
+- PASS: validation/camera-results.json:C02 — Continuous velocity at interior keys without forced segment stops
+- PASS: validation/camera-results.json:C03 — Camera transforms finite on desktop/portrait/landscape
+- PASS: validation/camera-results.json:C04 — Portrait framing increases subject distance without changing focus
+- PASS: validation/camera-results.json:C05 — Enter and return easing has stationary endpoints
+- PASS: validation/camera-results.json:C06 — Clearance limits movement and unregisters by ownership
+- PASS: validation/camera-results.json:C07 — Invalid clearance fails closed rather than moving through unknown space
+- PASS: validation/camera-results.json:C08 — Opening mode isolated; original world/assets/voice hooks retained
+- PASS: validation/combat-visual-results.json:V01 — No fabricated hit flash before a confirmed timestamp
+- PASS: validation/combat-visual-results.json:V02 — Contact pulse is bounded and settles
+- PASS: validation/combat-visual-results.json:V03 — Scout anticipates before the attack contact window
+- PASS: validation/combat-visual-results.json:V04 — Scout forward stroke reaches contact at the unchanged damage instant
+- PASS: validation/combat-visual-results.json:V05 — Scout recovery settles without touching attack state
+- PASS: validation/combat-visual-results.json:V06 — Scout recoil and visual-only hit-stop are timestamp-driven
+- PASS: validation/combat-visual-results.json:V07 — Defeat pose is finite and does not fabricate a gameplay stagger
+- PASS: validation/combat-visual-results.json:V13 — Warden defeat settles into a bounded collapse without combat callbacks
+- PASS: validation/combat-visual-results.json:V08 — Warden windup and brace are visible before contact
+- PASS: validation/combat-visual-results.json:V09 — Warden stroke is continuous across the authoritative contact instant
+- PASS: validation/combat-visual-results.json:V10 — Warden recovery uses retained attack data after controller clears it
+- PASS: validation/combat-visual-results.json:V11 — Finite bounded samples across animation states and timing gaps
+- PASS: validation/combat-visual-results.json:V12 — Existing enemy damage bookkeeping and input buffer identical; difficulty/healing additions covered by86 tests
+- PASS: validation/component-results.json:P01 — Actual component chooses real Idle / Walk / Run clips
+- PASS: validation/component-results.json:P02 — Actual component applies attack offsets to loaded Scout bones
+- PASS: validation/component-results.json:P03 — 500 repeated component frames do not accumulate additive pose drift
+- PASS: validation/component-results.json:P04 — Confirmed hit drives real mixer recoil/owned material flash then settles
+- PASS: validation/component-results.json:P05 — Defeat selects Idle plus bounded knee collapse
+- PASS: validation/component-results.json:P06 — Scout cleanup stops/uncaches actions, restores materials, disposes owned clones once
+- PASS: validation/component-results.json:P07 — Actual enemy defeat callback disables telegraph and hides at existing lifetime
+- PASS: validation/component-results.json:P08 — Actual Warden callback connects telegraph, strike/recovery, recoil and defeat joints
+- PASS: validation/component-results.json:P09 — Actual Warden material adapter owns clones and cleanup preserves shared geometry/textures
+- PASS: validation/component-results.json:P10 — No native event listeners/extra animation loops in the modified presentation files
+- PASS: validation/component-results.json:P11 — Actual enemy mount/unmount effect balances controller ownership and runtime registration
+- PASS: validation/connections-after.json:F01 — Actual GLTFLoader output resolves all three procedural Scout bones
+- PASS: validation/connections-after.json:F02 — Selected Scout lunge remains a local offset under translated physics parent
+- PASS: validation/connections-after.json:F03 — Other enemy lunge expression remains unchanged
+- PASS: validation/connections-after.json:F04 — Actual loaded clips contain Idle Walk Run and valid channels
+- PASS: validation/controller-results.json:T01 — Player hit triggers one dialogue
+- PASS: validation/controller-results.json:T02 — Repeated damage cooldown and duplicate suppression
+- PASS: validation/controller-results.json:T03 — Enemy defeat maps to a different slot
+- PASS: validation/controller-results.json:T04 — Mission entrance once and reset on new session
+- PASS: validation/controller-results.json:T05 — Boss has highest requested priority
+- PASS: validation/controller-results.json:T06 — Rapid triggers never overlap dialogue
+- PASS: validation/controller-results.json:T07 — One continuous music instance underneath dialogue
+- PASS: validation/controller-results.json:T08 — Important dialogue ducks and restores music smoothly
+- PASS: validation/controller-results.json:T09 — Master mute silences all buses and cancels dialogue
+- PASS: validation/controller-results.json:T10 — Independent volume and clamping
+- PASS: validation/controller-results.json:T11 — Pause resume preserves music and drops stale dialogue
+- PASS: validation/controller-results.json:T12 — Mission exit releases all instances
+- PASS: validation/controller-results.json:T13 — Absent or unapproved files cause no backend request
+- PASS: validation/controller-results.json:T14 — Identical events do not create duplicate instances
+- PASS: validation/controller-results.json:T15 — Late low-priority load cannot start after boss
+- PASS: validation/controller-results.json:T16 — Stale failed load cannot clear current dialogue
+- PASS: validation/controller-results.json:T17 — Playback failure restores ducking
+- PASS: validation/controller-results.json:T18 — Pending load cancelled by exit
+- PASS: validation/controller-results.json:T19 — Protected cinematic ownership suppresses controller
+- PASS: validation/controller-results.json:T20 — Skip and zero dialogue volume release ownership
+- PASS: validation/controller-results.json:T21 — SFX bus uses bounded concurrent slots
+- PASS: validation/controller-results.json:T22 — Unlock failures safe and no duplicate music on interaction
+- PASS: validation/controller-results.json:T23 — WebAudio adapter ramps and preserves paused loop offset
+- PASS: validation/controller-results.json:T24 — WebAudio rejects cancelled decode before source start
+- PASS: validation/controller-results.json:T25 — Cooldown expires without changing damage immunity
+- PASS: validation/controller-results.json:T26 — Pending SFX cannot start after pause and resume
+- PASS: validation/controller-results.json:T27 — Late cancelled SFX cannot survive same-name session restart
+- PASS: validation/controller-results.json:T28 — Once-only entrance remains protected after history-ring eviction
+- PASS: validation/controller-results.json:T29 — Victory slot priority does not preempt active boss dialogue
+- PASS: validation/controller-results.json:H01 — Actual damage/defeat/boss/launch handlers emit expected events
+- PASS: validation/entrance-lifecycle-results.json:M01 — Launch receipt defers until protected cinematic releases
+- PASS: validation/entrance-lifecycle-results.json:M02 — Exit invalidates deferred entrance
+- PASS: validation/entrance-lifecycle-results.json:M03 — New session does not replay older deferred entry
+- PASS: validation/event-results.json:E01 — Existing player basic hit reaches only Scout and creates confirmed timestamp/effect
+- PASS: validation/event-results.json:E02 — Unknown target receives no damage/hit confirmation
+- PASS: validation/event-results.json:E03 — Held gameplay rejects player damage and reaction timestamps
+- PASS: validation/event-results.json:E04 — Scout defeat event/score is recorded once and repeat damage is ignored
+- PASS: validation/event-results.json:E05 — Boss intro blocks damage until existing fight activation
+- PASS: validation/event-results.json:E06 — Existing player heavy hit reaches Warden health/reaction only
+- PASS: validation/event-results.json:E07 — Warden phases and defeat use existing unchanged contract
+- PASS: validation/event-results.json:E08 — Defeat/relic readiness and rewards remain 2500 + 750 with duplicate protection
+- PASS: validation/event-results.json:E09 — No fetch/browser/save profile used by these store fixtures
+- PASS: validation/exploration-results.json:U01 — Fresh campaign enters exploration before Mission1
+- PASS: validation/exploration-results.json:U02 — Mission cannot launch remotely
+- PASS: validation/exploration-results.json:U03 — Hub accepts one nearby request, not a completion
+- PASS: validation/exploration-results.json:U04 — All four boundaries clamp invalid displacement while preserving jump height
+- PASS: validation/exploration-results.json:U05 — Position and camera survive reload independently of campaign
+- PASS: validation/exploration-results.json:U06 — Leaving persists roam state without falsely starting campaign
+- PASS: validation/exploration-results.json:U07 — Only successful mission-start orchestration marks resume mode
+- PASS: validation/exploration-results.json:U08 — Existing completed campaigns and other missions keep normal campaign flow
+- PASS: validation/exploration-results.json:U09 — Corrupt/missing exploration save does not overwrite campaign data
+- PASS: validation/exploration-results.json:U10 — Camera controls clamp pitch and ignore nonfinite input
+- PASS: validation/exploration-results.json:U11 — Storage denial remains a non-blocking visible limitation
+- PASS: validation/exploration-results.json:U12 — Midair/far hub interaction is not eligible
+- PASS: validation/mission-intro-results.json:M01 — Only implemented campaign entries with objective text receive configs
+- PASS: validation/mission-intro-results.json:M02 — Mission identity/location and supplied verified objective preserved
+- PASS: validation/mission-intro-results.json:M03 — No introduced actor, audio, progression callback or reward
+- PASS: validation/mission-intro-results.json:M04 — Different presentation types vary framing or duration without changing campaign
+- PASS: validation/mission-intro-results.json:M05 — Encounter reveal uses supplied actual spawn position
+- PASS: validation/mission-intro-results.json:M06 — Finite reference-order curves for portrait/landscape; no authored hard cuts
+- PASS: validation/mission-intro-results.json:M07 — Duplicate marker interaction rejected and receipt consumed once
+- PASS: validation/mission-intro-results.json:M08 — Exit/cancel or changed mission cannot reuse stale marker receipt
+- PASS: validation/optimization-results.json:O01 — Follow positions equivalent for 5000 moving-camera/player samples
+- PASS: validation/optimization-results.json:O02 — Coincident horizontal camera preserves zero-vector behavior
+- PASS: validation/optimization-results.json:O03 — Instances never share temporary vectors
+- PASS: validation/optimization-results.json:O04 — Beam direction/length/quaternion equivalent without modifying target
+- PASS: validation/optimization-results.json:O05 — Follow/beam results reuse owned scratch identities
+- PASS: validation/optimization-results.json:O06 — Material properties/maps/shader text unchanged across four environment finishes
+- PASS: validation/optimization-results.json:O07 — Unchanged environment material assignment contract retained
+- PASS: validation/optimization-results.json:O08 — Separate scene instances do not share owned material clones
+- PASS: validation/optimization-results.json:O09 — Mount/unmount replay disposes each clone/texture once and never source resources
+- PASS: validation/optimization-results.json:O10 — Original material finish remains unchanged after adapter/cleanup
+- PASS: validation/optimization-results.json:O11 — Unmodified visual, camera and companion optimizations preserved; authorized combat/input edits tested separately
+- PASS: validation/optimization-results.json:O14 — Companion target selection, assist damage/cooldown/voice and JSX remain byte-identical
+- PASS: validation/optimization-results.json:O12 — Constructor instrumentation demonstrates removed per-frame vector creation
+- PASS: validation/optimization-results.json:O13 — Beam constructor instrumentation confirms two transient vectors removed per visible frame
+- PASS: validation/roam-camera-results.json:R01 — Idle widens city view gradually without a scripted hold
+- PASS: validation/roam-camera-results.json:R02 — Running broadens distance modestly; bounded character framing
+- PASS: validation/roam-camera-results.json:R03 — Abrupt direction changes produce gradual bounded turn lead
+- PASS: validation/roam-camera-results.json:R04 — Manual view suppresses automatic turn and wide framing
+- PASS: validation/roam-camera-results.json:R05 — No input or campaign data mutation
+- PASS: validation/roam-camera-results.json:R06 — Portrait keeps distance and small focus offset
+- PASS: validation/roam-camera-results.json:R07 — Occlusion fallback rotations preserve distance
+- PASS: validation/roam-camera-results.json:R08 — Long frame never makes an unbounded zoom
+- PASS: validation/roam-camera-results.json:R09 — Frame-rate-independent smoothing converges consistently
+- PASS: validation/roam-camera-results.json:R10 — Hub framing stays character-focused; jumping does not invoke idle wide
+- PASS: validation/shared-audio-results.json:1 — All five voice categories share dialogue channel; Skip and replay
+- PASS: validation/shared-audio-results.json:2 — Boss preempts voice; stale Skip cannot stop boss; music stays active
+- PASS: validation/shared-audio-results.json:3 — Rapid voice/game events never overlap or duplicate
+- PASS: validation/shared-audio-results.json:4 — Pause, protected cinematic and exit release voice UI ownership
+- PASS: validation/shared-audio-results.json:5 — Master mute, dialogue volume and failed file remain nonblocking
+- PASS: validation/state-results-final.json:U01 — Fresh Mission1 is eligible
+- PASS: validation/state-results-final.json:U02 — Natural completion persists across state recreation
+- PASS: validation/state-results-final.json:U03 — Skip persists without touching campaign keys
+- PASS: validation/state-results-final.json:U04 — Interrupted/error reasons never acknowledge first introduction
+- PASS: validation/state-results-final.json:U05 — Returning progression and old intro marker do not force a new opening
+- PASS: validation/state-results-final.json:U06 — Explicit replay is one-shot and does not erase acknowledgement
+- PASS: validation/state-results-final.json:U07 — Unavailable storage keeps a safe in-page guard
+- PASS: validation/state-results-final.json:U08 — Malformed flag does not corrupt progress or fabricate completion
+- PASS: validation/state-results-final.json:U09 — Absent storage never reports a durable write
+- PASS: validation/state-results-final.json:U10 — Five-stage continuous configuration and blocked movie hooks
+- PASS: missions/mission-1-results.json:M01 — Correct Arc 1 identity, actual objective/enemy references and positions within existing route bounds
+- PASS: missions/mission-1-results.json:M02 — Distance/height/pause/hold/free-roam/gameover/wrong-round guards prevent remote or duplicate activation
+- PASS: missions/mission-1-results.json:M03 — Sequential explicit interactions; actual requirements; correct evidence; bounded hold; dismiss never completes
+- NOT APPLICABLE: missions/mission-1-results.json:M04 — No timed hold specified for this mission
+- PASS: missions/mission-1-results.json:M05 — Live interaction adapter uses real stores without modifying health, combat rules or campaign rewards
+- PASS: missions/mission-1-results.json:M06 — Actual enemy, boss and relic store path preserves rewards, next unlock and replay uniqueness
+- PASS: missions/mission-1-results.json:M07 — Actual gameplay/cinematic/input/cleanup wiring exists; existing cameras/ending,65 effects and companion remain untouched; combat additions tested separately
+- PASS: missions/mission-2-results.json:M01 — Correct Arc 1 identity, actual objective/enemy references and positions within existing route bounds
+- PASS: missions/mission-2-results.json:M02 — Distance/height/pause/hold/free-roam/gameover/wrong-round guards prevent remote or duplicate activation
+- PASS: missions/mission-2-results.json:M03 — Sequential explicit interactions; actual requirements; correct evidence; bounded hold; dismiss never completes
+- NOT APPLICABLE: missions/mission-2-results.json:M04 — No timed hold specified for this mission
+- PASS: missions/mission-2-results.json:M05 — Live interaction adapter uses real stores without modifying health, combat rules or campaign rewards
+- PASS: missions/mission-2-results.json:M06 — Actual enemy, boss and relic store path preserves rewards, next unlock and replay uniqueness
+- PASS: missions/mission-2-results.json:M07 — Actual gameplay/cinematic/input/cleanup wiring exists; existing cameras/ending,65 effects and companion remain untouched; combat additions tested separately
+- PASS: missions/mission-3-results.json:M01 — Correct Arc 1 identity, actual objective/enemy references and positions within existing route bounds
+- PASS: missions/mission-3-results.json:M02 — Distance/height/pause/hold/free-roam/gameover/wrong-round guards prevent remote or duplicate activation
+- PASS: missions/mission-3-results.json:M03 — Sequential explicit interactions; actual requirements; correct evidence; bounded hold; dismiss never completes
+- NOT APPLICABLE: missions/mission-3-results.json:M04 — No timed hold specified for this mission
+- PASS: missions/mission-3-results.json:M05 — Live interaction adapter uses real stores without modifying health, combat rules or campaign rewards
+- PASS: missions/mission-3-results.json:M06 — Actual enemy, boss and relic store path preserves rewards, next unlock and replay uniqueness
+- PASS: missions/mission-3-results.json:M07 — Actual gameplay/cinematic/input/cleanup wiring exists; existing cameras/ending,65 effects and companion remain untouched; combat additions tested separately
+- PASS: missions/mission-4-results.json:M01 — Correct Arc 1 identity, actual objective/enemy references and positions within existing route bounds
+- PASS: missions/mission-4-results.json:M02 — Distance/height/pause/hold/free-roam/gameover/wrong-round guards prevent remote or duplicate activation
+- PASS: missions/mission-4-results.json:M03 — Sequential explicit interactions; actual requirements; correct evidence; bounded hold; dismiss never completes
+- PASS: missions/mission-4-results.json:M04 — Hold interruption never advances and retry works
+- PASS: missions/mission-4-results.json:M05 — Live interaction adapter uses real stores without modifying health, combat rules or campaign rewards
+- PASS: missions/mission-4-results.json:M06 — Actual enemy, boss and relic store path preserves rewards, next unlock and replay uniqueness
+- PASS: missions/mission-4-results.json:M07 — Actual gameplay/cinematic/input/cleanup wiring exists; existing cameras/ending,65 effects and companion remain untouched; combat additions tested separately
+- PASS: missions/mission-5-results.json:M01 — Correct Arc 1 identity, actual objective/enemy references and positions within existing route bounds
+- PASS: missions/mission-5-results.json:M02 — Distance/height/pause/hold/free-roam/gameover/wrong-round guards prevent remote or duplicate activation
+- PASS: missions/mission-5-results.json:M03 — Sequential explicit interactions; actual requirements; correct evidence; bounded hold; dismiss never completes
+- NOT APPLICABLE: missions/mission-5-results.json:M04 — No timed hold specified for this mission
+- PASS: missions/mission-5-results.json:M05 — Live interaction adapter uses real stores without modifying health, combat rules or campaign rewards
+- PASS: missions/mission-5-results.json:M06 — Actual enemy, boss and relic store path preserves rewards, next unlock and replay uniqueness
+- PASS: missions/mission-5-results.json:M07 — Actual gameplay/cinematic/input/cleanup wiring exists; existing cameras/ending,65 effects and companion remain untouched; combat additions tested separately
+- PASS: missions/mission-6-results.json:M01 — Correct Arc 1 identity, actual objective/enemy references and positions within existing route bounds
+- PASS: missions/mission-6-results.json:M02 — Distance/height/pause/hold/free-roam/gameover/wrong-round guards prevent remote or duplicate activation
+- PASS: missions/mission-6-results.json:M03 — Sequential explicit interactions; actual requirements; correct evidence; bounded hold; dismiss never completes
+- NOT APPLICABLE: missions/mission-6-results.json:M04 — No timed hold specified for this mission
+- PASS: missions/mission-6-results.json:M05 — Live interaction adapter uses real stores without modifying health, combat rules or campaign rewards
+- PASS: missions/mission-6-results.json:M06 — Actual enemy, boss and relic store path preserves rewards, next unlock and replay uniqueness
+- PASS: missions/mission-6-results.json:M07 — Actual gameplay/cinematic/input/cleanup wiring exists; existing cameras/ending,65 effects and companion remain untouched; combat additions tested separately
+- PASS: missions/mission-7-results.json:M01 — Correct Arc 1 identity, actual objective/enemy references and positions within existing route bounds
+- PASS: missions/mission-7-results.json:M02 — Distance/height/pause/hold/free-roam/gameover/wrong-round guards prevent remote or duplicate activation
+- PASS: missions/mission-7-results.json:M03 — Sequential explicit interactions; actual requirements; correct evidence; bounded hold; dismiss never completes
+- NOT APPLICABLE: missions/mission-7-results.json:M04 — No timed hold specified for this mission
+- PASS: missions/mission-7-results.json:M05 — Live interaction adapter uses real stores without modifying health, combat rules or campaign rewards
+- PASS: missions/mission-7-results.json:M06 — Actual enemy, boss and relic store path preserves rewards, next unlock and replay uniqueness
+- PASS: missions/mission-7-results.json:M07 — Actual gameplay/cinematic/input/cleanup wiring exists; existing cameras/ending,65 effects and companion remain untouched; combat additions tested separately
+- PASS: missions/mission-8-results.json:M01 — Correct Arc 1 identity, actual objective/enemy references and positions within existing route bounds
+- PASS: missions/mission-8-results.json:M02 — Distance/height/pause/hold/free-roam/gameover/wrong-round guards prevent remote or duplicate activation
+- PASS: missions/mission-8-results.json:M03 — Sequential explicit interactions; actual requirements; correct evidence; bounded hold; dismiss never completes
+- NOT APPLICABLE: missions/mission-8-results.json:M04 — No timed hold specified for this mission
+- PASS: missions/mission-8-results.json:M05 — Live interaction adapter uses real stores without modifying health, combat rules or campaign rewards
+- PASS: missions/mission-8-results.json:M06 — Actual enemy, boss and relic store path preserves rewards, next unlock and replay uniqueness
+- PASS: missions/mission-8-results.json:M07 — Actual gameplay/cinematic/input/cleanup wiring exists; existing cameras/ending,65 effects and companion remain untouched; combat additions tested separately
+- PASS: missions/mission-9-results.json:M01 — Correct Arc 1 identity, actual objective/enemy references and positions within existing route bounds
+- PASS: missions/mission-9-results.json:M02 — Distance/height/pause/hold/free-roam/gameover/wrong-round guards prevent remote or duplicate activation
+- PASS: missions/mission-9-results.json:M03 — Sequential explicit interactions; actual requirements; correct evidence; bounded hold; dismiss never completes
+- NOT APPLICABLE: missions/mission-9-results.json:M04 — No timed hold specified for this mission
+- PASS: missions/mission-9-results.json:M05 — Live interaction adapter uses real stores without modifying health, combat rules or campaign rewards
+- PASS: missions/mission-9-results.json:M06 — Actual enemy, boss and relic store path preserves rewards, next unlock and replay uniqueness
+- PASS: missions/mission-9-results.json:M07 — Actual gameplay/cinematic/input/cleanup wiring exists; existing cameras/ending,65 effects and companion remain untouched; combat additions tested separately
+- PASS: missions/mission-10-results.json:M01 — Correct Arc 1 identity, actual objective/enemy references and positions within existing route bounds
+- PASS: missions/mission-10-results.json:M02 — Distance/height/pause/hold/free-roam/gameover/wrong-round guards prevent remote or duplicate activation
+- PASS: missions/mission-10-results.json:M03 — Sequential explicit interactions; actual requirements; correct evidence; bounded hold; dismiss never completes
+- PASS: missions/mission-10-results.json:M04 — Hold interruption never advances and retry works
+- PASS: missions/mission-10-results.json:M05 — Live interaction adapter uses real stores without modifying health, combat rules or campaign rewards
+- PASS: missions/mission-10-results.json:M06 — Actual enemy, boss and relic store path preserves rewards, next unlock and replay uniqueness
+- PASS: missions/mission-10-results.json:M07 — Actual gameplay/cinematic/input/cleanup wiring exists; existing cameras/ending,65 effects and companion remain untouched; combat additions tested separately
+
+Original failures I06,I07,I08 are preserved in integration-before-correction.json. Final I01–I24 andD01–D10 pass. Initial new lint findings removed;12 original warnings remain. Existing Phase8.6 save/AI/camera limitations and Phase8.2 acceptance qualifications are preserved.

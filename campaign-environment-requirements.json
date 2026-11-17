@@ -1,0 +1,89 @@
+{
+  "status": "PERMANENT REQUIREMENT — concepts only; environments not implemented",
+  "recorded": "2026-11-07",
+  "scope": "All 100 missions, with immediate design requirements for Campaign 1 Arcs 2–5",
+  "inspectedFiles": ["src/game/campaignSystem.js", "src/game/World.jsx", "src/game/GameCanvas.jsx", "src/game/missionExpansionContent.js"],
+  "existingState": {
+    "playable": "Missions 1–10 only; all belong to Arc 1. Later arcs are an authored archive, not playable environments.",
+    "currentReuse": "World.jsx shares market landmarks between 3/6, wrecks between 4/9/10, and towers between 5/7/8. This is existing Arc 1 content and is not a template for later arcs.",
+    "layout": "Current worlds largely use a shared ground plane and road progression. Future arcs require separately authored topology and route graphs.",
+    "archiveCaution": "Mission 12 currently repeats the Glass Wastes title/description. Preserve the archive entry pending narrative review; do not copy Mission 2 terrain, formation placements or encounter layout into Arc 2."
+  },
+  "rules": [
+    "Preserve mission IDs, order, purposes, story decisions, characters, unlock rules and saved progress.",
+    "An unlabelled gameplay screenshot must identify the arc through geography, structural silhouettes and atmosphere, not HUD text or recoloring.",
+    "Each arc owns its terrain, architecture kit, landmarks, level topology, sky/weather/lighting, palette, hazards and interactive vocabulary.",
+    "Do not reskin a prior map, reuse building arrangements or substitute decorations for new architecture.",
+    "Share engine systems, shaders, generic material utilities and invisible technical components; do not share the defining map or architecture silhouettes across arcs.",
+    "Environment mechanics must support existing mission purposes; all concepts below are proposals, not new canonical events.",
+    "Within-arc progression may revisit its own landmarks with authored changes. Story-required continuity at arc boundaries may show a distant earlier landmark without recycling the playable map.",
+    "Keep Ashwatthama's meaningful, gradually revealed Arc 4 role in Missions 31–40. Do not insert him into Mission 5."
+  ],
+  "concepts": [
+    {
+      "arc": 2, "missions": [11, 20], "name": "Complex & Yaskin",
+      "geography": "An elevated enclosed logistics belt attached to the Complex: deep service shafts, suspended freight decks and controlled interiors rather than Kashi streets.",
+      "architecture": "Radial pressure bulkheads, ribbed monocoque shells, sealed bridges, monumental lift cores and recessed surveillance galleries. New kit, no Kashi tower blocks.",
+      "terrainAndVegetation": "Machined decks, coolant conduits and restricted hydroponic service bays; engineered greenery only where supply infrastructure justifies it.",
+      "skyWeatherLighting": "Sky glimpses through high apertures; pale glare outside, cool controlled lighting within; ventilation condensation rather than desert dust.",
+      "palette": "Bone ceramic, graphite, restrained clinical cyan and warning amber.",
+      "routesAndLandmarks": "Radial loops around a freight-lift spine, stacked crossovers and concealed maintenance bypasses; a suspended intake crown as the principal silhouette.",
+      "hazardsAndInteractions": "Timed freight crossings, lift interlocks, surveillance sightlines and coolant isolation controls; clearly telegraphed safe routes.",
+      "encounterDirection": "Security patrols, drones and shielded checkpoint formations supporting infiltration, freight sabotage, escapee protection and stolen-identity missions.",
+      "withinArcEvolution": "Exterior supply approach to restricted processing galleries and outer-ring access, retaining authored mission purposes. Mission 12's glass motif, if retained, requires a new industrial topology."
+    },
+    {
+      "arc": 3, "missions": [21, 30], "name": "Sumathi & the Pursuit",
+      "geography": "A peripheral Kashi drainage basin opening into wind-cut frontier escarpments, braided dry channels and a contested border crossing.",
+      "architecture": "Low rammed-earth shelter compounds, corrugated wind screens, cable ferries and repurposed conduit safehouses; no stacked city blocks or Complex shells.",
+      "terrainAndVegetation": "Eroded sediment banks, loose scree, dry channels and sparse thorn scrub with vegetation concentrated at sheltered water traces.",
+      "skyWeatherLighting": "Wind-driven dust fronts, wide overcast skies and a progression toward the existing dusk crossing; visibility changes must be readable during pursuit.",
+      "palette": "Chalk ochre, faded indigo fabric, rust red and muted storm blue.",
+      "routesAndLandmarks": "Braided escape routes, alternate shelter loops, ridge bypasses and a narrow border-span landmark. City scenes use this peripheral basin identity without changing their Kashi setting.",
+      "hazardsAndInteractions": "Searchlight exposure, dust-reduced sightlines, unstable scree and reversible decoy gates; safehouse doors and escort routes support the existing pursuit narrative.",
+      "encounterDirection": "Tracking parties, mixed hunter ambushes and mobile interdiction squads. Protecting Sumathi and choosing an escape route remain the mission purposes.",
+      "withinArcEvolution": "Crowded peripheral shelter lanes gradually give way to exposed channels and the frontier crossing; no reused Arc 1 street layouts."
+    },
+    {
+      "arc": 4, "missions": [31, 40], "name": "Shambhala & Ashwatthama",
+      "geography": "A concealed stepped mountain valley with a river, misted ravines, terraced refuge paths and sheltered cliff chambers.",
+      "architecture": "Hand-cut stone buttresses, timber galleries, woven shade structures, water channels and inhabited rock sanctuaries; no industrial city kit.",
+      "terrainAndVegetation": "Wet rock, river gravel, moss, hanging roots, riparian reeds and carefully tended terrace vegetation.",
+      "skyWeatherLighting": "Broken cloud, river mist, cool dawn shafts and an authored night-defense treatment; warm inhabited interiors contrast with the valley exterior.",
+      "palette": "Jade, weathered limestone, deep teal water and restrained warm ochre lamps.",
+      "routesAndLandmarks": "Vertically braided footpaths, river evacuation branches, cliff overlooks and a concealed water-gate silhouette. Separate layouts for approach, sanctuary, river passage and outer defenses.",
+      "hazardsAndInteractions": "River current, wet ledges, sluice controls, defense signals and concealed access mechanisms, each introduced with readable collision and camera clearances.",
+      "encounterDirection": "Protective cooperation, scout interception, evacuation defense and night perimeter encounters. Ashwatthama's trust, oath and protective purpose shape existing missions without an immediate full reveal.",
+      "withinArcEvolution": "Hidden approach to lived-in sanctuary, river evacuation and threatened outer perimeter. Preserve gradual anticipation and the established oath chapter."
+    },
+    {
+      "arc": 5, "missions": [41, 50], "name": "The Awakening",
+      "geography": "The exposed outer defense escarpment beyond Shambhala, opening into a fractured basalt ravine and ash-covered frontier plateau. Do not replay the Arc 4 valley map.",
+      "architecture": "Angular emergency earthworks, broken causeways, huge exposed geological ribs and sparse siege structures; sanctuary continuity appears only as distant context where required.",
+      "terrainAndVegetation": "Black columnar rock, fractured passes, scree, ash deposits and isolated scorched scrub. No lush valley terraces.",
+      "skyWeatherLighting": "Heavy storm canopy, directional breaks of light, drifting siege ash and controlled lightning accents. Mythic memory sequences use authored spaces tied to existing revelation missions.",
+      "palette": "Basalt black, ash grey, copper embers and restrained pale-gold revelation light.",
+      "routesAndLandmarks": "Defensive cross-lines become collapsing-pass evacuation routes and broad last-stand arenas; a split basalt crown and severed causeway define the skyline.",
+      "hazardsAndInteractions": "Telegraphed falling debris, breached defenses, controllable barricades and evacuation chokepoints. Destruction should use bounded authored states rather than uncontrolled expensive simulation.",
+      "encounterDirection": "Coordinated siege forces, defensive holds and survivor protection supporting the already-authored breach, ravine, last stand and awakening sequence.",
+      "withinArcEvolution": "Pressure at the outer defenses, evacuation through new ravine geography, then existing memory and revelation events. Do not move revelations earlier or resolve Ashwatthama's arc prematurely."
+    }
+  ],
+  "remainingArcs": {
+    "policy": "Apply the same uniqueness gate to every remaining arc before implementation. These directions preserve the current archive and remain proposals.",
+    "6": "A New Dawn: repairable frontier waterworks and irrigated settlement terraces, distinct from Arc 3's dry escape basin and Arc 5's basalt siege terrain.",
+    "7": "The Far Frontier: tidal salt sea, submerged archive access, reef-like industrial wreckage and weather-driven flats; unique tidal routes.",
+    "8": "The War of Cities: multiple fortified free-city plazas, civic bridges and siege corridors with independently authored urban plans, not Kashi tier blocks.",
+    "9": "The Celestial Engine: subterranean astronomical vaults, crystalline machinery and hollow-mountain chambers with spatial puzzle routes, not a recolored Complex.",
+    "10": "The Next Era: rebuilt New Kashi civic terraces and public transit spines; maintain distant historical continuity while authoring new playable geography and buildings."
+  },
+  "implementationGates": [
+    "Before new runtime work, inspect the current campaign entries, mission scripts and environment implementation again; document how each proposed layout serves the existing objectives.",
+    "Author a separate terrain/topology and architecture kit per arc, with independent collision and navigation layouts. Do not route later mission IDs through the existing Arc 1 world as a substitute.",
+    "Review unlabelled gameplay screenshots for geography, architecture silhouette, terrain and lighting identity; color alone cannot pass.",
+    "Test keyboard, joystick, solid/sensor contacts, camera clearance, encounters and all mission interactions in the new layouts.",
+    "Stream only the active mission/arc. Batch repeated components within each unique kit, use LOD and bounded texture budgets, and budget shadow casters and transparent overdraw.",
+    "Measure matched production frame times and GPU queries on AMD integrated graphics, including the densest view and combat. Treat 60 FPS as a target until measured, not as a promise.",
+    "Do not start this environment implementation by rewriting completed missions or delaying the unfinished Phase 2 character, camera and reliability acceptance work."
+  ]
+}

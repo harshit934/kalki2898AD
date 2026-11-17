@@ -1,0 +1,4 @@
+import {useState}from'react'
+import{environmentCapture}from'./phase54e/environmentViews.js'
+// These images are captured from the real rendered levels, not concept artwork.
+export default function MissionArtwork({mission}){const[failed,setFailed]=useState(false);if(mission.playable&&!failed)return <img className="mission-artwork" src={environmentCapture(mission.id)} alt={`${mission.title} — captured in-game environment`} loading="lazy" decoding="async" style={{objectFit:'cover',objectPosition:'center'}} onError={()=>setFailed(true)}/>;return <div className="mission-unbuilt" role="img" aria-label={mission.playable?'Mission image unavailable':'Planned chapter; environment not implemented'}><span>{mission.playable?'MISSION VIEW':'STORY ARCHIVE'}</span><strong>{mission.title}</strong><small>{mission.playable?'Scene preview unavailable':'Planned chapter'}</small></div>}

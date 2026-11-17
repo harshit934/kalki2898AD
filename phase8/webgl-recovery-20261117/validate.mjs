@@ -1,0 +1,26 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import crypto from 'node:crypto';
+import assert from 'node:assert/strict';
+import { fileURLToPath } from 'node:url';
+import { transformWithOxc } from '../../node_modules/vite/dist/node/index.js';
+const base=path.dirname(fileURLToPath(import.meta.url));
+const source=fs.readFileSync(base+'/staging/src/game/GraphicsBoundary.jsx','utf8');
+const compiled=await transformWithOxc(source,'GraphicsBoundary.jsx',{jsx:{runtime:'automatic'}});
+fs.writeFileSync(base+'/boundary-test-module.mjs',compiled.code);
+const {default:Boundary}=await import('./boundary-test-module.mjs');
+const checks=[];
+function check(name,fn){fn();checks.push({name,status:'PASS'});}
+check('Healthy boundary returns the same children',()=>{const b=new Boundary({children:'existing scene'});assert.equal(b.render(),'existing scene');});
+check('Renderer exception selects failed state',()=>assert.deepEqual(Boundary.getDerivedStateFromError(new Error('Error creating WebGL context')),{failed:true}));
+check('Game fallback contains accessible alert',()=>{const b=new Boundary({});b.state={failed:true};assert.equal(b.render().props.role,'alert');assert.equal(b.render().type,'section');});
+check('Game fallback offers explicit reload only',()=>{const b=new Boundary({});b.state={failed:true};assert.equal(b.render().props.children.at(-1).type,'button');});
+check('Menu fallback has no automatic reload',()=>{const b=new Boundary({mode:'menu'});b.state={failed:true};assert.equal(b.render().props.children.at(-1),false);});
+check('Boundary does not access campaign save storage',()=>assert.doesNotMatch(source,/localStorage|sessionStorage|campaignSystem|setItem|removeItem|\.clear\(/));
+check('Menu and gameplay wrappers are connected',()=>{assert.match(fs.readFileSync(base+'/staging/src/game/MainMenu.jsx','utf8'),/<GraphicsBoundary mode="menu"><div className="menu-backdrop"/);assert.match(fs.readFileSync(base+'/staging/src/App.jsx','utf8'),/<GraphicsBoundary><GameCanvas/);});
+const sha=p=>crypto.createHash('sha256').update(fs.readFileSync(p)).digest('hex');
+const rows=[];function walk(d){for(const f of fs.readdirSync(d,{withFileTypes:true})){const p=path.join(d,f.name);if(f.isDirectory())walk(p);else{const relative=path.relative(base+'/rollback',p);const live=path.resolve(base,'../..',relative);rows.push({path:relative,before:sha(p),after:sha(live)});}}}walk(base+'/rollback/src');
+for(const relative of ['index.html','package.json','vite.config.js','.oxlintrc.json','tools/voice-build-policy.mjs'])rows.push({path:relative,before:sha(base+'/rollback/'+relative),after:sha(path.resolve(base,'../..',relative))});
+check('Production files match the pre-change backup',()=>assert.ok(rows.every(r=>r.before===r.after)));
+fs.writeFileSync(base+'/validation.json',JSON.stringify({checks,protectedFiles:rows,browser:'BLOCKED: 179 MiB physical RAM at preflight; no browser launched'},null,2));
+console.log(JSON.stringify({passed:checks.length,failed:0,protectedFiles:rows.length,hashDifferences:rows.filter(r=>r.before!==r.after).length}));

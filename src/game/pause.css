@@ -1,0 +1,31 @@
+.game-pause-button { flex: 0 0 44px; width: 44px; height: 44px; padding: 10px; border: 1px solid #c7a260; border-radius: 4px; background: #151d29; color: #ffda91; cursor: pointer; }
+.game-pause-button svg { width: 20px; height: 20px; fill: currentColor; }
+.game-pause-button:hover { background: #344054; }
+.game-pause-button:focus-visible, .game-pause-dialog button:focus-visible, .game-pause-dialog select:focus-visible { outline: 3px solid #ffe1a2; outline-offset: 3px; }
+.game-pause-dialog { margin: auto; width: min(480px, calc(100vw - 32px)); max-height: calc(100dvh - 32px); padding: 0; overflow: auto; border: 1px solid #ad8b50; color: #eee1cb; background: #111923; box-shadow: 0 24px 100px #000b; }
+.game-pause-dialog::backdrop { background: rgb(5 9 15 / 82%); backdrop-filter: blur(7px); }
+.pause-panel { padding: clamp(24px, 4vw, 40px); text-align: center; }
+.pause-panel h1 { margin: 10px 0 24px; font-size: clamp(26px, 5vw, 38px); letter-spacing: .08em; font-weight: 500; }
+.pause-kicker, .pause-footer { font: 10px var(--font-mono); letter-spacing: .18em; color: #c6a66f; }
+.pause-panel nav { display: grid; gap: 12px; }
+.pause-panel button { min-height: 48px; width: 100%; border: 1px solid #8a785a; color: #f2dfbc; background: #202b39; font: 11px var(--font-mono); font-weight: 700; letter-spacing: .12em; cursor: pointer; transition: background .12s, transform .08s; }
+.pause-panel section > button { margin-top: 12px; }
+.pause-panel button.pause-primary { color: #191c21; background: #ffd26f; border-color: #ffd26f; }
+.pause-panel button:hover { background: #394454; }
+.pause-panel button.pause-primary:hover { background: #ffe4ad; }
+.pause-panel button:active { transform: translateY(2px); }
+.pause-panel section p { font-size: 13px; line-height: 1.6; }
+.pause-panel .audio-controls { margin: 20px 0; flex-wrap: wrap; justify-content: center; }
+.pause-panel .audio-controls button { width: auto; padding: 8px; font-size: 9px; }
+.pause-control-setting { display: grid; gap: 8px; text-align: left; font-size: 14px; }
+.pause-control-setting select { min-height: 44px; color: #f4dfb5; border: 1px solid #897657; background: #1b2837; padding: 8px; }
+.pause-footer { margin: 24px 0 0; }
+.touch-controls-hidden .mobile-controls, .touch-controls-hidden .chase-touch { display: none !important; }
+.touch-controls-always .mobile-controls { display: flex; }
+.main-menu-panel { position: relative; z-index: 10; width: min(600px, calc(100% - 32px)); margin: 24vh auto 0; padding: 32px; border: 1px solid #8e774e; color: #f3dfb5; background: #131c27; text-align: center; }
+@media (max-width: 400px) { .game-header { left: 12px; right: 12px; gap: 6px; } .game-header .mission-label { display: none; } }
+@media (max-height: 560px) { .pause-panel { padding: 18px 24px; } .pause-panel h1 { font-size: 24px; margin: 8px 0 14px; } .pause-panel nav { gap: 7px; } .pause-panel nav button { min-height: 44px; } .pause-footer { margin-top: 12px; } }
+
+.game-pause-button { position: absolute; z-index: 125; top: clamp(20px, 4vw, 42px); right: clamp(22px, 5vw, 64px); }
+.is-playing .game-header { padding-right: 56px; }
+@media (max-width: 400px) { .game-pause-button { right: 12px; } }

@@ -1,0 +1,9 @@
+.contract-start { position: absolute; top: 128px; right: 22px; z-index: 33; min-height: 44px; padding: 12px; background: #2a3240; color: #f6ddba; border: 1px solid #bb9762; }
+.contract-handoff { position: absolute; inset: 0; z-index: 80; background: #080c14; pointer-events: all; }
+.contract-duel-controls .mobile-sprint-button, .contract-duel-controls .mobile-overdrive-button { display: none; }
+.contract-status { position: absolute; z-index: 34; top: 85px; left: 18px; max-width: min(480px, calc(100vw - 36px)); padding: 14px; background: rgb(12 20 31 / 90%); color: #ecdfc5; font: 14px/1.45 system-ui; }
+.contract-status p { margin: 7px 0; }
+.contract-status button { margin: 8px 8px 0 0; min-height: 44px; padding: 9px 14px; background: #354452; color: white; border: 1px solid #7e9baf; cursor: pointer; }
+.chase-touch { position: absolute; bottom: 30px; left: 5%; right: 5%; z-index: 35; display: flex; justify-content: space-between; gap: 8px; }
+.chase-touch button { min-width: 65px; min-height: 64px; background: rgb(26 43 56 / 85%); color: #f3dfb5; border: 1px solid #a59671; border-radius: 8px; touch-action: none; user-select: none; }
+@media (max-width: 650px) { .contract-start { top: 120px; right: 12px; font-size: 12px; } .contract-status { top: 65px; font-size: 12px; padding: 10px; } }

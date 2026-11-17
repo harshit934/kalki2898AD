@@ -1,0 +1,21 @@
+/* Keep the backdrop in the viewport while the menu content scrolls independently. */
+.main-menu{height:100dvh;min-height:0;overflow-x:hidden;overflow-y:auto;overscroll-behavior:contain;background:#233b36;display:grid;grid-template-columns:minmax(280px,470px) minmax(0,1fr);grid-template-rows:minmax(min-content,1fr) auto;gap:28px 40px;padding:clamp(88px,9vh,108px) clamp(24px,6vw,110px) 24px;scroll-padding:88px 24px 24px}
+.main-menu .menu-world,.main-menu .menu-world-fallback{position:fixed;inset:0;width:100%;height:100dvh;opacity:1}
+.main-menu .menu-world>div,.main-menu .menu-world canvas{width:100%!important;height:100%!important}
+.main-menu .menu-shade{position:fixed;inset:0;background:linear-gradient(90deg,#182b2ae8,#192c2bc4 30%,#233b3614 70%),linear-gradient(0deg,#182d2b99,transparent 28%)}
+.main-menu .menu-copy{position:relative;width:100%;max-width:470px;margin:0;padding:0;align-self:center}
+.main-menu .menu-copy h1{font-size:clamp(56px,6.6vw,110px)}
+.main-menu .menu-location{position:relative;inset:auto;grid-column:2;align-self:end;justify-self:end;display:flex;margin:0;max-width:100%;padding-bottom:16px}
+.main-menu .menu-location nav{flex-wrap:wrap}
+.main-menu .menu-edition{position:relative;inset:auto;grid-column:1/-1;margin:0;gap:14px;flex-wrap:wrap}
+.game-shell:not(.is-playing)>.game-header{height:42px;align-items:center;top:20px}
+.game-shell:not(.is-playing)>.game-header .wordmark{display:inline-flex;align-items:center;flex-shrink:0;position:static;line-height:1;min-height:32px;white-space:nowrap}
+@media(max-width:1000px){.main-menu{grid-template-columns:minmax(260px,410px) minmax(0,1fr);column-gap:24px}.main-menu .menu-copy{width:100%}.main-menu .menu-location strong{font-size:18px}}
+@media(max-width:650px){.main-menu{display:flex;flex-direction:column;gap:28px;padding:90px 24px 24px}.main-menu .menu-copy{align-self:stretch;max-width:none}.main-menu .menu-copy h1{font-size:68px}.main-menu .menu-location{align-self:stretch;justify-self:auto;padding:0;margin:0}.main-menu .menu-edition{margin-top:auto}.main-menu .menu-shade{background:linear-gradient(90deg,#182c2be0,#1d35317d),linear-gradient(0deg,#182d2ba8,transparent 60%)}.main-menu .main-actions button{background:#28443ccd}.main-menu .main-actions .continue-action{background:var(--sand)}}
+@media(max-height:700px) and (min-width:651px){.main-menu{padding-top:82px;gap:20px}.main-menu .menu-copy{align-self:start}.main-menu .menu-copy h1{font-size:60px}.main-menu .menu-tagline{margin:4px 0 16px;font-size:12px}.main-menu .main-actions button{min-height:40px;padding:9px 12px}.main-menu .main-actions .continue-action{min-height:56px}.main-menu .menu-progress{display:grid;margin-top:16px}.main-menu .menu-location{position:sticky;bottom:20px}.main-menu .menu-location strong{font-size:16px}}
+.menu-backdrop{position:absolute;inset:0;z-index:6;pointer-events:none;isolation:isolate}
+.menu-backdrop .menu-world,.menu-backdrop .menu-world-fallback{position:fixed;inset:0;width:100%;height:100dvh;opacity:1}
+.menu-backdrop .menu-world>div,.menu-backdrop canvas{width:100%!important;height:100%!important}
+.menu-backdrop::after{content:'';position:absolute;inset:0 0 auto;height:76px;background:linear-gradient(#182b2abf,#182b2a22);pointer-events:none}
+/* Clip scrolled titles below the independent header, without clipping the 3D backdrop. */
+:root .main-menu{top:72px;height:calc(100dvh - 72px);padding-top:16px;background:transparent}

@@ -1,0 +1,5 @@
+Original geometry authored for Kalki 2898 AD in Phase 5.2.1.
+Editable Blender sources and generators: phase5/phase521/.
+No protected character, grooming, rollback or third-party model was opened or modified.
+Surface maps and lighting reuse the local Kashi Poly Haven CC0 assets.
+See ../kashi/ASSET-CREDITS.txt and the local Draco Apache license.

@@ -1,0 +1,145 @@
+{
+  "status": "PERMANENT REQUIREMENT — design proposals, not implemented enemies",
+  "recorded": "2026-11-07",
+  "scope": "All 10 arcs / 100 missions; preserve existing completed missions",
+  "inspectedFiles": ["src/game/campaignSystem.js", "src/game/combatSystem.js", "src/game/CombatEnemies.jsx", "src/game/RiggedEnemy.jsx", "src/game/BossEncounter.jsx", "src/game/bossSystem.js", "src/game/missionExpansionContent.js", "campaign-environment-requirements.json"],
+  "findings": [
+    "Only Missions 1–10 are playable. Later arcs are campaign archive entries, not implemented encounters.",
+    "Five current enemy types share common combat infrastructure. Warrior and Heavy use the same soldier-source rig with scale/material/armor differences; this cannot satisfy later-arc uniqueness.",
+    "Expansion bosses share substantial model and phase infrastructure; decorative accents or speed changes alone cannot satisfy unique future bosses.",
+    "Future encounter data must be explicit. Do not use getEnemySpawns' current Mission 1 fallback as a future-arc roster."
+  ],
+  "rules": [
+    "Each arc introduces a distinct faction identity, body/armor/clothing/helmet/face silhouettes, melee/ranged technology, behavior, roster and boss design. Recolors, scaled shared bodies and renamed attacks do not pass.",
+    "Reuse sensing, navigation, targeting, damage, telegraph and animation infrastructure where useful, while authoring different models, movesets and tactical decisions.",
+    "Preserve all current mission IDs, purposes, order, story decisions, rewards and saves. Faction names and boss concepts here are original proposals, not film canon or changes to established events.",
+    "The existing Arc 1 roster and victories remain intact. Its design entry documents its identity; no retroactive faction rewrite is authorized.",
+    "Later factions may serve the same established power without reusing its earlier troops. Arc 5 remains connected to the Complex assault; a new corps must not replace that story event with an unrelated antagonist.",
+    "Arcs 3 and 8 may involve multiple groups as their existing narrative requires; a distinctive primary faction does not erase existing multi-faction events.",
+    "Ashwatthama remains an important Arc 4 ally in Missions 31–40. Enemies threaten the sanctuary and evacuation; do not turn him into a disposable boss or resolve his oath prematurely.",
+    "A boss is not automatically assigned to every mission. Place encounters only where the existing mission purpose supports them, without changing mission completion or unlock rules prematurely."
+  ],
+  "arcDesigns": [
+    {
+      "arc": 1, "missions": [1, 10], "title": "Kashi & the Bounty Hunter",
+      "faction": "Existing local bounty rivals, security forces and Glass Wastes defenders",
+      "identity": "Preserve the current varied Kashi opposition and named bosses; no new retroactive lore.",
+      "design": "Existing scavenged armor, local guards and crystalline silhouettes remain the reference baseline that future factions must differ from.",
+      "roster": {"basic": "Warrior", "elite": "Existing encounter-specific veterans, retain current data", "heavy": "Heavy / Glass Brute", "ranged": "Future local ranged unit only if separately authorized; current Scout is not a verified rifle class", "special": "Glass Stalker"},
+      "boss": {"models": "Preserve Warden, Prism Sovereign and existing expansion bosses", "mechanics": "Preserve tested encounters; do not impose future faction mechanics retroactively"},
+      "animation": "Preserve working clips; current shared soldier model remains an acknowledged art limitation.",
+      "introduction": "Existing mission sequence remains unchanged."
+    },
+    {
+      "arc": 2, "missions": [11, 20], "title": "Complex & Yaskin",
+      "faction": "Custodial Directorate — proposed Complex logistics/security branch",
+      "identity": "Institutional extraction and access control; treats people and resources as inventory under the existing regime.",
+      "design": "Sealed porcelain shells, recessed asymmetric visors, tall narrow human operators and squat industrial chassis. No reused Kashi guard bodies.",
+      "roster": {"basic": "Seal Warden: articulated shield cuff and short shock prod; locks passage in pairs", "elite": "Audit Duelist: long split visor, precision energy lance; counters repeated frontal strikes", "heavy": "Cargo Bastion: wide four-legged forklift chassis with hydraulic clamp; anchors a corridor", "ranged": "Index Marksman: optic hood, braced coil projector; marks a line before a burst", "special": "Relay Mote: floating ring sensor; links nearby shields until its exposed relay is interrupted"},
+      "combat": "Deliberate formations, shield links and interlock defense; flank relays, interrupt setup and exploit recovery. No unavoidable full-corridor attacks.",
+      "boss": {"name": "Intake Marshal", "model": "Unique suspended central chassis with three folding manipulator arms and visible relay spine", "phases": ["Sweep arms telegraph separate safe lanes", "Freight anchors shield the chassis; disable reachable anchors", "Detached arm pair changes spacing while the core exposes recovery windows"], "counterplay": "Interrupt relays and dodge committed sweeps; never reduce the fight to a recolored radial-slam boss"},
+      "animation": "Mechanical clamp plants, shield interlock, braced recoil, armor-break stagger and staged chassis collapse; bespoke arm rig for boss.",
+      "introduction": "11–13 teach wardens and line fire;14–16 introduce relay/duelist and freight heavy;17–19 combine known tools;20 may host the existing entry-conflict climax if its script supports it. Mission12's archived Prism entry is preserved pending review, not silently replaced."
+    },
+    {
+      "arc": 3, "missions": [21, 30], "title": "Sumathi & the Pursuit",
+      "faction": "Trailbound Compact — proposed pursuit-specialist bounty coalition",
+      "identity": "Competing trackers cooperating temporarily for a bounty; supports the existing multi-faction ambush and protection choices.",
+      "design": "Lean weathered trackers, open faces, layered wind wraps, low-profile scavenged harnesses and tall pack-carriers. Distinct from sealed Directorate uniforms.",
+      "roster": {"basic": "Dust Runner: hooked short blade, crouched lateral rush and withdrawal", "elite": "Twin-Trace Hunter: paired tether knives, feints then commits to a punishable attack", "heavy": "Pack Ram: broad load-bearing suit and impact pole; charges only along a marked route", "ranged": "Ridge Harrier: folding longbow-like rail launcher; relocates between marked shots", "special": "Scent Weaver: spool backpack and visible tracking tags; lays disarmable trip lines"},
+      "combat": "Track, flank, cut off and disengage rather than hold formation. Clear pursuit tags to break coordination; keep escort threats readable.",
+      "boss": {"name": "The Trailmaster", "model": "Unique wiry tracker with articulated tracking mantle, asymmetric spool pack and long hooked spear", "phases": ["Tests pursuit with spear feints and marked shots", "Deploys destructible tether routes and relocates", "Loses tracking assistance; commits to close-range combinations with recovery gaps"], "counterplay": "Read body feints, sever tethers and intercept relocation; no invisible traps or instant off-camera damage"},
+      "animation": "Low lateral sprint, terrain-aware stop, tether throw/reel, bow brace, stumbling escape and gear-weighted collapse.",
+      "introduction": "21–23 runners/harriers and existing rival groups;24–26 tag and charge mechanics;27–29 route-denial combinations;30 contains only a confrontation compatible with the existing escape toward Shambhala."
+    },
+    {
+      "arc": 4, "missions": [31, 40], "title": "Shambhala & Ashwatthama",
+      "faction": "Veilbreak Survey — proposed covert sanctuary-hunting expedition",
+      "identity": "Seeks routes and signals that expose the hidden refuge; gives the existing scout, river evacuation and beacon missions concrete opposing intent without revealing Ashwatthama's whole past.",
+      "design": "Cliff-climbing harnesses, narrow insect-like survey masks, rain capes, jointed climbing frames and low crawling equipment; no hunter wraps or city security bodies.",
+      "roster": {"basic": "Rope Pathfinder: climbing axe and short buckler; probes ledges before engaging", "elite": "Veil Cutter: split climbing staff and retractable wrist guard; parries then retreats toward scouts", "heavy": "Anchor Bearer: low, broad mechanical climbing frame; plants a shielded observation anchor", "ranged": "Echo Lancer: elongated acoustic rangefinder and bolt staff; exposes its sightline before firing", "special": "Beacon Scribe: multi-antenna pack; builds a visible, interruptible signal rather than dealing constant damage"},
+      "combat": "Search, establish observation and coordinate incursions. Prevent signals and defend evacuation spaces; respect ally roles and the player's agency.",
+      "boss": {"name": "The Surveyor", "model": "Unique articulated cliff frame surrounding an exposed masked navigator; folding survey mast and anchor limbs", "phases": ["Triangulates marked sightlines with reachable anchor nodes", "Climbs to authored perches and sends interruptible survey pulses", "Damaged mast forces ground combat with long committed staff sweeps"], "counterplay": "Break observation links, use cover and attack exposed recovery windows; place encounter only where the existing perimeter/beacon story supports it"},
+      "animation": "Harness-supported climb, anchor placement, cautious ledge traversal, signal channel interruption, staff guard break and tether-supported fall.",
+      "introduction": "31 environmental traces and limited scouts;32 preserves the Immortal Stranger introduction;33–36 demonstrate surveying and evacuation pressure;37 preserves the Oath's partial disclosure;38–40 escalate perimeter/signaling opposition."
+    },
+    {
+      "arc": 5, "missions": [41, 50], "title": "The Awakening",
+      "faction": "Obsidian Breach Corps — proposed specialized Complex siege force",
+      "identity": "A distinct assault corps of the established regime, not a replacement for the Complex forces already named in the story.",
+      "design": "Low angular basalt-ceramic plating, reinforced triangular helmets, huge shoulder-driven siege rigs and exposed heat-management assemblies. Separate meshes from Directorate logistics units.",
+      "roster": {"basic": "Breach Spear: compact armored infantry with folding impact pike; advances under cover", "elite": "Rift Fencer: segmented arm shield and cleaving saber; stance changes after a readable cue", "heavy": "Mantlet Walker: six-legged armored siege carriage; exposes cooling joints after firing", "ranged": "Cinder Mortar: kneeling recoil cradle and arcing launcher; persistent landing indicators", "special": "Sapper Crucible: low demolition rig; installs interruptible breach charges and withdraws"},
+      "combat": "Combined-arms siege pressure, cover suppression, breach preparation and safe-lane evacuation. Bound simultaneous area denial so movement/dodge always has counterplay.",
+      "boss": {"name": "Breach Regent", "model": "Unique asymmetric walking siege platform with deployable mantlets and a piloted command core", "phases": ["Mantlet advance creates readable flanking lanes", "Anchored artillery exposes coolant joints between salvos", "Broken platform fights from one surviving limb with long recovery windows"], "counterplay": "Interrupt salvos, exploit joint exposure and protect evacuation lanes. Do not overwrite the established memory/Karna revelation sequence or invent a replacement final villain"},
+      "animation": "Pike formation advance, mantlet bracing, heavy recoil, joint-specific stagger, emergency venting and staged mechanical failure.",
+      "introduction": "41–43 assault infantry and sappers;44–45 heavy/mortar combinations tied to escape and last stand;46–49 preserve authored memories/revelations, with distinct memory opposition only if supported by scripts;50 preserves the existing road-beyond purpose."
+    },
+    {
+      "arc": 6, "missions": [51, 60], "title": "A New Dawn",
+      "faction": "Cistern Cartel — proposed resource-extortion network",
+      "identity": "Profits from damaged frontier water infrastructure; opposition must not turn the existing council and clan missions into indiscriminate combat.",
+      "design": "Waterproof rubber aprons, pipe-framework armor, exposed scarred faces and barrel-shaped pressure suits.",
+      "roster": {"basic": "Valve Thug: pipe club and pressure shove", "elite": "Lockkeeper: paired valve shields and trapping stance", "heavy": "Pressure Hauler: round tank suit with slow vented charge", "ranged": "Jet Gunner: narrow pressure lance with clearly limited reach", "special": "Tap Saboteur: repairs enemy pressure links; interruptible"},
+      "combat": "Pressure cycles, supply denial and defensible shutoff valves rather than siege formations.",
+      "boss": {"name": "The Reservoir Broker", "model": "Unique rotary pressure exosuit with offset tank wheel", "phases": ["Controlled jet lanes", "Valve network overload", "Depleted suit close combat"], "counterplay": "Shut off exposed feeds and exploit depressurization; no required civilian resource destruction"},
+      "animation": "Valve crank, hose recoil, weighted tank gait, pressure stumble and suit depressurization collapse.",
+      "introduction": "Teach one pressure threat early; add support links mid-arc; reserve combinations for existing outer-watch/conflict missions."
+    },
+    {
+      "arc": 7, "missions": [61, 70], "title": "The Far Frontier",
+      "faction": "Brine Wardens — proposed salt-sea salvage fleet",
+      "identity": "Controls access to drowned machinery and tidal routes; supports existing raider and Warden Fleet chapters.",
+      "design": "Corroded diving shells, elongated flotation collars, finned salvage frames and netted ballast harnesses.",
+      "roster": {"basic": "Salt Boarder: hooked boarding blade and sliding approach", "elite": "Reef Duelist: articulated harpoon staff and angled deflection", "heavy": "Ballast Crawler: broad tracked salvage suit; slow anchor sweep", "ranged": "Line Harpooner: tether launcher with severable line", "special": "Tide Tender: deploys visible flotation mines and recalls unused devices"},
+      "combat": "Tidal route timing, pulls, anchored positioning and temporary shoals; no unavoidable drowning traps.",
+      "boss": {"name": "Low-Tide Warden", "model": "Unique broad salvage diving rig with rotating ballast arms", "phases": ["Anchored harpoon duel", "Exposed tidal platforms and ballast swings", "Drained ballast exposes slow recovery"], "counterplay": "Sever tethers and use marked safe footing; fits A Duel at Low Tide without rewriting its purpose"},
+      "animation": "Ballast-weighted steps, boarding vaults, harpoon recoil, sliding recovery and pressure-shell collapse.",
+      "introduction": "Early boarders, mid-arc fleet support and tide units, then a mechanically earned low-tide confrontation."
+    },
+    {
+      "arc": 8, "missions": [71, 80], "title": "The War of Cities",
+      "faction": "Banner Compact Legions — proposed hostile city-aligned military coalition",
+      "identity": "Disciplined civic armies with rival subgroups; retain the archive's political divisions and alliance choices.",
+      "design": "Architectural fan crests, squared lamellar shields, tailored civic uniforms and wheeled pavise frames; distinguish subgroup silhouettes, not only banners/colors.",
+      "roster": {"basic": "Rank Soldier: folding shield and thrust blade; maintains formation", "elite": "Standard Duelist: fan-crest helm and countering poleblade", "heavy": "Pavise Engine: wheeled deployable shield carriage with crew", "ranged": "Volley Arbalist: mechanical repeater with synchronized reload", "special": "Signal Cantor: visible command gestures coordinate one local formation"},
+      "combat": "Formation cohesion, command interruption and reload exploitation; explicitly different from Arc2's powered shield links.",
+      "boss": {"name": "The Iron Envoy", "model": "Unique armored commander with folding fan shield and long segmented glaive", "phases": ["Formal shield duel", "Commanded formations with limited reinforcement budget", "Broken shield changes glaive stance"], "counterplay": "Interrupt commands and punish committed guards; preserve any established diplomatic choice instead of forcing a kill"},
+      "animation": "Formation step, brace, synchronized reload, distinct glaive guards, shield-break stumble and commander collapse.",
+      "introduction": "Three Banners establishes groups; siege chapters introduce engines; envoy/council chapters retain diplomatic purpose; later battles combine learned formations."
+    },
+    {
+      "arc": 9, "missions": [81, 90], "title": "The Celestial Engine",
+      "faction": "Meridian Custodians — proposed ancient autonomous vault defenses",
+      "identity": "Protects the engine through protocols rather than human bounty motives; no new mythology revelation imposed on existing scripts.",
+      "design": "Non-humanoid stone-metal orbital frames, negative-space torsos, rotating limb rings and lens cores; no human guard reskins.",
+      "roster": {"basic": "Arc Strider: three-joint crescent limbs and timed lateral cuts", "elite": "Parallax Sentinel: split orbiting shield halves; alternates vulnerable plane", "heavy": "Vault Orrery: slow multi-ring core on radial legs", "ranged": "Lens Cantilever: fixed beam arm with a visible charging lens", "special": "Key Lattice: hovering geometry that redirects marked attack paths"},
+      "combat": "Readable geometric cycles, line redirection and protocol interruption; action remains spatial, not a color-matching gimmick.",
+      "boss": {"name": "Axis Keeper", "model": "Unique nested orrery with independent axial rig and separable ring limbs", "phases": ["One rotating danger plane", "Two alternating rings and accessible control nodes", "Uncoupled core with patterned openings"], "counterplay": "Read ring orientation and interrupt reachable nodes; keep the Engine story and choices intact"},
+      "animation": "Authored axial movement, ring arrest, fractured orbit hit reactions, reassembly defense and bounded disassembly death.",
+      "introduction": "Early keys teach strider cycles; vault chapters add lenses/lattices; engine chapters combine only previously taught patterns."
+    },
+    {
+      "arc": 10, "missions": [91, 100], "title": "The Next Era",
+      "faction": "Crown Remnant — proposed adaptive loyalist command",
+      "identity": "A distinct successor-era opposition tied to the existing heir/crown chapters; do not predetermine allegiance, the child's fate or final campaign choices.",
+      "design": "Faceted open-crown helmets, asymmetrically folded alloy mantles, synthetic tendon frames and tall command units. New meshes, not restored Arc2 or5 armor.",
+      "roster": {"basic": "Crown Retainer: folding blade and short controlled burst step", "elite": "Mirror Adjudicator: stance-reading shield blade with explicitly signaled adaptation", "heavy": "Throne Carrier: suspended command shell on articulated support limbs", "ranged": "Halo Fusilier: pivoting shoulder rail with narrow marked salvos", "special": "Edict Relay: deploys local tactical directives that can be interrupted"},
+      "combat": "Limited, visible adaptation to repeated tactics; never reads uncommitted player input or permanently disables an ability.",
+      "boss": {"name": "Crown Executor — working title", "model": "Unique segmented mantle rig with independently folding command blades", "phases": ["Establishes one readable directive", "Changes between two previously taught stances", "Loses relay support and exposes direct-duel recovery"], "counterplay": "Break relays and vary committed tactics; final identity, outcome and placement must follow approved existing story decisions"},
+      "animation": "Mantle deployment, stance-specific footwork, commanded volleys, interrupted directive recoil and authored multi-stage collapse.",
+      "introduction": "Return chapters establish retainers; siege/crown chapters teach directives; final chapters combine known mechanics without replacing narrative resolutions."
+    }
+  ],
+  "acceptanceAndImplementation": [
+    "Keep Phase2 completion first. This document does not authorize unrelated future gameplay implementation during the open Phase2 cycle.",
+    "Before implementation, inspect the then-current mission scripts and align each proposed encounter with its existing purpose; unresolved archive inconsistencies require review, not silent replacement.",
+    "Each future arc needs an explicit roster and spawn definition; no automatic previous-arc fallback, reused boss mesh or texture-only replacement.",
+    "Review neutral-lit model turnarounds and unlabelled in-game silhouettes for each class and boss. Compare mesh structure, proportions, armor, weapons and locomotion, not just names or palette.",
+    "Author appropriate attack, locomotion, defense, hit and death clips; share compatible skeleton infrastructure only when final motion and silhouette remain distinct. Test sockets and collision alignment.",
+    "Introduce one mechanic safely, then a support interaction, then combined encounters. Telegraph new boss patterns before tightening their combinations.",
+    "Test actual damage windows, dodge/block counterplay, AI decisions, collision, off-camera threats, mission interactions, death/restart and reward persistence in production.",
+    "Optimize for integrated GPUs with per-arc streaming, shared materials within each kit, LOD, pooled bounded effects, animation culling and encounter budgets. Unique visuals do not require simultaneously loading all rosters.",
+    "Measure frame time, P95, GPU timing, draw calls, geometry and texture memory at matched resolution during dense encounters. Do not claim60FPS until measured.",
+    "Complete acceptance requires played production evidence for the new roster and bosses, plus preserved campaign choices and saves. Concepts alone do not satisfy implementation."
+  ]
+}

@@ -1,0 +1,2 @@
+import{cityEnabled,firstCity,finalCity}from'./cityAssets.js'
+export function environmentCapture(name){if(cityEnabled()&&finalCity()&&/^(mission-(1|10|20|30|40|50|60|70|80|90|100))$/.test(name))return `/environment/phase54f/captures/${name}.png`;const variant=cityEnabled()?(firstCity()?'first-prototype':'opt-in'):'production';return `/environment/phase54e-correction/captures/${variant}/${name}.jpg`}

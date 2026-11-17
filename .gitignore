@@ -1,0 +1,43 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Local credentials: never commit environment files.
+.env
+.env.*
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Publication exclusions
+.env*
+**/rollback/
+**/node_modules/
+**/dist/
+**/disposable-storage*.json
+**/*trace*.json
+*.dmp
+*.zip
+
+# Raw historical profiling exports are local-only.
+/phase3/*/
+/phase4/*/
+/phase5/*/

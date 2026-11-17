@@ -1,0 +1,16 @@
+Phase 5.3 Mission 1 assets
+
+The riverfront district, Bujji field scout, relay, salvage cell, barrier,
+precinct wall and Warden geometry were authored for this project with the
+Blender generator scripts retained in phase5/phase53-evidence/.
+No movie mesh, footage, soundtrack or dialogue recording was used to create
+these geometry files. The ripple and costume relief textures are procedural.
+
+The scene reuses the project's existing Poly Haven old_sandstone_02 surfaces
+and venice_sunset environment (CC0). See the existing environment credits for
+their source records. Draco decoding uses the project's existing decoder and
+its retained license. This notice does not clear rights to pre-existing
+character assets, movie-related names or legacy media elsewhere in the game.
+
+Private film-reference stills/subtitles under phase5/phase53-evidence/reference-only
+are study material only, outside public assets, and must not be distributed.

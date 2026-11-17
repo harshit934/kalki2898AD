@@ -1,0 +1,7 @@
+.revision-preparation { position: fixed; inset: 0; z-index: 200; display: grid; place-items: center; padding: 24px; background: #111d1ef2; color: #e9dcc4; font-family: 'Segoe UI', sans-serif; }
+.revision-preparation section { width: min(430px, 100%); border-top: 2px solid #bd9c63; border-bottom: 1px solid #bd9c6359; padding: 26px 0; }
+.revision-preparation small { color: #c8ac77; letter-spacing: .18em; }
+.revision-preparation h2 { font-family: Georgia, serif; font-size: 34px; font-weight: 400; }
+.revision-preparation p { color: #b5c6bd; line-height: 1.7; }
+.revision-preparation button { min-height: 44px; padding: 10px 18px; margin-right: 8px; border: 1px solid #b69a6c; background: #283b36; color: #ede1c7; cursor: pointer; }
+.revision-preparation button:focus-visible { outline: 2px solid #83bfb2; outline-offset: 4px; }

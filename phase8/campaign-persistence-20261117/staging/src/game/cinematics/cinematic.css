@@ -1,0 +1,43 @@
+.cinematic-test, .cinematic-overlay button {
+  border: 1px solid #bbb4a5; background: #181713e8; color: #fff;
+  min-height: 44px; padding: .55rem .85rem; font: inherit; cursor: pointer;
+}
+.cinematic-test { position: absolute; z-index: 12; right: 1rem; bottom: max(8rem, 18vh); }
+.cinematic-overlay { position: absolute; inset: 0; z-index: 30; pointer-events: none; color: white; }
+.cinematic-overlay button { pointer-events: auto; }
+.cinematic-controls { position: absolute; top: max(5rem, env(safe-area-inset-top)); right: 1rem; display: flex; gap: .5rem; }
+.cinematic-subtitle {
+  position: absolute; bottom: max(7%, env(safe-area-inset-bottom)); left: 50%; transform: translateX(-50%);
+  width: min(44rem, calc(100% - 2rem)); box-sizing: border-box;
+  background: #111016eb; padding: .85rem 1rem; text-align: center; font-size: clamp(1rem, 3.6vw, 1.25rem);
+}
+.cinematic-subtitle p { margin: 0; line-height: 1.45; }
+.cinematic-subtitle strong { display: block; color: #f3ce92; }
+.cinematic-subtitle button { margin-top: .65rem; }
+.cinematic-paused { position: absolute; left: 50%; top: 40%; transform: translateX(-50%); background: #111e; padding: 1rem; }
+@media (max-width: 600px) {
+  .cinematic-controls { right: .6rem; top: 4.4rem; }
+  .cinematic-test { bottom: 10rem; }
+}
+
+.cinematic-matte { position: absolute; inset: 0; background: black; }
+.cinematic-title {
+  position: absolute; left: 8%; bottom: 16%; display: grid; gap: .5rem;
+  color: #fff1d6; text-shadow: 0 .1rem .5rem #100c08;
+}
+.cinematic-title span { letter-spacing: .35em; font-size: .8rem; }
+.cinematic-title strong { font-size: clamp(3rem, 10vw, 8rem); letter-spacing: .14em; line-height: .9; }
+
+/* The ending title must not sit across the actor's legs or the subtitles. */
+.cinematic-overlay[data-cinematic-id="kashi-contract-return"] .cinematic-title {
+  top: 14%; bottom: auto; max-width: 55%; gap: .4rem;
+}
+.cinematic-overlay[data-cinematic-id="kashi-contract-return"] .cinematic-title strong {
+  font-size: clamp(1.5rem, 3.2vw, 3.5rem); line-height: 1.05; letter-spacing: .08em;
+}
+@media(max-width:600px) {
+  .cinematic-overlay[data-cinematic-id="kashi-contract-return"] .cinematic-title { left:6%; max-width:88%; }
+}
+@media(max-height:560px) and (min-width:601px) {
+  .cinematic-overlay[data-cinematic-id="kashi-contract-return"] .cinematic-title { top:60px; left:4%; max-width:50%; }
+}

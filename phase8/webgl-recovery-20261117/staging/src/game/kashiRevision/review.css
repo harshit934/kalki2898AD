@@ -1,0 +1,5 @@
+.revision-viewer .revision-info { position: absolute; top: 110px; right: 32px; width: min(320px, calc(100% - 32px)); max-height: calc(100dvh - 150px); overflow: auto; }
+.revision-viewer .revision-info h1 { font-family: Georgia, serif; font-weight: 400; font-size: 32px; }
+.revision-viewer .revision-info p { font-size: 12px; line-height: 1.7; color: #c6c6b2; }
+.revision-caption { position: absolute; bottom: 16px; left: 24px; margin: 0; padding: 8px; font-size: 10px; letter-spacing: .12em; background: #172322bf; pointer-events: none; }
+@media(max-width:700px) { .revision-viewer .revision-info { top: 160px; right: 16px; max-height: calc(100dvh - 190px); } .revision-caption { left: 8px; bottom: 8px; font-size: 8px; max-width: calc(100% - 16px); } }

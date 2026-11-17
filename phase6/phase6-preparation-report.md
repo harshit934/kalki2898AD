@@ -1,0 +1,110 @@
+# Phase 6 — World & audio preparation audit
+
+Date: 14 November 2026 (Asia/Calcutta). **Audit only; implementation is not authorized.** Phase 5 is closed with **CONDITIONAL ACCEPT**, as explicitly decided by the user. Its limitations remain recorded; this audit does not reopen that closure or certify a finished release.
+
+## Scope and evidence
+
+The original roadmap attachment `C:/Users/Hp/.codex/attachments/bf50c31d-658e-4534-9c13-320146c20baf/Pasted text.txt`, section 14, names Phase 6 **“Bhairava AI assistant and voice”**, Phase 7 mission storyline/progression, Phase 8 audio/cinematic experience, and Phase 10 campaign completion. Section 7 requires contextual guidance, combat tips, story/event explanations, completion conversations, progress summaries, voice responses and animated subtitles, using actual mission/player data; every tenth mission has a special recap/briefing.
+
+The current user instruction explicitly authorizes a **WORLD & AUDIO audit** covering three environments and audio foundations. This is the present audit boundary, with overlap with original environment/audio workstreams acknowledged. The roadmap itself is not rewritten. No 100-mission expansion, new campaign content, roadmap reassignment or cinematic redesign is proposed as a prerequisite.
+
+Inspected current source and asset inventories, package manifest, original roadmap, `phase5/phase55-scope-reconciliation-report.md`, `phase55-final-acceptance-report.md`, `phase55-bounds-correction-report.md`, current bounds-correction results and provenance notices. Historical reports are evidence with dates and limitations, not current runtime passes. No game, browser profile, build, lint, benchmark or media playback was launched in this audit. Asset presence/code reachability were inspected; listening quality, scene appearance and current device performance were not freshly tested.
+
+## Architecture and dependencies
+
+React 19 / Vite 8, React Three Fiber 9 / Three.js 0.187, Drei 10, Rapier 2 and Zustand 5 are already declared in `package.json`. `src/App.jsx` coordinates menus, mission entry, loading/preparation and cinematic lifecycle. `GameCanvas.jsx` owns rendering, physics pause, lighting, atmosphere, resolution policy and the cinematic stage. `World.jsx`, `WorldArchitecture.jsx` and `Gameplay.jsx` separate scenery/colliders from mission activity. Campaign, gameplay, story, companion, pause and audio settings use existing stores.
+
+Reusable foundations exist: lazy/Suspense GLTF loading, local Draco decoding, cached preparation, hand-authored colliders, surface maps, instancing/LOD experiments, shader warm-up and prepared ending bounds. Reuse these before introducing another engine, state system or global loading framework. Dependencies are present locally; their current installed-version health was not tested. No new dependency is established as necessary. Tools include a portable Blender folder, but the executable was not launched or freshly validated.
+
+## World requirements: current status
+
+**Kashi — partial, playable foundation; visual acceptance outstanding.** `MissionOneDistrict.jsx` loads the original `mission1/kashi-riverfront-v1.glb`, `mission531/riverbank-v1.glb`, river material and authoritative colliders. Other routes use Kashi frontage assets and existing landmark dressing. `KashiEnvironment.jsx` provides loaded-mesh/material handling; `groundDetail.js`, `TierCitySurfaces.js` and tier lighting supply existing material work.
+
+Original remains production default. `phase54e/cityAssets.js` enables the newer city only with `?environment54e=1`; final city assets are chosen unless `cityVersion=first` or `correction1`. Older `?kashiPrototype=54c` and `?kashiPrototype=revision` branches remain separately available. `main.jsx` also has dedicated review entry points. Do not confuse a review page or opt-in screenshot with production integration.
+
+`CorrectedCity.jsx` supplies a connected city mesh, 24 merchant/porter placements, limited walking/idle animation, holographic panels, elevated transit, cargo cart, river and barge. `CityEnvironment.jsx` owns associated collision footprints; `CorrectedArena` selects existing boss arena meshes. These are actual code-connected features, not proof of visual fidelity. Prior rejected/limited city acceptance still applies: repetitive forms/materials, foreground/civilian quality, skyline/readability and finished arena presentation need direct camera-matched review. The `phase54e-final` asset directory contains 14 files / approximately 54.69 MiB on disk; it is not all necessarily loaded at once.
+
+**Shambhala — partial visual study, not a complete explorable region.** `MenuScene.jsx` loads `previews/shambhala.glb`; `WorldArchitecture.jsx` assigns Mission 6 `shambhala-frontage.glb` at repeated outlying placements. Existing procedural landmarks add variation. This does not establish authored sanctuary streets, interiors, traversal loops, interactions or a complete Shambhala world.
+
+**Complex — partial visual study and themed gameplay dressing.** Menu preview `previews/complex.glb`; Complex frontages assigned to Mission 2 and Missions 7–10. Mission 2's existing contract/duel/chase systems remain distinct gameplay. There is no evidence here of a complete independently explorable Complex district. Preview assets across all locations total about 9.00 MiB / eight files.
+
+**Expanded exploration — missing as a complete world system.** Current missions use bounded combat corridors, existing objective coordinates and landmark areas. No general region streaming, connected three-region traversal or world-map travel system was established. Expand one bounded area within existing routes first; do not turn this into campaign authoring.
+
+**Environmental interaction — partial and reusable.** `MissionOneRelays.jsx` and `missionOneStory.js` implement nearby relays/scanning, with existing keyboard/touch integration; `Gameplay.jsx` includes crystals, pylons, traps and proximity objectives; `BujjiCompanion.jsx` supplies following and timed combat assistance, while Mission 2 has its existing vehicle sequence. No complete vendor conversation/trading, reactive crowd or persistent environmental simulation is established. Preserve these gameplay contracts rather than replacing their triggers.
+
+**Lighting/atmosphere — partial.** Sky, fog, hemisphere/directional/local lights, shadows, HDR environment and river normals already exist. `TierCityAtmosphere.jsx` adds dust/burn particles for Mission 5. No shared configurable weather/time-of-day lifecycle or region-specific weather/audio response was found. Fog, moving ads and particles do not demonstrate production-grade geometry. Weather is proposed work, not currently tested functionality.
+
+## Audio and assistant requirements: current status
+
+**Centralized audio — partial but substantial foundation.** `src/audio/audioManager.js` owns master volume/mute persistence, user-gesture AudioContext unlock, decoded dialogue promises, event/clip cooldowns, priorities and interruption, playback status, pause and cinematic-player disposal. `AudioControls.jsx`, `DialogueControls.jsx`, pause/settings and cinematic controller integrate it. `createCinematicAudio()` uses HTMLAudioElement media sharing master settings, with channels/looping and pause/dispose; Web Audio dialogue uses a separate gain path.
+
+Missing: persistent world ambience/music ownership outside cinematics, independent effective music/SFX/voice/ambience buses, distance/occlusion treatment, measured concurrent-voice budget, crossfades/ducking, streaming/cache limits and systematic recovery/telemetry. Keep the manager and extend narrowly. Current failed dialogue URLs stay in `failedClips`, decoded buffers stay cached, and cancellation/pause/load races require targeted tests before larger libraries.
+
+**Environmental sound — partial cinematic-only assets.** Three WAV files exist: `kashi-wind.wav` (160,044 bytes), `kashi-step.wav` (8,044), `phase41-chime.wav` (19,244). `kashiEntry.js`, `storyBriefing.js`, `missionOneEnding.js` and `missionTwoContractConfig.js` reference original accents/wind/steps. `phase4/kashi-entry/README.md` and its synthesis recipe document locally synthesized originals. This is provenance evidence, not a new blanket licensing certificate. No complete spatial river, markets, crowds, temples, machinery or weather ambience library is present.
+
+**Combat SFX — missing dedicated library.** `SOUND_EVENTS` enumerates attacks, jumps, damage, bosses and rewards, but `playGameSound()` currently maps selected events to dialogue and returns `no-match` for others. Event declarations are not audible impact/weapon/footstep coverage. Add original/licensed SFX later without changing damage or combat timing.
+
+**Telugu/Bhairava/Bujji voices — partial framework, missing verified deliverable.** Six catalogue entries exist in `dialogueInventory.js`; only Overdrive and support have automatic triggers. Two OGG files actually exist: Bhairava Overdrive (438,839 bytes), Bujji support (60,615). They are described as supplied recordings, with no verified distribution-rights field. The default `missionVoiceRightsRequired=true` rejects unverified catalogue playback before decoding. The four other research clip paths are absent. Therefore this is not a licensed, complete Telugu voice pack.
+
+Original Telugu text/English translations exist in the Mission 1 ending and other cinematic/briefing scripts; absent recorded lines remain unvoiced. No actor imitation, new voice generation, extraction or asset download occurred. `public/audio/kalki/README.md` is stale: it claims no bundled movie audio and old trigger mappings despite two real OGG files/current entries. Its film-source instructions and `reportMissingClip()` wording must not be used as Phase 6 policy.
+
+**Rights enforcement gap:** cinematic `controller.js` sends `line.voice` and configured cues directly to `createCinematicAudio()`, whose `play(cue)` does not perform the catalogue's distribution-rights check. Existing WAV cue provenance is documented, but future voices/music cannot rely solely on the catalogue gate. A unified verified asset manifest/ingestion rule is needed before enabling any additional recordings. This is a code-path finding, not proof that unauthorized audio was heard during this audit. Existing video media require their own rights review before any soundtrack reuse; no media is authorized merely by user possession or appearance in `public/`.
+
+**Bhairava assistant — partial contextual presentation.** `StoryJournal.jsx`, `storyProgress.js`, `storyBriefing.js`, objectives, rewards and narrative cues provide selected mission context/scouting replies. Bujji's follower/combat assistance is not a full conversational Bhairava assistant. No complete progress-derived completion conversation, validated every-tenth recap or original voiced response system was established. The story log also has stale ten-prototype/ninety-planned explanatory copy. Use current stores and implemented missions; do not invent completion or random conversations. A deterministic contextual assistant can satisfy initial guidance without a network AI/voice service.
+
+**Mission music, boss music and background soundtrack — missing.** No dedicated soundtrack or per-mission/boss music files/controller were found under `public/audio`; that directory has five playable audio files plus one README, totaling about 0.66 MiB. Cinematic channels supporting a `music` label are infrastructure, not implemented music content.
+
+## Assets and licensing dependencies
+
+Required world production: authored regional layout and modular architecture kits; near-camera façade/ground/ghat/shoreline detail; region-specific PBR maps/LOD/collision proxies; original or licensed civilians/clothes/props/vehicles; environmental interaction staging; restrained weather/sky assets. The `phase54f-authored` folder has 13 files / 76.91 MiB, including `street-core.glb` and material maps. Presence does not prove active integration or approved quality.
+
+Existing notices identify original preview geometry, reused Poly Haven CC0 surfaces/HDR and MakeHuman-derived civilians with CMU motion attribution (`public/environment/*/ASSET-CREDITS*`, revision `ASSETS_LICENSE.txt`). These local notices are leads for per-asset verification, not a fresh legal clearance. Check exact source versions, embedded textures, motion terms and attribution requirements before redistribution.
+
+Required audio: region ambience layers, footstep/contact families, combat/boss telegraphs and impacts, UI/interaction cues, original Telugu scripts and performances, mission/boss loops/stems and transitions. Maintain a manifest with asset ID, creator/source, original/license/permission evidence, distribution scope, attribution, language/speaker, codec/duration and hash. Obtain written performer/composer permission covering game distribution. User-supplied files still need rights evidence. Generated material must be labelled accurately and cannot be described as licensed without documentation. Do not imitate a real actor. Missing rights/assets remain a declared dependency; silence/subtitles are valid fallback, not voiced completion.
+
+## Technical and performance risks
+
+Phase 5 conditional closure is preserved. Latest short samples are reused, not rerun:
+
+- Desktop 1920×1080 buffers: two 45-second idle exploration samples, 29.94/30.00 FPS, median 34.6 ms each, p95 35.1/35.2, p99 36.1/35.6, maxima 120.0/38.1; one >100-ms gap over 90 seconds.
+- Portrait emulation: CSS 430×932, measured buffer 860×1864, two 45-second near-guard blocking samples, 91.06/92.50 average FPS, median 7.1, p95 25.7/25.8, p99 41.7/33.3, maxima 174.1/142.8; **47 >100-ms gaps over 90 seconds**. This is recurring gameplay stutter despite high average FPS; physical mobile performance is unavailable.
+- Default natural ending: prepared bounds application 0.3 ms, zero actor full-vertex scans; 183.6-ms transition gap remains. Retain verified bounds preparation and shader warm-up.
+- Historical Mission 20 renderer 442.1 ms / interval 455.6 ms and earlier multi-second incidents remain unresolved; one later 23.98-second duel max 36.9 ms does not prove them fixed. RAM pressure is a documented risk, not established causation for every stall.
+
+These render-cadence observations are not presented-frame or input-latency measurements. Do not substitute viewport size for drawing-buffer verification. `GameCanvas.jsx` has quality-dependent PixelBudget logic; future mobile checks must record actual buffer/DPR instead of assuming old diagnostic dimensions reproduce production policy.
+
+New crowds/skinning, lights/shadows, large textures, synchronous GLTF normalization, material compile, audio decode and unbounded caches can consume the same limited 8-GB RAM / 4-GB VRAM budget. A 55–77-MiB on-disk asset set can occupy much more decoded CPU/GPU memory. Region streaming/LOD and voice limits need measurement; speculative shadow/AI/resolution reductions are not authorized. Audio autoplay restrictions, tab suspension, load failures, output-device behavior and two playback backends are compatibility risks. No current performance headroom for a full three-city expansion is established.
+
+## Recommended order and effort
+
+Estimates are engineering/content work hours, not elapsed autonomous runtime or promises. They assume no new campaign missions and timely asset/rights delivery. Each output needs review before expanding.
+
+1. **Acceptance baseline and asset/rights inventory: 12–20 hours.** Freeze current fallback, protected manifest and disposable save fixtures; camera-matched world/audio inventory and regional target briefs. Do not rerun historical profiling without a specific new question.
+2. **Audio ownership/manifest extension: 24–40 hours.** Extend current manager with verified asset lookup, channel gains, bounded voice/cache lifecycle, pause/retry/cancel and streaming policies. First test with existing documented originals; no mandatory new dependency.
+3. **One Kashi playable slice: 60–100 hours.** Improve composition/near-camera assets and a bounded exploration loop, connect interactions and ambience, measure incrementally. Keep opt-in and preserve default. This precedes broad regional replacement.
+4. **Shambhala playable slice: 70–120 hours; Complex slice: 70–120 hours.** Distinct layouts/material identities and interaction staging using current routes; preview assets alone do not fulfill these workstreams. No new campaign chapters.
+5. **Shared interaction/weather/atmosphere layer: 24–48 hours.** Reuse pause/game clock/colliders; restrained opt-in effects with measured budgets, including sound transitions. Avoid unnecessary simulation systems.
+6. **Environmental/combat sound production and integration: 40–72 hours.** Author/license, edit and integrate event coverage; no change to combat contracts. External recording/editing time may exceed this.
+7. **Contextual assistant/Telugu script/voice integration: 40–72 hours.** Ground replies in actual progress, subtitle fallback, interruptions and recaps for existing encounters. Performer casting/recording/approval adds approximately 1–3 calendar weeks depending on availability; no voice availability assumed.
+8. **Mission/boss soundtrack implementation: 32–56 hours.** Original/licensed cues, phase transitions and ducking. Composer/rights delivery may add 2–6+ calendar weeks and is not included as guaranteed labour.
+9. **Combined regression, performance and visual review: 32–56 hours.** Test affected existing routes, representative bosses, default/opt-in, desktop/portrait/landscape and disposable persistence.
+
+Total approximately **504–804 work hours**, roughly **13–21 full-time work weeks at 40 hours/week**, before external rights/art approval delays. Parallel asset production could reduce calendar time, but no staffing is assumed or authorized here. Three reviewable slices are not a complete open world or a 100-mission campaign. Full bespoke AAA art would require a separate production estimate after approved slices. A first bounded Kashi+audio-foundation milestone is smaller than this total; select that milestone explicitly before implementation.
+
+## Proposed measurable acceptance gates
+
+These are proposals for approval, not claims of passing:
+
+- World: each regional slice has a continuous, navigable authored layout with representative foreground/midground/skyline views, at least two working environmental interactions and distinct regional material/lighting identity. Compare identical playable camera positions against approved reference; no concept art as proof. Preserve mission routes, player silhouette and camera collision; no placeholders declared finished.
+- Preservation: all 47 protected hashes match before/after; 14 paused campaign copies remain unchanged; no mission expansion or save-schema changes. Personal data is not opened in a writing app. Use disposable profiles for completion/replay/restart and verify exactly-once rewards. Original fallback remains available; Kashi stays opt-in until separately approved.
+- Audio: every enabled asset has documented provenance/distribution permission; zero unauthorized actor imitation/movie audio, zero missing enabled cue URLs. Master/category controls, pause/resume, skip, cancellation, retry, repeated playback and return-to-menu leave no orphan loops or duplicate voices. Subtitles work with unavailable/muted voices. Test at least 20 repeated transition cycles; node/media counts return to baseline after disposal.
+- Assistant: responses demonstrably use current objective, actual completion/rewards and next implemented unlock; no invented progress or access to unimplemented missions. Validate first completion, replay and tenth-mission recap with fixtures. Original Telugu text gets fluent-speaker review; missing recordings are explicitly marked unvoiced.
+- Performance: maintain 1920×1080/approximately 30-FPS desktop target; record actual buffers, CSS size/DPR, build, power, hardware, observer and loading conditions. At least three matched 120-second exploration/combat samples per changed slice, plus loading/ending cycles; publish average FPS, median/p95/p99/max and every >100-ms gap. Initial targets: p95 ≤40 ms, p99 ≤50 ms and no new recurring >100-ms gameplay pattern or unexplained >250-ms active-play stalls. These are proposed slice gates, not retroactive Phase 5 rejection criteria. Compare changed areas against matched baseline; explicitly report unchanged inherited portrait stutters. Do not certify performance by average FPS alone.
+- Resources: record CPU/GPU/RAM/VRAM where supported, asset download/decode and first-ready timings. Ten replay/region cycles must show no monotonic retained-resource growth; investigate >10% post-warm-up retained memory increase. Record loading separately; budget negotiation follows first measured slice rather than inventing precise headroom.
+- Compatibility: desktop keyboard and emulated portrait/landscape movement, combat, interaction, all HUD modes, pause/exit, cinematic restoration and persistence. Physical Android/iOS and listening-device tests remain NOT TESTED until hardware is available. Build/lint pass with existing warnings separated. Acceptance requires visual and audible review, not build success alone.
+
+## Preservation and stop status
+
+Fresh read-only verification: **47/47 protected hashes match** the latest bounds-correction integrity manifest. Source remains at the accepted targeted-fix state; no production edits, assets, saves or configuration changes were made. No browser profile was launched and no personal-save contents were accessed for this audit; no new independent historical save-integrity claim is made. No test server or diagnostic process was started.
+
+Only this requested report was created. Phase 5 closure is preserved; Phase 6 implementation awaits explicit approval. No Phase 7 or other phase began.

@@ -1,0 +1,24 @@
+Bhairava free rig candidate — Phase 2, NOT final visual acceptance
+
+Generated locally with Ara 3D Gen: https://github.com/olatunde85/3d-gen
+Prepared assets: https://ara3dgen.com/assets/
+Character parameters: tools/bhairava-character.params.json
+Fitted armor customization: tools/customize-bhairava-generator.mjs
+Binary compaction: tools/compact-character.mjs
+
+Underlying MakeHuman character data is CC0. See bhairava-ASSETS-LICENSE.txt
+for the original asset and motion-capture terms and CMU acknowledgement.
+The exporter source is MIT licensed; it is not bundled into the game.
+No paid generation service was used for this mesh.
+
+This model is an adapted anatomical base, not a scan or an official actor/model
+asset. The third export uses the authored short04 hair and short beard, revised
+anatomical proportions and face parameters, a continuous fitted skinned cuirass,
+lower armor lames, shoulder protection, leather gloves and bracers. The runtime
+weapon uses a tapered blade aligned with the authored WeaponR +Y socket.
+Facial likeness, natural hair, costume detail and surface wear still need
+further artwork and visual review against the user's reference. This remains
+a candidate, not final acceptance or a claim of cinematic realism.
+
+The export contains a skin and seven animation clips. Runtime movement and
+combat remain governed by the existing Player controller and collision capsule.

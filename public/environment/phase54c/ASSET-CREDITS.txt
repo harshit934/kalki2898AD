@@ -1,0 +1,8 @@
+Phase5.4C opt-in Kashi district study, original deterministic geometry authored for this project.
+Generator and uncompressed editable geometry: phase5/phase54c-20261113-prototype/.
+Runtime asset: ghat-prototype-v2-draco.glb; three architectural LODs, merged material batches.
+Compression: existing draco3d1.5.9; existing local Apache2Draco decoder; no installation.
+Existing PolyHaven old_sandstone_02 CC0 maps and venice_sunset CC0 HDR are reused without alteration.
+Original in-world typography/notice is rendered locally; no movie image, mesh, audio or footage is included.
+Scenic figures and ferry are original first-pass prototypes, not finished realistic characters or interactive NPCs.
+This does not clear rights for legacy character/movie media elsewhere in the existing project.

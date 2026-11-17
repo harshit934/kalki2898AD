@@ -1,0 +1,46 @@
+import assert from 'node:assert/strict'
+import R from '@dimforge/rapier3d-compat'
+import { cameraClearance, CAMERA_HIGH_LIFT, cameraEscapeOffsets } from '../src/game/player/cameraCollision.js'
+await R.init()
+const world = new R.World({ x: 0, y: 0, z: 0 })
+const pivot = { x: 0, y: 1.3, z: 0 }
+const normal = { x: 1.2, y: 2.45, z: 4.15 }
+const high = { x: 0, y: 2.45 + CAMERA_HIGH_LIFT, z: 4.15 }
+const actor = world.createRigidBody(R.RigidBodyDesc.fixed().setTranslation(0, 1.3, 0))
+actor.userData = { cameraActor: true }
+world.createCollider(R.ColliderDesc.ball(0.7).setCollisionGroups(0x00020001), actor)
+const sensor = world.createRigidBody(R.RigidBodyDesc.fixed().setTranslation(0.5, 1.8, 2))
+world.createCollider(R.ColliderDesc.ball(1).setSensor(true), sensor)
+world.step()
+assert.equal(cameraClearance(world, R, pivot, normal), 1, 'overlapping actor and sensor do not collapse camera')
+const obstacle = world.createRigidBody(R.RigidBodyDesc.fixed().setTranslation(0, 1.7, 2))
+world.createCollider(R.ColliderDesc.cuboid(2, 0.6, 0.2), obstacle)
+world.step()
+const blocked = cameraClearance(world, R, pivot, normal, undefined, undefined, 0.45)
+const raised = cameraClearance(world, R, pivot, high, undefined, undefined, 0.45)
+assert.ok(blocked > 0 && blocked < 0.8, 'solid wall blocks normal camera')
+assert.ok(raised > blocked + 0.15, 'elevated candidate clears obstruction')
+world.removeRigidBody(obstacle)
+const nearWall = world.createRigidBody(R.RigidBodyDesc.fixed().setTranslation(0, 2, 0.85))
+world.createCollider(R.ColliderDesc.cuboid(5, 2, 0.2), nearWall)
+world.step()
+const escapes = cameraEscapeOffsets(4.15, 1.2).map(([x, lift, z]) => cameraClearance(world, R, pivot,
+  { x, y: 2.45 + lift, z }, undefined, undefined, 0.45))
+assert.ok(escapes.slice(0, 5).every((fraction) => fraction < 0.5), 'near wall blocks backwards/high candidates')
+assert.ok(escapes.slice(-2).some((fraction) => fraction === 1), 'side orbit retains third-person distance')
+world.free()
+const glassWorld = new R.World({ x: 0, y: 0, z: 0 })
+const glassBody = glassWorld.createRigidBody(R.RigidBodyDesc.fixed().setTranslation(0, 0, 2))
+const glassCollider = glassWorld.createCollider(R.ColliderDesc.cuboid(2, 2, 0.5)
+  .setTranslation(0, 2, 0).setCollisionGroups(0x00040004), glassBody)
+glassWorld.step()
+const visibleGlass = cameraClearance(glassWorld, R, pivot, normal)
+assert.ok(visibleGlass < 0.8, 'visible formation keeps its camera volume')
+glassCollider.setEnabled(false)
+glassWorld.step()
+assert.equal(cameraClearance(glassWorld, R, pivot, normal), 1, 'hidden formation cannot zoom camera')
+glassCollider.setEnabled(true)
+glassWorld.step()
+assert.ok(cameraClearance(glassWorld, R, pivot, normal) < 0.8, 'visible formation restores camera protection')
+glassWorld.free()
+console.log(JSON.stringify({ sensorAndActor: 'PASS', wall: 'PASS', elevatedCandidate: 'PASS', nearWallSideOrbit: 'PASS', hiddenGlass: 'PASS', blocked, raised }, null, 2))

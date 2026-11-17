@@ -1,0 +1,15 @@
+Phase 5.3.1 original corrective environment assets
+
+riverbank-v1.glb: original modeled shoreline, terrain, opposite ghats and distant
+architecture. Generator and editable Blender source are retained under
+phase5/phase531-evidence/. No protected file or film mesh was opened by the generator.
+
+Runtime rubble geometry and weathering are original procedural project code.
+Stone color, normal, roughness and AO surfaces reuse the existing Poly Haven
+old_sandstone_02 maps (CC0); source attribution is retained in
+public/environment/kashi/ASSET-CREDITS.txt. Existing Google Draco decoder license
+is retained in public/environment/kashi/draco/LICENSE.txt.
+
+The supplied gameplay recording and its diagnostic stills are private review
+evidence only. They are not imported into public assets or distributed as game
+content. This credit does not clear rights to unchanged legacy media or characters.
