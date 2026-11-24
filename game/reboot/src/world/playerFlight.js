@@ -27,7 +27,7 @@ export function createPlayerFlight({host,signal,ownerId,player,controls,worldCon
  requireCondition(!host.scene.getObjectByName(PLAYER_SKIMMER_ID),'DUPLICATE_PLAYER_VEHICLE','Only one exploration skimmer may exist')
  const root=new Group();root.name=PLAYER_SKIMMER_ID;root.userData={ownerId,role:'player-flight-prototype'}
  let geometry,material,padGeometry,padMaterial,body=null,collider=null,controller=null,keyboard=null,cameraLease=null,stop=null,closed=false,releaseFailure=null,state='parked',message='',yaw=Math.PI,landHeld=false
- let input={x:0,y:0,up:false,down:false},pendingTakeoff=false,position=new Vector3(162,.6475,59),velocity=new Vector3(),turn=0,landingPad=null
+ let input={x:0,y:0,up:false,down:false},pendingTakeoff=false,takeoffBaseY=0,position=new Vector3(162,.6475,59),velocity=new Vector3(),turn=0,landingPad=null
  const cameraPosition=new Vector3(),cameraTarget=new Vector3(),forward=new Vector3(),desiredCamera=new Vector3(),desiredLook=new Vector3()
  const occupied=()=>['landed','taking-off','flying','landing','faulted'].includes(state)
  const live=()=>requireCondition(!closed&&!signal.aborted,'SESSION_CANCELLED','Exploration vehicle released')
@@ -102,7 +102,7 @@ export function createPlayerFlight({host,signal,ownerId,player,controls,worldCon
    position.copy(body.translation())
    if(state==='flying'&&landHeld&&!input.up){const ground=groundAt(position.x,position.z);if(ground!==null&&position.y-(ground+.84)<=3)requestLanding()}
    const freshTakeoff=pendingTakeoff;pendingTakeoff=false
-   if(state==='landed'&&(input.up||freshTakeoff)){state='taking-off';landingPad=null}
+   if(state==='landed'&&(input.up||freshTakeoff)){state='taking-off';takeoffBaseY=position.y;landingPad=null}
    if(state==='landing'&&input.up){state='flying';landingPad=null}
    turn+=(input.x*1.3-turn)*(1-Math.exp(-delta*6));yaw-=turn*delta
    forward.set(Math.sin(yaw),0,Math.cos(yaw))
@@ -122,7 +122,7 @@ export function createPlayerFlight({host,signal,ownerId,player,controls,worldCon
    for(const actor of traffic){const p=new Vector3(...actor.position);if(next.distanceTo(p)<8&&next.distanceTo(p)<position.distanceTo(p)){next.copy(position);velocity.set(0,0,0);message='Holding for ambient traffic';break}}
    controller.computeColliderMovement(collider,{x:next.x-position.x,y:next.y-position.y,z:next.z-position.z},rapier.QueryFilterFlags.EXCLUDE_SENSORS,undefined,c=>c.handle!==collider.handle)
    const move=controller.computedMovement();position.add(new Vector3(move.x,move.y,move.z));body.setNextKinematicTranslation(position);root.children[0].position.copy(position);root.children[0].rotation.set(0,yaw,clamp(-turn*.07,-.1,.1))
-   if(state==='taking-off'&&position.y>2.8)state='flying'
+   if(state==='taking-off'&&position.y-takeoffBaseY>=2.2)state='flying'
    if(state==='landing'&&Math.hypot(position.x-landingPad.position[0],position.z-landingPad.position[2])<.15&&Math.abs(position.y-(landingPad.position[1]+.84))<.065){state='landed';velocity.set(0,0,0);message='Landed. E to dismount | Space to take off'}
    desiredCamera.copy(position).addScaledVector(forward,-8);desiredCamera.y+=3.8;desiredLook.copy(position).addScaledVector(forward,2);desiredLook.y+=.5
    const origin=position.clone();origin.y+=.8
@@ -137,10 +137,10 @@ export function createPlayerFlight({host,signal,ownerId,player,controls,worldCon
   if(action==='exit'){requireCondition(occupied(),'CRAFT_NOT_OCCUPIED','Not driving');requireCondition(dismount(),'CRAFT_EXIT_BLOCKED','No clear exit');return {accepted:true}}
   requireCondition(!occupied(),'VEHICLE_OCCUPIED','Exit before summoning or dismissing');
   if(action==='dismiss'){personal.commit({locationId,summoned:false,position:position.toArray(),yaw});root.children[0].visible=false;onChange();return {accepted:true}}
-  requireCondition(action==='summon','INVALID_CRAFT_ACTION','Unknown vehicle action');requireCondition(!root.children[0].visible,'CRAFT_ALREADY_SUMMONED','Personal skimmer already present');
-  const p=player.body.translation(),candidates=[[p.x+6,p.y+2,p.z],[p.x-6,p.y+2,p.z],[p.x,p.y+2,p.z+6],...pads.map(pad=>[...pad.position])];let site
+  requireCondition(action==='summon','INVALID_CRAFT_ACTION','Unknown vehicle action');
+  const p=player.body.translation(),candidates=[[p.x+6,p.y+2,p.z],[p.x-6,p.y+2,p.z],[p.x,p.y+2,p.z+6],[p.x,p.y+2,p.z-6]];let site
   for(const at of candidates){site=landingSite({x:at[0],y:at[1]+2,z:at[2]});if(site)break}
-  requireCondition(site,'CRAFT_SPAWN_BLOCKED','Find a clear broad landing area');const next=[site.position[0],site.position[1]+.84,site.position[2]];personal.commit({locationId,summoned:true,position:next,yaw});position.set(...next);root.children[0].position.copy(position);root.children[0].visible=true;setMessage('Personal skimmer summoned. Approach and press E.');return {accepted:true}
+  requireCondition(site,'CRAFT_SPAWN_BLOCKED','Find a clear broad landing area');const next=[site.position[0],site.position[1]+.84,site.position[2]];personal.commit({locationId,summoned:true,position:next,yaw});position.set(...next);root.children[0].position.copy(position);root.children[0].visible=true;setMessage('Personal skimmer recalled beside you. Approach and press E.');return {accepted:true}
  }
  function status(){
   live();return {mode:state,position:position.toArray(),velocity:velocity.toArray(),yaw,occupied:occupied(),prompt:occupied()?'Exit skimmer':canBoard()?'Board skimmer':null,message:occupied()?(message===FLIGHT_HINT?message:message+' | '+FLIGHT_HINT):canBoard()?'E to board the sky courier. '+message:''}

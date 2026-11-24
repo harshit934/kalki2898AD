@@ -18,11 +18,11 @@ import {renderToStaticMarkup} from 'react-dom/server'
 await RAPIER.init()
 function storage(initial=null){const data=new Map(initial===null?[]:[[CRAFT_KEY,initial]]);return {getItem:k=>data.get(k)??null,setItem:(k,v)=>data.set(k,v)}}
 function key(target,type,value){const e=new Event(type,{cancelable:true});Object.defineProperties(e,{key:{value},repeat:{value:false}});target.dispatchEvent(e)}
-function fixture(locationId){
+function fixture(locationId,ground=0){
  const abort=new AbortController(),world=new RAPIER.World({x:0,y:-19,z:0}),scene=new Scene(),camera=new PerspectiveCamera(),target=new EventTarget(),bounds=CRAFT_LOCATIONS[locationId],frames=new Set(),after=new Set(),errors=[]
  camera.position.set(0,5,20)
- const origin=locationId==='kashi'?[180,0,60]:[0,0,10]
- const floor=world.createRigidBody(RAPIER.RigidBodyDesc.fixed());world.createCollider(RAPIER.ColliderDesc.cuboid((bounds.maxX-bounds.minX)/2,.2,(bounds.maxZ-bounds.minZ)/2).setTranslation((bounds.maxX+bounds.minX)/2,-.2,(bounds.maxZ+bounds.minZ)/2),floor)
+ const origin=locationId==='kashi'?[180,ground,60]:[0,ground,10]
+ const floor=world.createRigidBody(RAPIER.RigidBodyDesc.fixed());world.createCollider(RAPIER.ColliderDesc.cuboid((bounds.maxX-bounds.minX)/2,.2,(bounds.maxZ-bounds.minZ)/2).setTranslation((bounds.maxX+bounds.minX)/2,ground-.2,(bounds.maxZ+bounds.minZ)/2),floor)
  const body=world.createRigidBody(RAPIER.RigidBodyDesc.kinematicPositionBased().setTranslation(...origin));world.createCollider(RAPIER.ColliderDesc.capsule(.55,.34).setTranslation(0,.89,0),body)
  const player={body,object:new Group(),setActive(v){this.active=v}},controls={pause(){this.paused=true},resume(){this.paused=false}},host={world,rapier:RAPIER,scene,camera,renderer:{domElement:{ownerDocument:{defaultView:target}}},subscribeFrame(fn){frames.add(fn);return()=>frames.delete(fn)},subscribeAfterPhysics(fn){after.add(fn);return()=>after.delete(fn)}}
  const store=storage(),personal=createPersonalCraft({storage:store}),flight=createPlayerFlight({host,signal:abort.signal,ownerId:'test-'+locationId,player,controls,worldContent:{locationId},personal,onError:e=>errors.push(e)})
@@ -85,3 +85,11 @@ test('weapon shop only opens inside House 01, closes, and cleans up',()=>{
  const f=fixture('kashi');let opens=0,closes=0;const shop=createWeaponShop({host:f.host,signal:f.abort.signal,player:f.player,canOpen:()=>true,onOpen:()=>opens++,onClose:()=>closes++})
  try{assert.throws(()=>shop.open(),e=>e.code==='SHOP_OUT_OF_RANGE');const [x,y,z]=WEAPON_SHOP.counter;f.player.body.setTranslation({x,y,z},true);f.step();assert.equal(shop.nearby(),true);shop.open();assert.equal(shop.status().open,true);assert.equal(opens,1);assert.equal(shop.close(),true);assert.equal(closes,1);shop.release();assert.equal(f.scene.getObjectByName('bhairava-weapon-shop'),undefined)}finally{shop.release();f.release()}
 })
+
+for(const [id,ground]of [['kashi',6],['shambala',12],['complex',-8]])test(id+': parked skimmer recalls beside player and quick takeoff uses local surface height',()=>{
+ const f=fixture(id,ground)
+ try{f.flight.personalAction('summon');const before=[...f.flight.status().position];const p=f.player.body.translation();f.player.body.setTranslation({x:p.x+20,y:ground,z:p.z},true);f.step();f.flight.personalAction('summon');const recalled=f.flight.status().position;assert.ok(Math.abs(recalled[0]-before[0])>10);assert.ok(Math.hypot(recalled[0]-f.player.body.translation().x,recalled[2]-f.player.body.translation().z)<=7);assert.deepEqual(f.personal.snapshot().position,recalled);f.player.body.setTranslation({x:recalled[0]-3,y:ground,z:recalled[2]},true);f.step();f.flight.personalAction('enter');key(f.target,'keydown',' ');key(f.target,'keyup',' ');f.step(90);assert.equal(f.flight.status().mode,'flying');assert.ok(f.flight.status().position[1]>recalled[1]+2);assert.ok(f.flight.status().position[1]<recalled[1]+3.1);assert.throws(()=>f.flight.personalAction('summon'),{code:'VEHICLE_OCCUPIED'})}finally{f.release()}
+})
+test('recall save failure preserves the existing parked craft and wallet-independent state',()=>{const f=fixture('kashi');try{f.flight.personalAction('summon');const before=f.flight.status().position,saved=f.personal.snapshot();const p=f.player.body.translation();f.player.body.setTranslation({x:p.x+20,y:p.y,z:p.z},true);f.step();const original=f.store.setItem;f.store.setItem=()=>{throw Error('disk full')};assert.throws(()=>f.flight.personalAction('summon'),/disk full/);assert.deepEqual(f.flight.status().position,before);assert.deepEqual(f.personal.snapshot().position,saved.position);assert.equal(f.personal.snapshot().yaw,saved.yaw);assert.equal(f.personal.snapshot().error,'disk full');f.store.setItem=original}finally{f.release()}})
+
+test('blocked recall does not discard the original parked craft',()=>{const f=fixture('kashi');try{f.flight.personalAction('summon');const before=f.flight.status().position,saved=f.store.getItem(CRAFT_KEY),fixed=[];f.world.forEachRigidBody(b=>{if(b.isFixed())fixed.push(b)});for(const b of fixed)f.world.removeRigidBody(b);f.step();assert.throws(()=>f.flight.personalAction('summon'),{code:'CRAFT_SPAWN_BLOCKED'});assert.deepEqual(f.flight.status().position,before);assert.equal(f.store.getItem(CRAFT_KEY),saved);assert.equal(f.flight.root.children[0].visible,true)}finally{f.release()}})
