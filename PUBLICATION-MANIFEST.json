@@ -440,8 +440,8 @@
     },
     {
       "path": "game/reboot/src/gameplay/foundationHost.js",
-      "bytes": 22556,
-      "sha256": "351bcdae6b17971ea7bec615b7628a6bf361e4e5325d363774f2b2f3c522388d"
+      "bytes": 24988,
+      "sha256": "e63316375859fd3f8f01b071d38c58b2334398dfc977c751bd1302e244017646"
     },
     {
       "path": "game/reboot/src/gameplay/frameHost.js",
@@ -500,8 +500,8 @@
     },
     {
       "path": "game/reboot/src/gameplay/sessionAdapter.js",
-      "bytes": 12495,
-      "sha256": "1730b627be9bc2cd6f636fda0e00c45563be4e0e8a59cc8879e8ded7426f12a8"
+      "bytes": 12661,
+      "sha256": "4bbdbbf93f0dd60d4bad50077848d3fe6000ea1be6afe3f36b262990401a1042"
     },
     {
       "path": "game/reboot/src/gameplay/socketWeapon.js",
@@ -535,8 +535,8 @@
     },
     {
       "path": "game/reboot/src/main.jsx",
-      "bytes": 16774,
-      "sha256": "1140af3bafa16a49f8c0611c9cd42574d10a7b48420a962da2d5b4c971eabe93"
+      "bytes": 16870,
+      "sha256": "c34f5532a35ed6617f5d599a331259ea96c0c695817dbb552b8785a10e56b3ec"
     },
     {
       "path": "game/reboot/src/missions/checkpoints.js",
@@ -979,8 +979,8 @@
     },
     {
       "path": "game/reboot/src/world/playerFlight.js",
-      "bytes": 16986,
-      "sha256": "7beb6353d943ad90bbddef9a5cd5fb55a5b86ae6fa5e18514288e47d12eb0c25"
+      "bytes": 17560,
+      "sha256": "d5e34b99e176d8e242236bce35a6b8f3b81074688126ec69f9c370922271bf20"
     },
     {
       "path": "game/reboot/src/world/skimmerLanding.js",
@@ -1194,6 +1194,11 @@
       "path": "vite.config.js",
       "bytes": 830,
       "sha256": "4ce73ebfe9631cd6834cbbdce0164107ecd7e0abbfa1772cd146431b36ea884a"
+    },
+    {
+      "path": "game/reboot/tests/mission-skimmer.test.js",
+      "bytes": 2287,
+      "sha256": "6ca36be39dab0f676a999ac07fad99ec92db4a52d682f8b655af50b42f631c3f"
     }
   ],
   "bytePreservation": "Release paths use -text attributes to preserve verified original byte hashes across Windows/Linux.",
@@ -1222,5 +1227,11 @@
     "renderedGameplay": "NOT TESTED",
     "originalAssets": "Unchanged",
     "personalSaves": "Not accessed; tests use disposable in-memory storage"
+  },
+  "missionSkimmer": {
+    "implementation": "Mission-owned existing personal skimmer with shared controller ownership, pause/reset, living-player guards and cleanup",
+    "nativeVerification": "143/143 full suite; focused lifecycle/boarding-prompt test passed after final prompt integration",
+    "renderedVerification": "PENDING",
+    "progression": "No direct mission evidence or currency mutation"
   }
 }

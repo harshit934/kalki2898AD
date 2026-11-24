@@ -20,13 +20,13 @@ function cameraPose(camera){return {position:camera.position.clone(),target:came
 // Exploration-lease resource. It never owns the persistent world, character
 // asset, campaign data, Bujji or autonomous traffic. An empty parked craft is
 // non-blocking to pedestrians; its full collision hull exists while occupied.
-export function createPlayerFlight({host,signal,ownerId,player,controls,worldContent,onChange=()=>{},onError=()=>{},personal}){
+export function createPlayerFlight({host,signal,ownerId,player,controls,worldContent,onChange=()=>{},onError=()=>{},personal,canOperate=()=>true}){
  const locationId=worldContent?.locationId??'kashi',bounds=CRAFT_LOCATIONS[locationId]??FLIGHT_BOUNDS,pads=locationId==='kashi'?LANDING_PADS:[]
  const {world,rapier,camera}=host,target=host.renderer.domElement.ownerDocument.defaultView
  requireCondition(!signal.aborted&&player?.body&&controls?.pause&&controls?.resume,'FLIGHT_UNAVAILABLE','Live character and exploration controls required')
  requireCondition(!host.scene.getObjectByName(PLAYER_SKIMMER_ID),'DUPLICATE_PLAYER_VEHICLE','Only one exploration skimmer may exist')
  const root=new Group();root.name=PLAYER_SKIMMER_ID;root.userData={ownerId,role:'player-flight-prototype'}
- let geometry,material,padGeometry,padMaterial,body=null,collider=null,controller=null,keyboard=null,cameraLease=null,stop=null,closed=false,releaseFailure=null,state='parked',message='',yaw=Math.PI,landHeld=false
+ let geometry,material,padGeometry,padMaterial,body=null,collider=null,controller=null,keyboard=null,cameraLease=null,stop=null,closed=false,releaseFailure=null,state='parked',flightPaused=false,message='',yaw=Math.PI,landHeld=false
  let flightFrames=0,lastInput=null,lastMove=null
  const diagnostics=host.renderer.domElement.dataset
  function trace(){if(diagnostics){diagnostics.skimmerOwner=ownerId;diagnostics.skimmerFlight=JSON.stringify({mode:state,position:position.toArray(),input,pendingTakeoff,frames:flightFrames,lastInput,lastMove})}}
@@ -53,7 +53,7 @@ export function createPlayerFlight({host,signal,ownerId,player,controls,worldCon
   }return null
  }
  function cleanFlight(){
-  pendingTakeoff=false
+  pendingTakeoff=false;flightPaused=false
   const errors=[],attempt=fn=>{try{fn()}catch(error){errors.push(error)}}
   const unsubscribe=stop;stop=null;attempt(()=>unsubscribe?.());attempt(()=>keyboard?.release());keyboard=null;attempt(()=>cameraLease?.release());cameraLease=null
   const oldController=controller;controller=null;if(oldController)attempt(()=>world.removeCharacterController(oldController))
@@ -97,9 +97,9 @@ export function createPlayerFlight({host,signal,ownerId,player,controls,worldCon
    return false
   }
  }
- function canBoard(){return root.children[0]?.visible!==false&&!closed&&!signal.aborted&&!occupied()&&Math.hypot(player.body.translation().x-position.x,player.body.translation().z-position.z)<=4&&Math.abs(player.body.translation().y-(position.y-.84))<1}
+ function canBoard(){return canOperate()&&root.children[0]?.visible!==false&&!closed&&!signal.aborted&&!occupied()&&Math.hypot(player.body.translation().x-position.x,player.body.translation().z-position.z)<=4&&Math.abs(player.body.translation().y-(position.y-.84))<1}
  function tick(delta){
-  if(closed||signal.aborted||!body||state==='faulted')return
+  if(closed||signal.aborted||!body||state==='faulted'||flightPaused)return
   try{
    requireCondition(Number.isFinite(delta)&&delta>0&&delta<=.1,'INVALID_FRAME','Bounded flight delta required')
    position.copy(body.translation());flightFrames++
@@ -135,7 +135,7 @@ export function createPlayerFlight({host,signal,ownerId,player,controls,worldCon
   }catch(error){state='faulted';try{keyboard?.pause();const fn=stop;stop=null;fn?.();cameraLease?.pause()}finally{setMessage('Flight stopped safely. Return to the main menu to release this attempt.');onError(error)}}
  }
  function personalAction(action){
-  live();requireCondition(personal?.snapshot().ready,'CRAFT_UNAVAILABLE','Personal skimmer ownership unavailable');
+  live();requireCondition(canOperate(),'CRAFT_CONTROL_UNAVAILABLE','Resume a living player before using the skimmer');requireCondition(personal?.snapshot().ready,'CRAFT_UNAVAILABLE','Personal skimmer ownership unavailable');
   if(action==='enter'){requireCondition(board(),'CRAFT_ENTRY_BLOCKED','Approach a safely parked skimmer to enter');return {accepted:true}}
   if(action==='exit'){requireCondition(occupied(),'CRAFT_NOT_OCCUPIED','Not driving');requireCondition(dismount(),'CRAFT_EXIT_BLOCKED','No clear exit');return {accepted:true}}
   requireCondition(!occupied(),'VEHICLE_OCCUPIED','Exit before summoning or dismissing');
@@ -164,6 +164,8 @@ export function createPlayerFlight({host,signal,ownerId,player,controls,worldCon
   padGeometry=new RingGeometry(2.7,2.9,24);padMaterial=new MeshBasicMaterial({color:'#d7b679',transparent:true,opacity:.8,depthWrite:false})
   for(const pad of pads){const ring=new Mesh(padGeometry,padMaterial);ring.name='landing-pad-'+pad.id;ring.rotation.x=-Math.PI/2;ring.position.set(pad.position[0],pad.position[1]+.012,pad.position[2]);root.add(ring)}
   host.scene.add(root);signal.addEventListener('abort',abort,{once:true});target.addEventListener('kalki-input-reset',resetTakeoff)
-  return {ready:true,root,canBoard,occupied,status,personalAction,interact(){live();return {accepted:occupied()?dismount():board(),message}},release}
+  function pause(){if(!occupied()||flightPaused)return;flightPaused=true;resetTakeoff();input={x:0,y:0,up:false,down:false};velocity.set(0,0,0);keyboard?.pause();cameraLease?.pause()}
+  function resume(){if(!occupied()||!flightPaused||!canOperate())return;cameraLease?.resume();cameraLease?.update(cameraPosition,cameraTarget);keyboard?.resume();flightPaused=false}
+  return {ready:true,root,canBoard,occupied,status,pause,resume,personalAction,interact(){live();return {accepted:occupied()?dismount():board(),message}},release}
  }catch(error){try{release()}catch(cleanup){throw new AggregateError([error,cleanup],'Vehicle preparation and cleanup failed')}throw error}
 }
