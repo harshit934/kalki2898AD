@@ -996,7 +996,7 @@
     {
       "path": "index.html",
       "bytes": 452,
-      "sha256": "53be799158b30afa0d8d13ed1308ba991db720eda173f993f57a9b3c9e9ebe78"
+      "sha256": "3619a2e6ddfd6ad1152ccb88c1eec8120a37492600022539ddcd0901b85425f6"
     },
     {
       "path": "package.json",
@@ -1032,6 +1032,10 @@
       "path": ".gitattributes",
       "bytes": 244,
       "sha256": "747c284a2bb4df6b16966bf359ce5608f58010c83b3a9220ebc66148c904f56b"
+    },
+    {
+      "path": "kl-favicon.svg",
+      "sha256": "b21fd8729f929ed3dcacc707272d3be6fc43313cb691bf1b8a4193fab5bda21d"
     }
   ],
   "bytePreservation": "Release paths use -text attributes to preserve verified original byte hashes across Windows/Linux."
