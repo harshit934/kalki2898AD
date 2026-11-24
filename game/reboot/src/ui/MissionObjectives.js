@@ -1,16 +1,19 @@
 import {createElement as h} from 'react'
+import {missionGuide} from './missionGuide.js'
 
-export default function MissionObjectives({session,objectives=[],checkpoint,activity,onAction,onRetrySave,busy=false}){
+export default function MissionObjectives({session,objectives=[],checkpoint,activity,guidance,flight=false,onAction,onRetrySave,busy=false}){
  if(!session||!['active','suspended'].includes(session.state))return null
+ const guide=missionGuide(session,objectives)
  const required=objectives.filter(o=>o.required!==false),complete=required.filter(o=>session.completedObjectiveIds.includes(o.id)).length,panel=activity?.panel,enabled=session.state==='active'&&session.playerResources.health>0&&!busy&&!activity?.busy
  const button=(label,action,disabled=false)=>h('button',{key:label,type:'button',disabled:!enabled||disabled,onClick:()=>onAction(action)},label)
  return h('div',{className:'mission-objective-system'},
   h('aside',{className:'mission-objective-tracker','aria-label':'Mission objective progress'},
+   guide&&h('section',{'aria-label':'Simple mission guide',className:'simple-mission-guide'},h('small',null,'YOUR GOAL'),h('strong',null,guide.goal),h('p',{'aria-live':'polite'},h('b',null,'Do this next: '),guide.next),guidance?.distance!==null&&guidance?.distance!==undefined&&h('p',null,`${guidance.distance} m ${guidance.direction} · follow streets and entrances`),h('small',null,flight?'Land nearby, press E to leave the skimmer, then press E near the person or object.':guide.hint),h('details',null,h('summary',null,'How to finish this mission'),h('ol',null,...guide.steps.map(s=>h('li',{key:s.label},`${s.done?'✓ ':''}${s.label}`))))),
    h('strong',null,`Objectives ${complete} / ${required.length}`),h('progress',{'aria-label':'Required mission objectives',value:complete,max:Math.max(1,required.length)}),
    h('div',{'aria-live':'polite',className:checkpoint?.status==='error'?'objective-save-error':''},checkpoint?.status==='saving'?'Saving checkpoint…':checkpoint?.status==='saved'?'Checkpoint saved':checkpoint?.status==='error'?'Checkpoint not saved: '+checkpoint.error:'Checkpoint preparing'),
    checkpoint?.status==='error'&&h('button',{type:'button',disabled:busy,onClick:onRetrySave},'Retry saving'),
    h('details',null,h('summary',null,'Objective journal'),h('ul',null,...objectives.map(o=>h('li',{key:o.id},`${session.completedObjectiveIds.includes(o.id)?'✓':session.objectiveStates[o.id]==='failed'?'Failed:':session.objectiveStates[o.id]==='active'?'Active:':'Locked:'} ${o.required===false?'Optional · ':''}${o.label??o.id.replaceAll('-',' ')}`)))),
-   activity&&h('details',{className:'optional-contract',open:true},h('summary',null,`${activity.title} · ${activity.completed}/${activity.total}`),
+   activity&&h('details',{className:'optional-contract'},h('summary',null,`Bonus task (optional): ${activity.title} · ${activity.completed}/${activity.total}`),
     h('small',null,activity.finished?'Contract verified · one-time reward':`Optional contract · ${activity.reward} crystals once`),
     !activity.unlocked&&h('p',null,'Complete the mission briefing to investigate this contract.'),
     activity.next&&h('p',null,activity.next.label+` · ${activity.next.distance} m ${activity.next.direction}`),

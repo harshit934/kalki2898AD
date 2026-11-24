@@ -535,8 +535,8 @@
     },
     {
       "path": "game/reboot/src/main.jsx",
-      "bytes": 17913,
-      "sha256": "f045343f26fbc0b96e4429810c2f8fa956b37c4dbc1c890630cc8a8ba585592f"
+      "bytes": 18029,
+      "sha256": "445e6feefedb604e37d322f59c13f631aaba4e41425a71acf130398006b9e94f"
     },
     {
       "path": "game/reboot/src/missions/checkpoints.js",
@@ -1214,11 +1214,11 @@
     },
     {
       "path": "game/reboot/src/ui/MissionObjectives.js",
-      "sha256": "caea1b12ab6a25e4a2d6f47a7a7c65cb941eeb203b179a10b344b71b3d43e141"
+      "sha256": "0a491156d5c76211d2f1e34fd215a8961f3e992139001ff7b1b20cd468466970"
     },
     {
       "path": "game/reboot/src/ui/missionObjectives.css",
-      "sha256": "416a805dd2d29368fe555bad32e858142681ca285ebe1bfa55bea534623082fa"
+      "sha256": "3b255c2a71888ce58ff1fc99466078828cc9fa69f60435815c94d61bddfb5904"
     },
     {
       "path": "game/reboot/tests/mission-activities.test.js",
@@ -1259,6 +1259,14 @@
     {
       "path": "game/reboot/tests/story-battles.test.js",
       "sha256": "7dd0532886dd1194ff43c0eeafde28bac0521391f8add2c82034ff387e955191"
+    },
+    {
+      "path": "game/reboot/src/ui/missionGuide.js",
+      "sha256": "07eac55578ec1425c5929a5a8f38ffd328c4a0938f1d4feea1907fff16d21746"
+    },
+    {
+      "path": "game/reboot/tests/mission-guide.test.js",
+      "sha256": "759d16da65419d1a77285ee4d84277eb1c3c82bfe9c89428f9ac120f4f5dba91"
     }
   ],
   "bytePreservation": "Release paths use -text attributes to preserve verified original byte hashes across Windows/Linux.",

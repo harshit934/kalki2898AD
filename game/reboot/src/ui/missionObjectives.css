@@ -7,3 +7,5 @@
 .mission-activity-panel{position:absolute;z-index:12;left:50%;top:50%;transform:translate(-50%,-50%);width:min(420px,82vw);max-height:65vh;overflow:auto;box-sizing:border-box;padding:18px;color:#faedca;background:#10201ef7;border:2px solid #bfa258;border-radius:7px;font:14px/1.5 system-ui}
 .mission-activity-panel h2{font-size:18px;margin:0 0 10px}.mission-activity-panel button{display:block;width:100%;margin:8px 0;text-align:left}.mission-activity-panel progress{width:100%;accent-color:#78d5bc}.activity-choice-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:5px}.activity-choice-grid button{text-align:center;padding:7px 2px}.objective-save-error{color:#ffc3a1}
 @media(max-width:520px){.mission-objective-tracker{font-size:11px;max-height:28vh;width:44vw;top:68px}.mission-activity-panel{font-size:13px;padding:12px}}
+
+.simple-mission-guide{padding-bottom:8px;margin-bottom:8px;border-bottom:1px solid #a88c51}.simple-mission-guide>strong{display:block;font-size:14px}.simple-mission-guide>small{display:block;color:#eacb8e}.simple-mission-guide ol{padding-left:18px}.simple-mission-guide li{margin:5px 0}
