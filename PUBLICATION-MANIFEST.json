@@ -891,7 +891,7 @@
     {
       "path": "game/reboot/src/world/locations/shambalaEnvironment.js",
       "bytes": 15565,
-      "sha256": "508a576efe8a92ab9d9e3832e57cf4181a64a23849a54df65580c6e55d4a2b2b"
+      "sha256": "e15ee6de5d8c5f9afa21e0979a8f08c999559d5425ee6b0126cf28c9e39452c5"
     },
     {
       "path": "game/reboot/src/world/locations/shambalaGeometry.js",
@@ -1031,7 +1031,7 @@
     {
       "path": ".gitattributes",
       "bytes": 244,
-      "sha256": "747c284a2bb4df6b16966bf359ce5608f58010c83b3a9220ebc66148c904f56b"
+      "sha256": "bd07b2eb795fdfde7251e2e262790e373a7345173115a62f9dc10e85f0779d68"
     },
     {
       "path": "kl-favicon.svg",
