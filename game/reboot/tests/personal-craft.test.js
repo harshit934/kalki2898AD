@@ -28,6 +28,19 @@ async function fixture(storage){
  f.run(5);return f
 }
 async function takeoff(f){await f.press(' ');f.run(90);f.up(' ');f.run(60);assert.equal(f.explorer.vehicleStatus().mode,'flying')}
+
+test('recalled exploration craft takes off from the rendered roadside failure position',async()=>{
+ const data=new Map(),storage={getItem:k=>data.get(k)??null,setItem:(k,v)=>data.set(k,v)}
+ createPersonalCraft({storage}).commit({locationId:'kashi',summoned:true,position:[160.0142822265625,.6475000381469727,65.13868713378906],yaw:Math.PI})
+ const f=await fixture(storage)
+ try{
+  const craft=f.explorer.vehicleStatus();assert.equal(craft.mode,'parked')
+  const foot={x:craft.position[0],y:craft.position[1]-.84+.055,z:craft.position[2]};f.player.setTranslation(foot,true);f.player.setNextKinematicTranslation(foot);f.world.step()
+  f.explorer.personalVehicle('enter')
+  await takeoff(f)
+  assert.ok(f.explorer.vehicleStatus().position[1]>craft.position[1]+2.2)
+ }finally{await f.release()}
+})
 test('personal craft actual native summon, exclusive drive, exit, persistence and dismiss',async()=>{
  const data=new Map(),storage={getItem:k=>data.get(k)??null,setItem:(k,v)=>data.set(k,v)},f=await fixture(storage)
  try{const mesh=f.scene.getObjectByName(PLAYER_SKIMMER_ID).children[0];assert.equal(mesh.visible,false);f.explorer.personalVehicle('summon');assert.equal(mesh.visible,true);assert.equal(f.explorer.personalVehicle('summon').accepted,true);assert.equal(mesh.visible,true);

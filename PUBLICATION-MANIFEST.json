@@ -980,7 +980,7 @@
     {
       "path": "game/reboot/src/world/playerFlight.js",
       "bytes": 17560,
-      "sha256": "d5e34b99e176d8e242236bce35a6b8f3b81074688126ec69f9c370922271bf20"
+      "sha256": "79f7eba24c05f5e04560dacb9e0ed02ad64acb44b1a73de0c87faf9a4737a261"
     },
     {
       "path": "game/reboot/src/world/skimmerLanding.js",
@@ -1052,7 +1052,7 @@
     },
     {
       "path": "game/reboot/tests/personal-craft.test.js",
-      "sha256": "c810ab4d3482b7b947a6f517a433b98456eab1115dc5ca9db4a8070a7c170a9a",
+      "sha256": "061397b66377e02ae8c091ca59393b20a938bc3d0f8d80cfd614901b9539d301",
       "bytes": 6442
     },
     {

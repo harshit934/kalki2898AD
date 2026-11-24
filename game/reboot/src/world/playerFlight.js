@@ -123,7 +123,10 @@ export function createPlayerFlight({host,signal,ownerId,player,controls,worldCon
    if(message==='Holding for ambient traffic')message=FLIGHT_HINT
    const traffic=worldContent?.livingCity?.snapshot().vehicles??[]
    for(const actor of traffic){const p=new Vector3(...actor.position);if(next.distanceTo(p)<8&&next.distanceTo(p)<position.distanceTo(p)){next.copy(position);velocity.set(0,0,0);message='Holding for ambient traffic';break}}
-   controller.computeColliderMovement(collider,{x:next.x-position.x,y:next.y-position.y,z:next.z-position.z},rapier.QueryFilterFlags.EXCLUDE_SENSORS,undefined,c=>c.handle!==collider.handle)
+   // The parked hull is non-solid, so boarding can place the driver inside it.
+   // Exclude that owned driver explicitly from shape casts after hiding it;
+   // Rapier may retain its collider in queries despite the disabled body.
+   controller.computeColliderMovement(collider,{x:next.x-position.x,y:next.y-position.y,z:next.z-position.z},rapier.QueryFilterFlags.EXCLUDE_SENSORS,undefined,c=>c.handle!==collider.handle&&c.parent()?.handle!==player.body.handle)
    const move=controller.computedMovement();lastMove={requested:{x:next.x-position.x,y:next.y-position.y,z:next.z-position.z},actual:{x:move.x,y:move.y,z:move.z}};position.add(new Vector3(move.x,move.y,move.z));body.setNextKinematicTranslation(position);root.children[0].position.copy(position);root.children[0].rotation.set(0,yaw,clamp(-turn*.07,-.1,.1))
    if(state==='taking-off'&&position.y-takeoffBaseY>=2.2)state='flying'
    if(state==='landing'&&Math.hypot(position.x-landingPad.position[0],position.z-landingPad.position[2])<.15&&Math.abs(position.y-(landingPad.position[1]+.84))<.065){state='landed';velocity.set(0,0,0);message='Landed. E to dismount | Space to take off'}
