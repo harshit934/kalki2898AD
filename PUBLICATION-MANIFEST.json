@@ -620,8 +620,8 @@
     },
     {
       "path": "game/reboot/src/ui/EquipmentPanel.js",
-      "bytes": 5773,
-      "sha256": "45dd1b27872c2873aa0692002124a591acf2b78841bbfdfdefa9df7ac0467a81"
+      "bytes": 5889,
+      "sha256": "bf61dfb56f960dfc4ed8642e2716879e1f08b80125ce2e20cd3bb7544e7b71f3"
     },
     {
       "path": "game/reboot/src/ui/foundationRoot.js",
@@ -1302,7 +1302,7 @@
     },
     {
       "path": "game/reboot/src/world/playerBike.js",
-      "sha256": "c32d4428539907c278e14ffe690f7aa098363876b83d138c8dcb2b48af06812a"
+      "sha256": "4d922dc15b63691246efceb092b0a70bffec1d98f6b0d48fe0afe077321cef49"
     },
     {
       "path": "game/reboot/src/world/vehicleModels.js",
@@ -1314,7 +1314,7 @@
     },
     {
       "path": "game/reboot/tests/bike-native.test.js",
-      "sha256": "82d0330adb82d0a612f8c31ba78a9de48f281700e159f1be3522b2aaa811aa35"
+      "sha256": "727b7e9f806bfa029255aac5b8d29e0cb60c7ff8c503cb84957c2231eed3c4f2"
     },
     {
       "path": "game/reboot/tests/bike-ui.test.js",

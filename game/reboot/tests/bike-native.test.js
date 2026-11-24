@@ -1,5 +1,6 @@
 import {CRYSTAL_KEY} from '../src/economy/crystalPolicy.js'
 import {SAVE_KEY} from '../src/persistence/repository.js'
+import {createCrystalWallet} from '../src/economy/crystalWallet.js'
 import test from 'node:test'
 import assert from 'node:assert/strict'
 import {Scene,Group,Bone,PerspectiveCamera,Box3,Vector3} from 'three'
@@ -56,3 +57,15 @@ test('riding parking failure retains last save, avoids retry loops and permits e
 })
 
 test('jet engine exits face opposite the preserved local +Z flight direction',()=>{const jet=createJetModel();try{jet.root.updateMatrixWorld(true);const rim=jet.root.getObjectByName('jet-engine-rim').getWorldPosition(new Vector3());assert.ok(rim.z<0,'Engines must face aft, not forward');}finally{jet.release()}})
+
+test('a nearby wall cannot be bypassed by mounting the motorcycle',async()=>{
+ const reward=await earned(),personal=createPersonalBike({storage:reward.storage,wallet:reward.wallet}),f=native(personal)
+ try{f.bike.action('summon');const at=f.bike.status().position;const wall=f.world.createRigidBody(RAPIER.RigidBodyDesc.fixed().setTranslation(at[0]+1,1,at[2]));f.world.createCollider(RAPIER.ColliderDesc.cuboid(.04,1,3),wall);f.place({x:at[0]+1.8,y:at[1]+.055,z:at[2]});assert.equal(f.bike.canBoard(),false);assert.throws(()=>f.bike.action('enter'),{code:'BIKE_ENTRY_BLOCKED'});assert.equal(f.player.body.isEnabled(),true)
+ }finally{f.release()}
+})
+
+test('wallet lease loss cannot trap an already-earned rider; exit restores walking and preserves ledger bytes',async()=>{
+ const reward=await earned();let allowed=true;const wallet=createCrystalWallet({storage:reward.storage,writeGuard:()=>allowed}),personal=createPersonalBike({storage:reward.storage,wallet}),f=native(personal)
+ try{f.bike.action('summon');const at=f.bike.status().position;f.place({x:at[0],y:at[1]+.05,z:at[2]+1.8});f.bike.action('enter');f.run(40);const bytes=reward.data.get(CRYSTAL_KEY);allowed=false;wallet.reload();assert.equal(wallet.snapshot().ready,false);assert.equal(f.bike.action('exit').accepted,true);f.run(40);assert.equal(f.bike.occupied(),false);assert.equal(f.player.body.isEnabled(),true);assert.equal(reward.data.get(CRYSTAL_KEY),bytes)
+ }finally{f.release()}
+})
