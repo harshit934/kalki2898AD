@@ -11,6 +11,39 @@ import {catalogue} from '../src/campaign/catalogue.js'
 import {registerMission1} from '../src/gameplay/mission1Registration.js'
 import {AudioContextRecorder} from './world-audio-fixture.js'
 await R.init()
+test('Begin Mission preserves other pause owners and rejects a duplicate start during resume',async()=>{
+ const f=await fixture()
+ try{
+  await f.app.startMission('mission-1');await f.settle();await f.app.runtime.suspend('menu');await f.app.runtime.suspend('window-blur')
+  await assert.rejects(f.app.startMission('mission-1'),{code:'SESSION_ACTIVE'})
+  assert.deepEqual(f.app.runtime.snapshot().session.pauseReasons,['menu','window-blur'])
+  await f.app.runtime.resume('window-blur')
+  const first=f.app.startMission('mission-1');await assert.rejects(f.app.startMission('mission-1'),{code:'LOCATION_BUSY'});await first
+  assert.equal(f.app.runtime.snapshot().session.state,'active')
+ }finally{await f.app.release()}
+})
+for(const location of ['kashi','shambala','complex'])test(`${location}: Mission 1 starts fresh and other missions remain unreleased`,async()=>{
+ const f=await fixture()
+ try{
+  await f.app.exploreLocation(location);await f.settle()
+  assert.deepEqual(f.app.campaign.snapshot().missions.filter(m=>m.registered).map(m=>m.id),['mission-1'])
+  await f.app.startMission('mission-1');await f.settle()
+  assert.equal(f.app.runtime.snapshot().session.missionId,'mission-1');assert.equal(f.app.runtime.snapshot().session.state,'active');assert.equal(f.app.locationSnapshot().locationId,'kashi')
+  await assert.rejects(f.app.startMission('mission-2'))
+  assert.equal(f.app.runtime.snapshot().session.missionId,'mission-1')
+ }finally{await f.app.release()}
+})
+test('Begin Mission 1 after returning to main menu resumes its suspended attempt without duplicate owners',async()=>{
+ const f=await fixture()
+ try{
+  await f.app.startMission('mission-1');await f.settle();const first=f.app.runtime.snapshot().session.id
+  await f.app.runtime.suspend('menu');await f.app.closeWorldView()
+  await f.app.startMission('mission-1');await f.settle()
+  assert.equal(f.app.runtime.snapshot().session.state,'active');assert.equal(f.app.runtime.snapshot().session.id,first)
+  assert.equal(f.app.locationSnapshot().loadedLocations,1)
+  assert.equal(f.events.filter(e=>e.error&&!e.error.includes('not yet')).length,0)
+ }finally{await f.app.release()}
+})
 test('failed mission checkpoint write leaves the menu-suspended mission intact instead of opening another world',async()=>{
  const f=await fixture()
  try{

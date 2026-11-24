@@ -486,7 +486,7 @@
     {
       "path": "game/reboot/src/gameplay/travelFoundation.js",
       "bytes": 9701,
-      "sha256": "03895c908fa037035b9e5ce144702f4f7878575f4e58e332f05c2a64f34420ea"
+      "sha256": "4b18216c6ab8ac7147ce1d8000b92aab1feab6c5854f83a09a06ad32b8fd2a37"
     },
     {
       "path": "game/reboot/src/missions/checkpoints.js",
@@ -1115,7 +1115,7 @@
     },
     {
       "path": "game/reboot/tests/phase7b-runtime.test.js",
-      "sha256": "33a4814dc6b89d298ffa7ffc99ed76f186ec370d7978491175dc130b3409dd4b"
+      "sha256": "95568954936f09e0ce5d9c4c02c6c79180d08875a15fff032b72fb0315b8fe56"
     },
     {
       "path": "game/reboot/tests/weapon-shop-house.test.js",
@@ -1163,6 +1163,7 @@
     "scope": "Complex assets, shared outdoor skimmer/Bujji, menu-to-exploration checkpoint handoff, touch flight detection and bounded Space input",
     "baseline": "402b74b6c1739e355ab75ffeb8aa9a31403eb5ab",
     "renderedGameplay": "NOT TESTED; browser control unavailable",
-    "originalAssets": "Copied without alteration; no personal saves used in tests"
+    "originalAssets": "Copied without alteration; no personal saves used in tests",
+    "missionStart": "Begin Mission 1 resumes the same exclusively menu-suspended attempt, preserving other pause owners and duplicate-start guards; no other missions unlocked."
   }
 }
