@@ -441,7 +441,7 @@
     {
       "path": "game/reboot/src/gameplay/foundationHost.js",
       "bytes": 24988,
-      "sha256": "e63316375859fd3f8f01b071d38c58b2334398dfc977c751bd1302e244017646"
+      "sha256": "23593804f687be44e7785b3d3852ee07c36dcf0c070ab1a73c0c057dce38f50b"
     },
     {
       "path": "game/reboot/src/gameplay/frameHost.js",
@@ -990,7 +990,7 @@
     {
       "path": "game/reboot/src/world/story/characterField.js",
       "bytes": 9253,
-      "sha256": "aff3d994ca29616a93b44c7dd826ee40f26f9b4cd7987e9f43387c25904c41b9"
+      "sha256": "9804c9f6a840deaa01e4d78fd0e679671f20dc7284d53ba84c1e7b39c90a9517"
     },
     {
       "path": "game/reboot/src/world/story/characters.js",
@@ -1083,7 +1083,7 @@
     {
       "path": "game/reboot/tests/story-missions.test.js",
       "bytes": 6169,
-      "sha256": "86bde0350531171970fcecda118a0a491975d37d29446437f5a67b70b5160347"
+      "sha256": "2701159fd63e3142a03917a3ed295121f3ed14b2235f703b11b5eb1d6d35cb15"
     },
     {
       "path": "game/reboot/tests/story-native-fixture.js",
