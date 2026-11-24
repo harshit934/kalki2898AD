@@ -1,0 +1,10 @@
+/.gitattributes -text
+/game/** -text
+/index.html -text
+/package.json -text
+/package-lock.json -text
+/vite.config.js -text
+/README.md -text
+/PUBLICATION-MANIFEST.json -text
+/tools/verify-publication.mjs -text
+/.github/workflows/deploy.yml -text

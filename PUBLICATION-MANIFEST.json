@@ -1027,6 +1027,12 @@
       "path": ".github/workflows/deploy.yml",
       "bytes": 975,
       "sha256": "9b61926133537833f5fb5b95f016f47bca739cfce392cf644b2b1f7b1e3ddb98"
+    },
+    {
+      "path": ".gitattributes",
+      "bytes": 244,
+      "sha256": "747c284a2bb4df6b16966bf359ce5608f58010c83b3a9220ebc66148c904f56b"
     }
-  ]
+  ],
+  "bytePreservation": "Release paths use -text attributes to preserve verified original byte hashes across Windows/Linux."
 }
