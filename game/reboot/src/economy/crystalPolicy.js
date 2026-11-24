@@ -1,4 +1,5 @@
 import {ACTIVITY_GRANTS} from '../world/activities/definitions.js'
+import {MISSION_ACTIVITY_GRANTS} from '../content/missionActivities.js'
 import {HOUSE_CRYSTALS} from './kashiHouseCrystals.js'
 export const CRYSTAL_KEY='kalki:phase5-staging:phase5g-crystals:v1'
 // Initial isolated balance tuning, separate from the existing campaign score.
@@ -12,6 +13,7 @@ export const WORLD_CRYSTALS=Object.freeze([
 ].map(row=>Object.freeze({...row,position:Object.freeze(row.position)})))
 export const CRYSTAL_GRANTS=Object.freeze(Object.fromEntries([
  ...Object.entries(ACTIVITY_GRANTS),
+ ...Object.entries(MISSION_ACTIVITY_GRANTS),
  ...WORLD_CRYSTALS.map(c=>['world:'+c.id,{amount:c.amount,label:'Crystal collected'}]),
  ...['crystal-01','crystal-02','crystal-03'].map(id=>['objective:mission-1:'+id,{amount:50,label:'Optional crystal reward'}]),
  ['mission:mission-1:complete',{amount:200,label:'Mission 1 crystal reward'}],

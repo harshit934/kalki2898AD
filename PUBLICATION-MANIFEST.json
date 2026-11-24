@@ -20,7 +20,7 @@
   "files": [
     {
       "path": ".gitattributes",
-      "bytes": 244,
+      "bytes": 282,
       "sha256": "89917d023a7a4570f6ed7b62476a28983a2f536a1634713137c8f87bb54d1d4b"
     },
     {
@@ -325,13 +325,13 @@
     },
     {
       "path": "game/reboot/src/campaign/contracts.js",
-      "bytes": 7950,
-      "sha256": "5b601831b75079d76dfcd40d417cf456c93a03af36e4b7877d8fff184f65b409"
+      "bytes": 8308,
+      "sha256": "a86c745c1e51e4d123ad8ce8fc14cf3b180e76df27dbc981d14e77471bff436f"
     },
     {
       "path": "game/reboot/src/campaign/progress.js",
-      "bytes": 3069,
-      "sha256": "9773e3f238fb2019c0d92e4c6b60185ac3ec4761c1cfb99f5ea3498dd96d5e03"
+      "bytes": 3586,
+      "sha256": "d800f52e6c6da64f46127b4fda9c5b5008c4bfaf6dc2a968a2a3b78ada4a520e"
     },
     {
       "path": "game/reboot/src/campaign/story/definitions.js",
@@ -340,7 +340,7 @@
     },
     {
       "path": "game/reboot/src/campaign/story/foundation.js",
-      "bytes": 4488,
+      "bytes": 4507,
       "sha256": "1f40c9999595a391742daa6e8198731dd4db7063beb46959e094eba6c068fbdc"
     },
     {
@@ -380,8 +380,8 @@
     },
     {
       "path": "game/reboot/src/economy/crystalPolicy.js",
-      "bytes": 1329,
-      "sha256": "06ed75a5776e3981509bec5dff467ee04e2a8d879f1d7b03fdf40aad225b6d7d"
+      "bytes": 1446,
+      "sha256": "7afbc03c09e77e2f07bbe820e244762a3864141cdb6918473ecc9a40cab02b2e"
     },
     {
       "path": "game/reboot/src/economy/crystalVisuals.js",
@@ -400,8 +400,8 @@
     },
     {
       "path": "game/reboot/src/economy/missionCrystalRewards.js",
-      "bytes": 831,
-      "sha256": "6c7bb6f85afcb4b9093d301360b40f3119ae8fc93840b8a03a6ae9cf16d40ce1"
+      "bytes": 1122,
+      "sha256": "5057d1ff6ee7a2e7a428c0257b1480bd645481937d705b847a94895a808023f3"
     },
     {
       "path": "game/reboot/src/economy/worldCrystals.js",
@@ -440,8 +440,8 @@
     },
     {
       "path": "game/reboot/src/gameplay/foundationHost.js",
-      "bytes": 24988,
-      "sha256": "23593804f687be44e7785b3d3852ee07c36dcf0c070ab1a73c0c057dce38f50b"
+      "bytes": 26608,
+      "sha256": "44aa3e9545cff1d877abacbcbf5a057904d97503c88355f425ac3d72e3821ed5"
     },
     {
       "path": "game/reboot/src/gameplay/frameHost.js",
@@ -515,8 +515,8 @@
     },
     {
       "path": "game/reboot/src/gameplay/storyMissions.js",
-      "bytes": 11838,
-      "sha256": "6ae9aac3f591b006266002552aa8bcf5a8d56c9b6acc87925152f7d10f3eeb9d"
+      "bytes": 11964,
+      "sha256": "131b5b616205b40ced74badc968721840f1d06c4c3d1ac036c6c1e9282923179"
     },
     {
       "path": "game/reboot/src/gameplay/strongholdVisibility.js",
@@ -530,13 +530,13 @@
     },
     {
       "path": "game/reboot/src/gameplay/travelFoundation.js",
-      "bytes": 10166,
-      "sha256": "f76e517d2914becb37495802fe57eb455c7f62a919faef651e9d11e2d3eae0d6"
+      "bytes": 10495,
+      "sha256": "31fe3d9af3507fe58fa113070708185f0d307fa45a75e75c42ee927aa0f2b1a0"
     },
     {
       "path": "game/reboot/src/main.jsx",
-      "bytes": 16870,
-      "sha256": "c34f5532a35ed6617f5d599a331259ea96c0c695817dbb552b8785a10e56b3ec"
+      "bytes": 17764,
+      "sha256": "dafffb97bbcfdb53ddfbed60b53509c55e38b78cb7b50cc3450c10dd87113e18"
     },
     {
       "path": "game/reboot/src/missions/checkpoints.js",
@@ -560,8 +560,8 @@
     },
     {
       "path": "game/reboot/src/missions/runtime.js",
-      "bytes": 29447,
-      "sha256": "1c807a4b1dfefec12396590daa2c3c6cbe59bab6386ce46d989f7706bf6f9da6"
+      "bytes": 31114,
+      "sha256": "b2296dbb94dbc963c8e5228ff730fcfb9b5cb8a02c544bf2edcb9f48a661ff81"
     },
     {
       "path": "game/reboot/src/missions/worldFall.js",
@@ -630,8 +630,8 @@
     },
     {
       "path": "game/reboot/src/ui/GameplayActions.js",
-      "bytes": 4752,
-      "sha256": "09396d4b9c364398fdb06b065483efb9922baf4f80d64f9ad568a32572f363db"
+      "bytes": 5102,
+      "sha256": "0872e8c5983d34047bfd559f69435e5c1ddddce60cf5e733ea597d20404ff59d"
     },
     {
       "path": "game/reboot/src/ui/gameplayFullscreen.css",
@@ -675,7 +675,7 @@
     },
     {
       "path": "game/reboot/src/ui/MobileControls.js",
-      "bytes": 3121,
+      "bytes": 3248,
       "sha256": "9592df44f65ad02dc362345196d8f634bed7972db40c0e562f4fecf820297756"
     },
     {
@@ -874,7 +874,7 @@
     },
     {
       "path": "game/reboot/src/world/locations/complexEnvironment.js",
-      "bytes": 9401,
+      "bytes": 9489,
       "sha256": "960de4f17ec419d8982239228034b864f0a6a1e6dfaa110528aaf1e9c11b54b6"
     },
     {
@@ -934,7 +934,7 @@
     },
     {
       "path": "game/reboot/src/world/locations/shambalaEnvironment.js",
-      "bytes": 15565,
+      "bytes": 15636,
       "sha256": "e15ee6de5d8c5f9afa21e0979a8f08c999559d5425ee6b0126cf28c9e39452c5"
     },
     {
@@ -974,12 +974,12 @@
     },
     {
       "path": "game/reboot/src/world/personalCraft.js",
-      "bytes": 1646,
+      "bytes": 1608,
       "sha256": "36910ff8b2b37e831d6615e8ce8fd7dfff2ca0b381f353745c3b621698f19e09"
     },
     {
       "path": "game/reboot/src/world/playerFlight.js",
-      "bytes": 17560,
+      "bytes": 17833,
       "sha256": "79f7eba24c05f5e04560dacb9e0ed02ad64acb44b1a73de0c87faf9a4737a261"
     },
     {
@@ -989,7 +989,7 @@
     },
     {
       "path": "game/reboot/src/world/story/characterField.js",
-      "bytes": 9253,
+      "bytes": 9670,
       "sha256": "9804c9f6a840deaa01e4d78fd0e679671f20dc7284d53ba84c1e7b39c90a9517"
     },
     {
@@ -1009,7 +1009,7 @@
     },
     {
       "path": "game/reboot/src/world/worldExploration.js",
-      "bytes": 7291,
+      "bytes": 7651,
       "sha256": "22170edfb5598f089ef0d384e5473e25c83d67e860297c773da8d729d2dc5ff4"
     },
     {
@@ -1053,7 +1053,7 @@
     {
       "path": "game/reboot/tests/personal-craft.test.js",
       "sha256": "061397b66377e02ae8c091ca59393b20a938bc3d0f8d80cfd614901b9539d301",
-      "bytes": 6442
+      "bytes": 7237
     },
     {
       "path": "game/reboot/tests/phase5-locations.test.js",
@@ -1082,7 +1082,7 @@
     },
     {
       "path": "game/reboot/tests/story-missions.test.js",
-      "bytes": 6169,
+      "bytes": 6848,
       "sha256": "74f562f6d36c650eea99c3b2edc4ff9c85314ac8716f446320e1fb982cd29401"
     },
     {
@@ -1146,7 +1146,7 @@
     },
     {
       "path": "index.html",
-      "bytes": 452,
+      "bytes": 526,
       "sha256": "3619a2e6ddfd6ad1152ccb88c1eec8120a37492600022539ddcd0901b85425f6"
     },
     {
@@ -1160,7 +1160,7 @@
     },
     {
       "path": "package.json",
-      "bytes": 662,
+      "bytes": 748,
       "sha256": "7f7fb72a5aca39005db337aa77fc1af17cb83cc929b264db735c200eddf26f96"
     },
     {
@@ -1178,7 +1178,7 @@
     },
     {
       "path": "tools/verify-publication.mjs",
-      "bytes": 871,
+      "bytes": 905,
       "sha256": "b8f878614525a6c73873774f1f21dbcd349c205c5141d693c0c722025d7d50ee"
     },
     {
@@ -1199,6 +1199,34 @@
       "path": "game/reboot/tests/mission-skimmer.test.js",
       "bytes": 2287,
       "sha256": "6ca36be39dab0f676a999ac07fad99ec92db4a52d682f8b655af50b42f631c3f"
+    },
+    {
+      "path": "game/reboot/src/content/missionActivities.js",
+      "sha256": "5ab34c01e0165e2ba342e0618cb42f0ec30b28e5bdd5fed00767eb4de2ae597b"
+    },
+    {
+      "path": "game/reboot/src/gameplay/missionActivities.js",
+      "sha256": "e7d804467a5e24d4213e765f66479817343942ed65415d9b5e49a5e6c096df98"
+    },
+    {
+      "path": "game/reboot/src/gameplay/missionCheckpoint.js",
+      "sha256": "a73cb611f21df60a86312beb75461a553afaceca912f03bd2bbc5cb5c72dcd9b"
+    },
+    {
+      "path": "game/reboot/src/ui/MissionObjectives.js",
+      "sha256": "caea1b12ab6a25e4a2d6f47a7a7c65cb941eeb203b179a10b344b71b3d43e141"
+    },
+    {
+      "path": "game/reboot/src/ui/missionObjectives.css",
+      "sha256": "416a805dd2d29368fe555bad32e858142681ca285ebe1bfa55bea534623082fa"
+    },
+    {
+      "path": "game/reboot/tests/mission-activities.test.js",
+      "sha256": "6687822b6ea2d1e2b28f325a8c7904416ba100e12b10999a366f0ac65ffc5601"
+    },
+    {
+      "path": "game/reboot/tests/mission-checkpoint.test.js",
+      "sha256": "5ff6d56ce23798d82a36b9f48fab42f6830d680b6c3f193645368dae4b18c980"
     }
   ],
   "bytePreservation": "Release paths use -text attributes to preserve verified original byte hashes across Windows/Linux.",

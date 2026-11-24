@@ -1,5 +1,6 @@
 import {Group,Mesh,BoxGeometry,MeshStandardMaterial,TorusGeometry,OctahedronGeometry} from 'three'
 import {STORY_MISSIONS,storyMission} from '../content/storyMissions.js'
+import {withMissionActivities,STORY_PATROLS} from '../content/missionActivities.js'
 import {createMission1Combat} from './mission1Combat.js'
 import {resolveLocationSpawn} from '../world/locations/spawn.js'
 import {LOCATION_DEFINITIONS} from '../world/locations/definitions.js'
@@ -7,10 +8,11 @@ import {createExplorationBujji} from '../world/explorationBujji.js'
 import {requireCondition} from '../campaign/contracts.js'
 
 export function registerStoryMissions(integration,{loadCombatAsset,loadCompanionAsset}={}){
- for(const content of STORY_MISSIONS){
+ for(const original of STORY_MISSIONS){
+  const content=withMissionActivities(original)
   const center=content.story.arena,arena={minX:center[0]-6,maxX:center[0]+6,minZ:center[2]-5,maxZ:center[2]+9}
   const combat=createMission1Combat({content,roster:[],autoSchedule:false,movementBounds:arena,loadAsset:loadCombatAsset})
-  const enemies=async args=>{const index=args.descriptor.id.endsWith('-a')?'security-a':'security-b';return combat.createActor({...args,source:{id:args.descriptor.id,type:'warrior',position:content.anchors[index],patrol:[[content.anchors[index][0],content.anchors[index][2]],[content.anchors[index][0],content.anchors[index][2]+1.5]],phase:0,stats:{health:105,speed:1.7,detectionRange:16,attackRange:2,attackDamage:8,attackCooldown:1500}}})}
+  const enemies=async args=>{const first=args.descriptor.id.endsWith('-a'),index=first?'security-a':'security-b',profile=STORY_PATROLS[content.missionId][first?0:1];return combat.createActor({...args,source:{id:args.descriptor.id,type:profile.classId,position:content.anchors[index],patrol:[[content.anchors[index][0],content.anchors[index][2]],[content.anchors[index][0],content.anchors[index][2]+1.5]],phase:0,stats:{...profile}}})}
   enemies.assertAvailable=()=>true
   enemies.prepare=content.encounters.length?args=>combat.prepareCombat(args):async()=>({ready:true,release(){}})
   integration.register(content,{playerSpawn:content.anchors.entry,enemyFactory:enemies,prepareEnvironment:async({host,worldContent})=>{

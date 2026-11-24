@@ -19,5 +19,9 @@ export function validateProgress(value,catalogue){
     for(const [id,checkpoint] of Object.entries(value.missionCheckpoints)){requireCondition(id===checkpoint?.missionId,'CHECKPOINT_MISSION_MISMATCH','Checkpoint map key mismatch');validateCheckpointEnvelope(checkpoint,catalogue)}
   }
   if(Object.hasOwn(value,'campaignJournal'))validateJournal(value.campaignJournal,catalogue)
+  if(Object.hasOwn(value,'objectiveRecords')){
+    requireCondition(value.objectiveRecords&&typeof value.objectiveRecords==='object'&&!Array.isArray(value.objectiveRecords),'INVALID_SAVE','Invalid objective reward records')
+    for(const [mission,ids]of Object.entries(value.objectiveRecords))requireCondition(catalogue.canSelect(mission)&&Array.isArray(ids)&&ids.length<=100&&new Set(ids).size===ids.length&&ids.every(id=>typeof id==='string'&&/^[a-z][a-z0-9-]{0,99}$/.test(id)),'INVALID_SAVE','Invalid persisted objective milestone')
+  }
   return clone(value)
 }

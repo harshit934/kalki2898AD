@@ -5,7 +5,7 @@ import {createElement as h} from 'react'
 
 // UI commands delegate to the existing runtime. No combat or save authority.
 
-export default function GameplayActions({session,completed=false,score=0,busy=false,nextPlayable=false,guidance,worldMode,locationId,onTravel,flightMessage,onCinematic,onSkipCinematic,message='',error,interaction,onInteract,onHome,onMissions,onRestart,onRevive,onNext,onPause,onVisitRoom,onReturnRoom,roomLabel}){
+export default function GameplayActions({session,completed=false,score=0,busy=false,nextPlayable=false,guidance,worldMode,locationId,onTravel,flightMessage,onCinematic,onSkipCinematic,message='',error,interaction,onInteract,onHome,onMissions,onRestart,onRevive,onNext,onPause,onVisitRoom,onReturnRoom,roomLabel,onRetryCheckpoint,checkpointAvailable=false}){
 
  const visiting=worldMode==='mission-room'
  const interior=BUILDINGS.find(b=>b.id===locationId)
@@ -13,7 +13,7 @@ export default function GameplayActions({session,completed=false,score=0,busy=fa
 
  const button=(label,action,disabled=false)=>h('button',{type:'button',disabled:busy||disabled,onClick:action,key:label},label)
 
- const actions=()=>[completed?button('Next Mission',onNext,!nextPlayable):null,button('Main Menu',onHome),button('Restart',onRestart),button('Mission Selection',onMissions),defeated&&session?.missionId==='mission-1'?button('Revive Here',onRevive,!onRevive):null]
+ const actions=()=>[completed?button('Next Mission',onNext,!nextPlayable):null,button('Main Menu',onHome),button('Restart',onRestart),defeated&&onRetryCheckpoint?button('Retry Checkpoint',onRetryCheckpoint,!checkpointAvailable):null,button('Mission Selection',onMissions),defeated&&session?.missionId==='mission-1'?button('Revive Here',onRevive,!onRevive):null]
 
  return h('div',{className:'gameplay-actions'},
 
@@ -22,6 +22,7 @@ export default function GameplayActions({session,completed=false,score=0,busy=fa
   result&&h('section',{'aria-label':completed?'Mission victory actions':'Mission defeat actions',className:'gameplay-result '+(completed?'victory':'defeat')},
 
    completed&&h('h1',null,'VICTORY'),completed&&h('p',null,'Mission complete'),completed&&h('p',{className:'victory-score'},`Campaign score: ${score.toLocaleString('en-US')}`),
+   defeated&&h('h1',null,'MISSION FAILED'),defeated&&h('p',null,checkpointAvailable?'Retry your last saved milestone, or restart the full mission.':'Restart the mission; no saved checkpoint is available.'),
 
    h('div',{className:'result-buttons'},...actions()),completed&&!nextPlayable&&h('p',{className:'next-unavailable'},'Next mission is not yet playable. You can browse all missions in Mission Selection.')),
 

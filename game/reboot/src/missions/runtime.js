@@ -73,6 +73,7 @@ export function createMissionRuntime({catalogue,registry,repository}){
   owner.context=Object.freeze({sessionId:owner.session.id,signal:owner.abort.signal,restoring:restored!==null,revivalPosition:reviving?clone(revivalPosition):null,
    own(disposer){requireCondition(typeof disposer==='function','INVALID_RESOURCE','Resource disposer required');owner.resources.add(disposer);if(owner.closed)void dispose(owner,disposer)},
    observe(event){return observe({...event,sessionId:owner.session.id})},
+   failObjective(id){return failObjective(id,owner.session.id)},
    deployEncounter(id){return deployEncounter(id,owner.session.id)},
    retryEncounter(id){return retryEncounter(id,owner.session.id)},
    reportDefeat(event){return reportDefeat({...event,sessionId:owner.session.id})},
@@ -175,6 +176,7 @@ export function createMissionRuntime({catalogue,registry,repository}){
  function owned(sessionId){requireCondition(current&&!current.closed,'NO_ACTIVE_SESSION','No owned mission session');requireCondition(current.session.id===sessionId,'SESSION_MISMATCH','Wrong session owner');return current}
  function verifyCompletion(owner){
   requireCondition(!owner.controlBusy&&!owner.controlError,'CONTROL_UNCERTAIN','Adapter control must be resolved')
+  requireCondition(owner.session.failedObjectiveIds.length===0,'FAILED_OBJECTIVES','Retry failed objectives before mission conclusion')
   if(Object.hasOwn(owner.session.playerResources,'health'))requireCondition(owner.session.playerResources.health>0,'PLAYER_DEFEATED','Defeated player cannot conclude a mission')
   requireCondition(owner.objectives.mandatoryReady(),'INCOMPLETE_OBJECTIVES','Required objective evidence missing')
   requireCondition((owner.entry.content.encounters??[]).filter(e=>e.required!==false).every(e=>owner.session.defeatedEncounterIds.includes(e.id)),'INCOMPLETE_ENCOUNTERS','Required encounter evidence missing')
@@ -197,6 +199,7 @@ export function createMissionRuntime({catalogue,registry,repository}){
    next.completedMissionIds.push(missionId)
    for(const reward of owner.entry.content.rewards){const key=missionId+':'+reward.id;if(!Object.hasOwn(next.rewardReceipts,key)){next.rewardReceipts[key]={...reward,rewardId:reward.id,missionId};if(reward.kind==='score')next.score=(next.score??0)+reward.amount;else next.currency+=reward.amount}}
   }
+  retainObjectiveRecords(next,owner.entry.content,owner.session.completedObjectiveIds)
   if(next.missionCheckpoints)delete next.missionCheckpoints[missionId]
   try{progress=repository.reconcileCommit?.(next)??repository.commit(next)}catch(error){record(owner,'completion-commit-failure',error);throw error}
   transition(owner,'completed');return snapshot()
@@ -220,9 +223,20 @@ export function createMissionRuntime({catalogue,registry,repository}){
  }
  async function saveCheckpoint(checkpointId,sessionId=current?.session.id){
   const checkpoint=await captureCheckpoint(checkpointId,sessionId)
-  const owner=owned(sessionId);requireCondition(['active','suspended','concluding'].includes(owner.session.state),'INVALID_TRANSITION','Cannot save after completion or release');progress=repository.commit({...progress,missionCheckpoints:{...(progress.missionCheckpoints??{}),[checkpoint.missionId]:checkpoint}});notify();return snapshot()
+  const owner=owned(sessionId);requireCondition(['active','suspended','concluding'].includes(owner.session.state),'INVALID_TRANSITION','Cannot save after completion or release');const next={...progress,missionCheckpoints:{...(progress.missionCheckpoints??{}),[checkpoint.missionId]:checkpoint}};retainObjectiveRecords(next,owner.entry.content,checkpoint.completedObjectiveIds);try{progress=repository.reconcileCommit?.(next)??repository.commit(next)}catch(error){const recovered=repository.reconcileCommit?.(next);if(!recovered)throw error;progress=recovered}notify();return snapshot()
  }
+ function retainObjectiveRecords(next,content,completed){const earned=(content.objectiveRewards??[]).filter(id=>completed.includes(id));if(!earned.length)return;next.objectiveRecords={...(next.objectiveRecords??{}),[content.missionId]:[...new Set([...(next.objectiveRecords?.[content.missionId]??[]),...earned])]}}
  function recover(missionId){const checkpoint=progress.missionCheckpoints?.[missionId];requireCondition(checkpoint,'MISSING_CHECKPOINT','No checkpoint; no fabricated recovery');return start(missionId,{checkpoint})}
+ async function retryCheckpoint(missionId=current?.session.missionId){
+  const checkpoint=clone(progress.missionCheckpoints?.[missionId]);requireCondition(checkpoint,'MISSING_CHECKPOINT','No saved milestone is available')
+  if(current){requireCondition(current.session.missionId===missionId&&(current.session.playerResources.health===0||current.session.failedObjectiveIds.length>0||current.session.state==='failed'),'MISSION_NOT_FAILED','Checkpoint retry requires a failed attempt')}
+  // Explicit retry keeps verified objective/encounter milestones. It never adds
+  // evidence, clears receipts or credits rewards, and never changes the save on failure.
+  checkpoint.failedObjectiveIds=[];checkpoint.phase='active';checkpoint.conclusion=null
+  if(checkpoint.resources.health<=0)checkpoint.resources.health=checkpoint.resources.maxHealth
+  const entry=registry.get(missionId);requireCondition(entry,'MISSING_RUNTIME_CONTENT','Retry requires registered content');validateCheckpoint(checkpoint,entry.content,catalogue)
+  if(current)await end();return start(missionId,{checkpoint})
+ }
  async function revive(){
   const owner=owned(current?.session.id)
   requireCondition(!reviving,'SESSION_BUSY','Revival already in progress')
@@ -277,5 +291,5 @@ export function createMissionRuntime({catalogue,registry,repository}){
  async function end(){const owner=current;if(!owner)return snapshot();await release(owner,'end');if(current===owner){current=null;notify()}return snapshot()}
  function recordCampaign(command){const next=applyJournalCommand(progress,command,catalogue);if(JSON.stringify(next)===JSON.stringify(progress))return snapshot();progress=repository.reconcileCommit?.(next)??repository.commit(next);notify();return snapshot()}
  refresh()
- return Object.freeze({recordCampaign,snapshot,subscribe(listener){requireCondition(typeof listener==='function','INVALID_SUBSCRIBER','Listener required');listeners.add(listener);return()=>listeners.delete(listener)},select,start,observe,observeWave,deployEncounter,retryEncounter,reportDefeat,damageEnemy,removeEnemy,failObjective,beginConclusion,acceptConclusion,complete,recoverCompletion,captureCheckpoint,saveCheckpoint,recover,revive,restart,suspend,resume,end})
+ return Object.freeze({recordCampaign,snapshot,subscribe(listener){requireCondition(typeof listener==='function','INVALID_SUBSCRIBER','Listener required');listeners.add(listener);return()=>listeners.delete(listener)},select,start,observe,observeWave,deployEncounter,retryEncounter,reportDefeat,damageEnemy,removeEnemy,failObjective,beginConclusion,acceptConclusion,complete,recoverCompletion,captureCheckpoint,saveCheckpoint,recover,retryCheckpoint,revive,restart,suspend,resume,end})
 }
