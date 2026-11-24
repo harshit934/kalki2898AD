@@ -48,7 +48,7 @@ export function createGameplayAdapter({host,onError=()=>{}}={}){
   const nativeType=type==='special'?'heavy':type,swing={epoch:o.attackEpoch,expires:now+(nativeType==='heavy'?720:420)}
   o.nextAttack=now+(nativeType==='heavy'?900:420);o.pendingAttack=swing
   try{
-   o.controls.recordDiagnostic?.('combat-attack',{type,counter:tactic.counter,epoch:o.attackEpoch});o.player.notifyAttack?.(nativeType)
+   o.controls.recordDiagnostic?.('combat-attack',{type,counter:tactic.counter,epoch:o.attackEpoch});o.player.notifyAttack?.(nativeType);host.onAttackSound?.(type)
    const candidates=[...o.actors.values()].filter(a=>{const state=ctx.readActor?.(a.token);return a.canTakeDamage?.()!==false&&(!state||state.state==='active-combat'&&state.health>0)})
    const hit=await host.resolvePlayerHit({sessionId:ctx.sessionId,signal:ctx.signal,player:o.player,type:nativeType,actors:candidates.map(a=>({actorId:a.token.actorId,instanceId:a.token.instanceId,sessionId:a.token.sessionId,object:a.object,body:a.body,collider:a.collider}))})
    owned(ctx);if(o.paused||swing.epoch!==o.attackEpoch){o.controls.recordDiagnostic?.('stale-hit-rejected',{epoch:swing.epoch,currentEpoch:o.attackEpoch});return {hit:false}}

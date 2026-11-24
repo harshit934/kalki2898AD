@@ -305,8 +305,8 @@
     },
     {
       "path": "game/reboot/src/audio/worldAudio.js",
-      "bytes": 9279,
-      "sha256": "55bd3f9fb882ed4255a13e766664d8b3872d11bfb67cbfcacd0d257ab541e81e"
+      "bytes": 10122,
+      "sha256": "12b58a91f9f8edb81a736d6e59500083902a5e44519427c4b8624ffb98d538c9"
     },
     {
       "path": "game/reboot/src/audio/worldAudioSession.js",
@@ -315,8 +315,8 @@
     },
     {
       "path": "game/reboot/src/audio/worldSoundscape.js",
-      "bytes": 3085,
-      "sha256": "21b32d20e96f679e69787e5459b7e11960ebdf59013db9d384c6ee6e79e11308"
+      "bytes": 3312,
+      "sha256": "61ee3c3b0dda9279ade32747555bc01c554e74c254992159354e2f0563864ffd"
     },
     {
       "path": "game/reboot/src/campaign/catalogue.js",
@@ -440,8 +440,8 @@
     },
     {
       "path": "game/reboot/src/gameplay/foundationHost.js",
-      "bytes": 27886,
-      "sha256": "5ad610ef40917eec6f9162c5e0a403cc0f2f864cebc0029c9ba96c64b08ad489"
+      "bytes": 28029,
+      "sha256": "60cf6620ba26ccbf00953f2e8b10fbcfdb95d1a1b63620b54119440ae7fe9dac"
     },
     {
       "path": "game/reboot/src/gameplay/frameHost.js",
@@ -455,8 +455,8 @@
     },
     {
       "path": "game/reboot/src/gameplay/mission1Combat.js",
-      "bytes": 20156,
-      "sha256": "55b4bdf69ae8571703756a1803b3f86533c08f92c46e0ca73b053071e6e17bf1"
+      "bytes": 20212,
+      "sha256": "1376339ad65b3c7183690b71c34d581e0bb2707146628103811a723c818ceb59"
     },
     {
       "path": "game/reboot/src/gameplay/mission1Environment.js",
@@ -500,8 +500,8 @@
     },
     {
       "path": "game/reboot/src/gameplay/sessionAdapter.js",
-      "bytes": 13032,
-      "sha256": "a7cba291ef02d279a97aa1fea0ee31ae254b3edbd9a9acab703cc90d0379782a"
+      "bytes": 13059,
+      "sha256": "3635735a671eaac71526faddba0aae5fdc56a0b5b98cb55e37ca39e9aea3683e"
     },
     {
       "path": "game/reboot/src/gameplay/socketWeapon.js",
@@ -530,13 +530,13 @@
     },
     {
       "path": "game/reboot/src/gameplay/travelFoundation.js",
-      "bytes": 10582,
-      "sha256": "40d240bb3b5c8f981b5918766f0a60613571845ea98c33737c8d1fc9bbdd0af6"
+      "bytes": 10845,
+      "sha256": "cd0fd53215801b47d47badcc1d0ce9c605cc66942a40761f62e682c052416c09"
     },
     {
       "path": "game/reboot/src/main.jsx",
-      "bytes": 18775,
-      "sha256": "fcce907c261742fbbeda5edd5dbda89dc7f4f62295de7c82835da16f0f6fdd2e"
+      "bytes": 19016,
+      "sha256": "23e537e35b5e424e435cf4fb809213348eb3220791c33ade1fd37ad02ff0cd56"
     },
     {
       "path": "game/reboot/src/missions/checkpoints.js",
@@ -680,13 +680,13 @@
     },
     {
       "path": "game/reboot/src/ui/StoryCinematic.js",
-      "bytes": 312,
-      "sha256": "c423407970dd8590e9964be474c3965b7a5cc4f6ea4a4e3d08b8642dca006973"
+      "bytes": 503,
+      "sha256": "b8514c578297d32aaa1c3bdfad27a55601f39aa25222a704e221b78c90440925"
     },
     {
       "path": "game/reboot/src/ui/StoryConversation.js",
-      "bytes": 932,
-      "sha256": "c762068b87c3c05b17164269428e0750d082c916670aac1c9119cafc987cff05"
+      "bytes": 1139,
+      "sha256": "883dd35db1a416badf63a97cb3be9bc656eacbf4d29eb31c791bc7e3c296851d"
     },
     {
       "path": "game/reboot/src/ui/storyPresentation.json",
@@ -705,8 +705,8 @@
     },
     {
       "path": "game/reboot/src/ui/WorldAudioControls.js",
-      "bytes": 1434,
-      "sha256": "cb907cc1f84c409790bcd02b6c3d097d48d2a7557f4fcada91fe5f4cc5a7c37d"
+      "bytes": 1479,
+      "sha256": "c994727982ad31b8420710b9898f0dbdda1415dc2b0c4b3abe8cd05b0dd49fcc"
     },
     {
       "path": "game/reboot/src/world/activities/definitions.js",
@@ -1009,8 +1009,8 @@
     },
     {
       "path": "game/reboot/src/world/worldExploration.js",
-      "bytes": 8568,
-      "sha256": "626ff6839c7f6d23aca073b143b3e62b3dad35244fc0d083aa96ed044d7c2944"
+      "bytes": 8635,
+      "sha256": "59a543bb2f7037c3c9dfb284bdb868be687be66c61ed1c3b5f31edc77e1584e3"
     },
     {
       "path": "game/reboot/src/world/worldHost.js",
@@ -1019,8 +1019,8 @@
     },
     {
       "path": "game/reboot/src/world/worldSystems.js",
-      "bytes": 4128,
-      "sha256": "924472ddcfa38f6d1b845a53b3897d9aced46b68f8c5c2f7632dd00054bb690d"
+      "bytes": 4176,
+      "sha256": "bf4e026a9da4e297d5ddd790934aef597b8c7d5d983ed92d23acfaa54c916840"
     },
     {
       "path": "game/reboot/tests/building-interiors.test.js",
@@ -1323,6 +1323,22 @@
     {
       "path": "game/reboot/tests/reward-service-fixture.js",
       "sha256": "e4f8860570d166de33f6527cf392d06f9ce11ccfd421edc110de6dfb411d1c78"
+    },
+    {
+      "path": "game/reboot/src/audio/dialoguePlayback.js",
+      "sha256": "e33bf938a9975a03bef9069f94431f20934b344b204f7e8341c53c845d3a92a2"
+    },
+    {
+      "path": "game/reboot/src/audio/gameplayAudio.js",
+      "sha256": "2f2310f7c686e1b0a5b29fc31da91c59a4a5d3a2e580d9c636360f70b47e51d9"
+    },
+    {
+      "path": "game/reboot/src/ui/DialogueSubtitles.js",
+      "sha256": "cf982b8af7de019bf98e7e5570483d65fa4b41ee0878737b020923c1e383497f"
+    },
+    {
+      "path": "game/reboot/tests/phase8-audio.test.js",
+      "sha256": "f9599f8fd6d417417331960d6dbd29f8501d9aa8702e82f9ff4f422bcede5f80"
     }
   ],
   "bytePreservation": "Release paths use -text attributes to preserve verified original byte hashes across Windows/Linux.",

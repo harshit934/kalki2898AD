@@ -21,7 +21,7 @@ export function synthesizeLayer(world,kind,sampleRate=24000,seconds=2){
  }return out
 }
 export function synthesizeCue(kind,sampleRate=24000){
- const notes={step:[95],interact:[330,440],discovery:[523.25,659.25,783.99],survey:[392,523.25],relay:[440,554.37],error:[130,110],reward:[523.25,659.25,783.99,1046.5],collect:[659.25,987.77],cinematic:[110,164.81,220],event:[220,329.63,440]};if(!notes[kind])return null
+ const notes={fire:[180,65],swing:[240,120],impact:[87,53],engine:[55,82],aircraft:[110,165],boss:[73.42,110,55],defeat:[196,146.83,98],'mission-start':[261.63,329.63,392],'mission-complete':[392,523.25,659.25,783.99],music:[110,164.81,220],step:[95],interact:[330,440],discovery:[523.25,659.25,783.99],survey:[392,523.25],relay:[440,554.37],error:[130,110],reward:[523.25,659.25,783.99,1046.5],collect:[659.25,987.77],cinematic:[110,164.81,220],event:[220,329.63,440]};if(!notes[kind])return null
  const frequencies=notes[kind],duration=kind==='step'?.14:kind==='cinematic'?1.2:.22+frequencies.length*.09,out=new Float32Array(Math.floor(sampleRate*duration))
  for(let i=0;i<out.length;i++){const t=i/sampleRate,position=Math.min(frequencies.length-1,Math.floor(t/duration*frequencies.length)),frequency=frequencies[position],envelope=Math.sin(Math.PI*t/duration)**2*Math.exp(-t*(kind==='step'?22:2));out[i]=(Math.sin(t*frequency*2*Math.PI)*.32+Math.sin(t*frequency*4.01*Math.PI)*.08)*envelope}return out
 }
