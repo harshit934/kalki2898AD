@@ -25,8 +25,8 @@
     },
     {
       "path": ".github/workflows/deploy.yml",
-      "bytes": 975,
-      "sha256": "2ef76c1139e5ac4c18ae43415f9306ce63aea9f7dfe5edd75b884da47f1944c9"
+      "bytes": 1042,
+      "sha256": "44580aa0c950e2e9b5e81a9f7398f67ffe2284fb86194655428376975f0e4364"
     },
     {
       "path": "game/phase9/phase9B-mission1-r8-20261118/staging/src/game/bossActivation.js",
