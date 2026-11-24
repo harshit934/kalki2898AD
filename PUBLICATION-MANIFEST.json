@@ -590,8 +590,8 @@
     },
     {
       "path": "game/reboot/src/style.css",
-      "bytes": 2211,
-      "sha256": "b0f416b0216a459014e4aff499cf937010d75467cfe5d97f36b6aad9a27ba969"
+      "bytes": 2548,
+      "sha256": "33b282d5a1ae18a8df5665ac17f86889e34f0b08494a337f2b3a2dfec855554e"
     },
     {
       "path": "game/reboot/src/ui/branding/kl-logo.png",
