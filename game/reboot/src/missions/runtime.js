@@ -13,7 +13,7 @@ export function createContentRegistry(catalogue){
    requireCondition(!entries.has(missionId),'DUPLICATE_CONTENT','Mission content is already registered')
    validateRuntimeContent(content)
    requireCondition(typeof adapter?.prepare==='function'&&typeof adapter?.release==='function'&&typeof adapter?.pause==='function'&&typeof adapter?.resume==='function','MISSING_ADAPTER','Preparation and release adapters required')
-   entries.set(missionId,Object.freeze({content:deepFreeze(clone(content)),adapter:Object.freeze({prepare:adapter.prepare,release:adapter.release,pause:adapter.pause,resume:adapter.resume,restore:adapter.restore,captureResources:adapter.captureResources,captureRevivePosition:adapter.captureRevivePosition,encounters:adapter.encounters})}))
+   entries.set(missionId,Object.freeze({content:deepFreeze(clone(content)),adapter:Object.freeze({prepare:adapter.prepare,afterStart:adapter.afterStart,release:adapter.release,pause:adapter.pause,resume:adapter.resume,restore:adapter.restore,captureResources:adapter.captureResources,captureRevivePosition:adapter.captureRevivePosition,encounters:adapter.encounters})}))
   },
   get:id=>entries.get(id)??null,has:id=>entries.has(id),
  })
@@ -84,7 +84,7 @@ export function createMissionRuntime({catalogue,registry,repository}){
    damagePlayer(event){return damagePlayer({...event,sessionId:owner.session.id})},
    healPlayer(){
     owned(owner.session.id)
-    if(owner.session.missionId!=='mission-1'||owner.session.state!=='active'||owner.controlBusy||owner.controlError)return false
+    if(!(owner.session.missionId==='mission-1'||owner.entry.content.allowHealing===true)||owner.session.state!=='active'||owner.controlBusy||owner.controlError)return false
     const resources=owner.session.playerResources
     if(!(resources.health>0&&resources.health<resources.maxHealth&&Number.isSafeInteger(resources.healingCharges)&&resources.healingCharges>0))return false
     resources.healingCharges--;resources.health=resources.maxHealth
@@ -130,7 +130,7 @@ export function createMissionRuntime({catalogue,registry,repository}){
     if(freshAttempt&&next.missionCheckpoints)delete next.missionCheckpoints[missionId]
     progress=repository.commit(next)
    }
-   owner.objectives.activateReady();transition(owner,restored?.phase==='concluding'?'concluding':'active');for(const e of owner.encounters.snapshot())if(e.state==='completed')owner.pendingOutcomes.set(e.id,e);flushOutcomes(owner);return snapshot()
+   owner.objectives.activateReady();transition(owner,restored?.phase==='concluding'?'concluding':'active');for(const e of owner.encounters.snapshot())if(e.state==='completed')owner.pendingOutcomes.set(e.id,e);flushOutcomes(owner);if(entry.adapter.afterStart)void Promise.resolve().then(()=>{if(!owner.closed)return entry.adapter.afterStart(owner.context,{restored:restored!==null})}).catch(error=>{if(!owner.closed)record(owner,'mission-introduction-failure',error)});return snapshot()
   }catch(error){
    if(!owner.closed){record(owner,'preparation-failure',error);transition(owner,'failed');await release(owner,'preparation-failure');if(current===owner)transition(owner,'failed')}
    throw error

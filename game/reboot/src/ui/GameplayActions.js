@@ -9,7 +9,7 @@ export default function GameplayActions({session,completed=false,score=0,busy=fa
 
  const visiting=worldMode==='mission-room'
  const interior=BUILDINGS.find(b=>b.id===locationId)
- const defeated=Boolean(session?.playerResources?.health<=0),paused=session?.state==='suspended',result=defeated||completed
+ const defeated=Boolean(session&&(session.playerResources?.health<=0||session.failedObjectiveIds?.length>0)),paused=session?.state==='suspended',result=defeated||completed
 
  const button=(label,action,disabled=false)=>h('button',{type:'button',disabled:busy||disabled,onClick:action,key:label},label)
 

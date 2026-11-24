@@ -16,7 +16,7 @@ export default function CombatHUD(props){
 
 export function CombatHUDView({session,hint,location,action,minimised=false,onToggle,feedback=[]}){
 
- if(session?.missionId!=='mission-1'||!['active','suspended','concluding'].includes(session.state))return null
+ if(!['mission-1','mission-2','mission-3','mission-4'].includes(session?.missionId)||!['active','suspended','concluding'].includes(session.state))return null
 
  const resources=session.playerResources
 

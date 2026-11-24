@@ -14,5 +14,6 @@ export const CRYSTAL_GRANTS=Object.freeze(Object.fromEntries([
  ...Object.entries(ACTIVITY_GRANTS),
  ...WORLD_CRYSTALS.map(c=>['world:'+c.id,{amount:c.amount,label:'Crystal collected'}]),
  ...['crystal-01','crystal-02','crystal-03'].map(id=>['objective:mission-1:'+id,{amount:50,label:'Optional crystal reward'}]),
- ['mission:mission-1:complete',{amount:200,label:'Mission 1 crystal reward'}]
+ ['mission:mission-1:complete',{amount:200,label:'Mission 1 crystal reward'}],
+ ...[2,3,4].map(n=>['mission:mission-'+n+':complete',{amount:200,label:'Mission '+n+' crystal reward'}])
 ].map(([id,row])=>[id,Object.freeze(row)])))

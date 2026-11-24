@@ -48,7 +48,7 @@ export function createGameplayAdapter({host,onError=()=>{}}={}){
   o.nextAttack=now+(type==='heavy'?900:420);o.pendingAttack=swing
   try{
    o.controls.recordDiagnostic?.('combat-attack',{type,epoch:o.attackEpoch});o.player.notifyAttack?.(type)
-   const candidates=[...o.actors.values()].filter(a=>a.canTakeDamage?.()!==false)
+   const candidates=[...o.actors.values()].filter(a=>{const state=ctx.readActor?.(a.token);return a.canTakeDamage?.()!==false&&(!state||state.state==='active-combat'&&state.health>0)})
    const hit=await host.resolvePlayerHit({sessionId:ctx.sessionId,signal:ctx.signal,player:o.player,type,actors:candidates.map(a=>({actorId:a.token.actorId,instanceId:a.token.instanceId,sessionId:a.token.sessionId,object:a.object,body:a.body,collider:a.collider}))})
    owned(ctx);if(o.paused||swing.epoch!==o.attackEpoch){o.controls.recordDiagnostic?.('stale-hit-rejected',{epoch:swing.epoch,currentEpoch:o.attackEpoch});return {hit:false}}
    const current=o.controls.combatState?.(),time=host.gameTime?.()??performance.now()
