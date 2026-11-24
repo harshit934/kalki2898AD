@@ -41,7 +41,7 @@ export function validateRuntimeContent(content){
     ids.add(objective.id)
   }
   validateObjectiveGraph(content.objectives)
-  if(content.objectiveRewards!==undefined)requireCondition(Array.isArray(content.objectiveRewards)&&new Set(content.objectiveRewards).size===content.objectiveRewards.length&&content.objectiveRewards.every(id=>content.objectives.some(o=>o.id===id&&o.required===false)),'INVALID_OBJECTIVE_REWARD','Objective rewards must reference unique optional objectives')
+  if(content.objectiveRewards!==undefined)requireCondition(Array.isArray(content.objectiveRewards)&&new Set(content.objectiveRewards).size===content.objectiveRewards.length&&content.objectiveRewards.every(id=>content.objectives.some(o=>o.id===id&&(o.required===false||o.event==='boss-defeated'))),'INVALID_OBJECTIVE_REWARD','Objective rewards must reference unique optional objectives')
   for(const objective of content.objectives)if(objective.required!==undefined)requireCondition(typeof objective.required==='boolean','INVALID_OBJECTIVE','Required must be boolean')
   if(content.contentVersion!==undefined)requireCondition(typeof content.contentVersion==='string'&&content.contentVersion.length>0,'INVALID_CONTENT_VERSION','Content version must be explicit')
   if(content.encounters!==undefined){

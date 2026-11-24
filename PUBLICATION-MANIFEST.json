@@ -325,8 +325,8 @@
     },
     {
       "path": "game/reboot/src/campaign/contracts.js",
-      "bytes": 8308,
-      "sha256": "a86c745c1e51e4d123ad8ce8fc14cf3b180e76df27dbc981d14e77471bff436f"
+      "bytes": 8337,
+      "sha256": "73480cbc87ea57f63f16c96d2c123646f93a4eb5d87481e0e4bf524c639f59ff"
     },
     {
       "path": "game/reboot/src/campaign/progress.js",
@@ -380,8 +380,8 @@
     },
     {
       "path": "game/reboot/src/economy/crystalPolicy.js",
-      "bytes": 1446,
-      "sha256": "7afbc03c09e77e2f07bbe820e244762a3864141cdb6918473ecc9a40cab02b2e"
+      "bytes": 1376,
+      "sha256": "9b5ae74ef45e7de36943099583496c3aa140102e0c3375bd2adee5b1ab0a967e"
     },
     {
       "path": "game/reboot/src/economy/crystalVisuals.js",
@@ -400,8 +400,8 @@
     },
     {
       "path": "game/reboot/src/economy/missionCrystalRewards.js",
-      "bytes": 1122,
-      "sha256": "5057d1ff6ee7a2e7a428c0257b1480bd645481937d705b847a94895a808023f3"
+      "bytes": 1235,
+      "sha256": "4f8524e0c7dd7347d21fa99a35f6a936f73be5f3fea663d46d63e7adbf4fa425"
     },
     {
       "path": "game/reboot/src/economy/worldCrystals.js",
@@ -530,13 +530,13 @@
     },
     {
       "path": "game/reboot/src/gameplay/travelFoundation.js",
-      "bytes": 10495,
-      "sha256": "31fe3d9af3507fe58fa113070708185f0d307fa45a75e75c42ee927aa0f2b1a0"
+      "bytes": 10582,
+      "sha256": "40d240bb3b5c8f981b5918766f0a60613571845ea98c33737c8d1fc9bbdd0af6"
     },
     {
       "path": "game/reboot/src/main.jsx",
-      "bytes": 18029,
-      "sha256": "445e6feefedb604e37d322f59c13f631aaba4e41425a71acf130398006b9e94f"
+      "bytes": 18468,
+      "sha256": "f85297a889cd64cf560dcc974e4c318d9106cfd3607a756b4c4d0cf3f2aaefdd"
     },
     {
       "path": "game/reboot/src/missions/checkpoints.js",
@@ -620,8 +620,8 @@
     },
     {
       "path": "game/reboot/src/ui/EquipmentPanel.js",
-      "bytes": 4906,
-      "sha256": "f5193489fa751440f198409d9eaf39bf0ab31c214159325f738c310d4c0f0293"
+      "bytes": 5173,
+      "sha256": "5f6ac6190fc24f438ae07a50220cbfee40b4082f11375e5859790af5ced2604e"
     },
     {
       "path": "game/reboot/src/ui/foundationRoot.js",
@@ -1028,7 +1028,7 @@
     },
     {
       "path": "game/reboot/tests/campaign-journey.test.js",
-      "sha256": "af6ab7dd070593f52e2e1fd7548c203988306150f33acf0d065754f485424436"
+      "sha256": "d3d3a3816c98cd01637761c56cdeab9f05fbd497622e7a3e82a6534a6a7d616b"
     },
     {
       "path": "game/reboot/tests/checkpoints-completion.test.js",
@@ -1082,8 +1082,8 @@
     },
     {
       "path": "game/reboot/tests/story-missions.test.js",
-      "bytes": 6995,
-      "sha256": "ae4761cc6459de4208ab29e0e34bded7c5b8b3c7b1c8ad75455532b156eb0ca4"
+      "bytes": 7234,
+      "sha256": "832dc2b5013f545b7f877489f6ba4689fa9660ab98f02ca5da6fd5480b37c6bd"
     },
     {
       "path": "game/reboot/tests/story-native-fixture.js",
@@ -1222,7 +1222,7 @@
     },
     {
       "path": "game/reboot/tests/mission-activities.test.js",
-      "sha256": "8f2d0a28070786174eb0938fc9836967324770c24805fb597571e5fee7c93ade"
+      "sha256": "25dcd7e8745414368ba10c612921755068e0d09842d1547962dd26ebbb72d978"
     },
     {
       "path": "game/reboot/tests/mission-checkpoint.test.js",
@@ -1267,6 +1267,26 @@
     {
       "path": "game/reboot/tests/mission-guide.test.js",
       "sha256": "759d16da65419d1a77285ee4d84277eb1c3c82bfe9c89428f9ac120f4f5dba91"
+    },
+    {
+      "path": "game/reboot/src/content/campaignRewards.js",
+      "sha256": "e701cdd4c0256827dd6e0925d0ef0a2c5784e37b31228bcc540f0b9df8a8547a"
+    },
+    {
+      "path": "game/reboot/src/economy/campaignRewardFeed.js",
+      "sha256": "09779ebaa19227b84f4c5192ebaa08621ff664f81a476cc5fbfaf76fd27bf6fe"
+    },
+    {
+      "path": "game/reboot/src/ui/CampaignRewards.js",
+      "sha256": "ea1df0bf42439ad568e65c39f6392266bc4bc76aaa029a7b7b83a2b5c10f604c"
+    },
+    {
+      "path": "game/reboot/src/ui/campaignRewards.css",
+      "sha256": "f2225fb5cf7bd1910a4054b4e333390ec31fb726ac387d8f8d1f063a71160573"
+    },
+    {
+      "path": "game/reboot/tests/campaign-rewards.test.js",
+      "sha256": "f3be1f133eecbf9d8d6b702fbdf3de99c8f245af2c9c069c473c3394455cfc56"
     }
   ],
   "bytePreservation": "Release paths use -text attributes to preserve verified original byte hashes across Windows/Linux.",

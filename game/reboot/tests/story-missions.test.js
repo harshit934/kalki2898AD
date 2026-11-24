@@ -1,3 +1,4 @@
+import {bikeUnlocked} from '../src/economy/campaignRewardFeed.js'
 import {defeatStoryBoss} from './battle-native-fixture.js'
 import test from 'node:test'
 import assert from 'node:assert/strict'
@@ -23,7 +24,7 @@ test('native story journey uses real dialogue, physical terminals, encounters, r
  try{
   await assert.rejects(f.integration.startMission('mission-2'))
   await f.integration.startMission('mission-1');await finish(f)
-  assert.equal(wallet.snapshot().balance,200)
+  assert.equal(wallet.snapshot().balance,250);assert.equal(bikeUnlocked(wallet),false)
   for(const content of [...STORY_MISSIONS,STORY_MISSIONS[2]]){
    await f.integration.startMission(content.missionId);await idle()
    assert.equal(f.integration.locationSnapshot().locationId,content.worldId)
@@ -34,9 +35,9 @@ test('native story journey uses real dialogue, physical terminals, encounters, r
    await defeatStoryBoss(f,content.missionId,{testDefeat:content.missionId==='mission-2'});await talk(content.story.finalCharacter,{close:false});await idle();assert.equal(f.runtime.snapshot().session,null)
    assert.equal(f.integration.campaign.snapshot().conversation,null,'Successful mission completion dismisses its final dialogue before the victory UI')
    assert.ok(f.integration.campaign.snapshot().characters[content.story.finalCharacter].flags.includes('contract-reviewed'),'Dialogue presentation cleanup preserves recorded character progression')
-   assert.ok(f.runtime.snapshot().progress.completedMissionIds.includes(content.missionId))
+   assert.ok(f.runtime.snapshot().progress.completedMissionIds.includes(content.missionId));assert.equal(wallet.hasReceipt('objective:'+content.missionId+':defeat-story-boss'),true);assert.equal(bikeUnlocked(wallet),true)
   }
-  assert.equal(wallet.snapshot().balance,800)
+  assert.equal(wallet.snapshot().balance,1085)
   assert.equal(f.integration.campaign.snapshot().missions.find(m=>m.id==='mission-5').registered,false)
   for(const mission of f.integration.campaign.snapshot().missions.filter(m=>m.number>=5)){assert.equal(mission.state,'locked','Unreleased missions stay locked after completing Mission 4');assert.equal(mission.canStart,false)}
   await assert.rejects(f.integration.startMission('mission-5'))
@@ -44,5 +45,5 @@ test('native story journey uses real dialogue, physical terminals, encounters, r
   await f.integration.startMission('mission-3');for(let n=0;n<20&&!f.runtime.snapshot().session.pauseReasons.includes('story-cinematic');n++)await tick();assert.ok(f.runtime.snapshot().session.pauseReasons.includes('story-cinematic'));assert.equal(f.integration.audio.snapshot().paused,false);await f.runtime.suspend('window-blur');await idle();assert.equal(f.integration.audio.snapshot().paused,true);assert.deepEqual(f.runtime.snapshot().session.pauseReasons,['window-blur']);await f.runtime.resume('window-blur');assert.equal(f.runtime.snapshot().session.state,'active');await talk('terrace-guide');const before=structuredClone(f.runtime.snapshot().progress);storage.blocked=true;await assert.rejects(f.runtime.saveCheckpoint('entry'));storage.blocked=false;assert.deepEqual(f.runtime.snapshot().progress,before);await f.runtime.saveCheckpoint('entry');await f.runtime.end();await f.integration.recoverMission('mission-3');await idle();assert.ok(f.runtime.snapshot().session.completedObjectiveIds.includes('briefing'));assert.equal(f.integration.locationSnapshot().locationId,'shambala')
   assert.deepEqual(f.errors,[])
  }catch(error){console.log('mission errors',f.errors,f.runtime.snapshot().session?.pauseReasons);throw error}finally{binding.release();await f.release()}
- const reloaded=createCrystalWallet({storage});assert.equal(reloaded.snapshot().balance,800);const next=harness(storage,reloaded);registerStoryMissions(next.integration,{loadCombatAsset:async()=>asset(),loadCompanionAsset:async()=>asset()});try{assert.deepEqual(next.runtime.snapshot().progress.completedMissionIds,['mission-1','mission-2','mission-3','mission-4']);assert.equal(next.runtime.snapshot().progress.score,7000)}finally{await next.release()}
+ const reloaded=createCrystalWallet({storage});assert.equal(reloaded.snapshot().balance,1085);const next=harness(storage,reloaded);registerStoryMissions(next.integration,{loadCombatAsset:async()=>asset(),loadCompanionAsset:async()=>asset()});try{assert.deepEqual(next.runtime.snapshot().progress.completedMissionIds,['mission-1','mission-2','mission-3','mission-4']);assert.equal(next.runtime.snapshot().progress.score,7000)}finally{await next.release()}
 })

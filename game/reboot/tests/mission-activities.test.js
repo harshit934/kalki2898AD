@@ -50,7 +50,7 @@ test('real story journeys validate deduction failure/retry, energy allocation, s
  const {data,storage}=storageFixture();let wallet=createCrystalWallet({storage}),f=harness(storage,wallet),binding=bindMissionCrystalRewards({runtime:f.runtime,wallet})
  const register=()=>registerStoryMissions(f.integration,{loadCombatAsset:async()=>asset(),loadCompanionAsset:async()=>asset()});register()
  try{
-  await f.integration.startMission('mission-1');await finish(f);assert.equal(wallet.snapshot().balance,200)
+  await f.integration.startMission('mission-1');await finish(f);assert.equal(wallet.snapshot().balance,250)
   for(const c of STORY_MISSIONS){
    await f.integration.startMission(c.missionId);await idle(f);await f.frames(2);for(const id of Object.keys(c.story.briefings).slice(0,2))await talk(f,id)
    const plan=MISSION_ACTIVITIES[c.missionId]
@@ -68,11 +68,11 @@ test('real story journeys validate deduction failure/retry, energy allocation, s
    }
    const final=activityObjectiveId(plan.stations.at(-1).id);assert.ok(wallet.hasReceipt('objective:'+c.missionId+':'+final));await requiredStory(f,c);assert.ok(f.runtime.snapshot().progress.objectiveRecords[c.missionId].includes(final))
   }
-  assert.equal(wallet.snapshot().balance,950);assert.equal(f.runtime.snapshot().progress.score,7000)
-  const c=STORY_MISSIONS[1];await f.integration.startMission(c.missionId);await idle(f);await f.frames(2);for(const id of Object.keys(c.story.briefings).slice(0,2))await talk(f,id);for(const s of MISSION_ACTIVITIES[c.missionId].stations)await solve(f,s);await requiredStory(f,c);assert.equal(wallet.snapshot().balance,950);assert.equal(f.runtime.snapshot().progress.score,7000)
+  assert.equal(wallet.snapshot().balance,1235);assert.equal(f.runtime.snapshot().progress.score,7000)
+  const c=STORY_MISSIONS[1];await f.integration.startMission(c.missionId);await idle(f);await f.frames(2);for(const id of Object.keys(c.story.briefings).slice(0,2))await talk(f,id);for(const s of MISSION_ACTIVITIES[c.missionId].stations)await solve(f,s);await requiredStory(f,c);assert.equal(wallet.snapshot().balance,1235);assert.equal(f.runtime.snapshot().progress.score,7000)
   assert.equal(f.integration.campaign.snapshot().missions.find(m=>m.id==='mission-5').state,'locked');assert.equal(data.get('personal-save-sentinel'),'unchanged');assert.deepEqual(f.errors,[])
  }finally{binding.release();await f.release()}
- const reload=createCrystalWallet({storage});assert.equal(reload.snapshot().balance,950)
+ const reload=createCrystalWallet({storage});assert.equal(reload.snapshot().balance,1235)
 })
 
 test('objective UI renders actual progress, saved-state feedback, recorded clues and actionable puzzle choices',()=>{
