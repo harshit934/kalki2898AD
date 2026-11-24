@@ -71,7 +71,7 @@ test('explicit Explore after a menu-suspended mission opens Shambala while prese
   assert.deepEqual(saved.resources,checkpoint.resources)
   assert.equal(saved.checkpointId,checkpoint.checkpointId)
   assert.ok(f.app.explorationPose())
-  await f.app.travel('kashi');await f.app.closeWorldView();await f.app.runtime.recover('mission-1');await f.settle()
+  await f.app.travel('kashi');await f.app.closeWorldView();await f.app.runtime.recover('mission-1');await f.settle();assert.equal(f.events.at(-1).cinematic?.kind,'recap');f.app.skipStoryCinematic();await f.settle()
   assert.equal(f.app.runtime.snapshot().session.state,'active')
  }finally{await f.app.release()}
 })

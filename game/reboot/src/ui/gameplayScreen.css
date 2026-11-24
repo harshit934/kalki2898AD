@@ -35,3 +35,5 @@
 .gameplay-toolbar::-webkit-scrollbar-button{background:#111512}
 
 .story-cinematic{position:absolute;inset:auto 8% 8%;z-index:40;padding:1rem 1.5rem;background:rgba(10,19,17,.94);color:#f0dfb7;border:1px solid #b39a60;text-align:center;max-width:52rem;margin:auto}.story-cinematic p{line-height:1.55}.story-cinematic button{padding:.6rem 1rem;border:1px solid #b39a60;background:#203029;color:#f0dfb7}
+
+.story-cinematic:before,.story-cinematic:after{content:'';position:fixed;left:0;right:0;height:6vh;background:#000b;pointer-events:none}.story-cinematic:before{top:0}.story-cinematic:after{bottom:0}.story-cinematic>strong{display:block;font-size:1.25rem}.story-cinematic .cinematic-shot{display:block;color:#eacb8e;text-transform:uppercase;letter-spacing:.14em;margin-bottom:.6rem}.story-cinematic progress{display:block;width:100%;height:3px;margin:10px 0;accent-color:#d0b070}
