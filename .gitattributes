@@ -8,3 +8,4 @@
 /PUBLICATION-MANIFEST.json -text
 /tools/verify-publication.mjs -text
 /.github/workflows/deploy.yml -text
+/kl-favicon.svg -text

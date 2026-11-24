@@ -891,7 +891,7 @@
     {
       "path": "game/reboot/src/world/locations/shambalaEnvironment.js",
       "bytes": 15565,
-      "sha256": "928ba0e990b2023d6df41ad1137286a0d60a4851b655f16bf5cc428a6d900841"
+      "sha256": "508a576efe8a92ab9d9e3832e57cf4181a64a23849a54df65580c6e55d4a2b2b"
     },
     {
       "path": "game/reboot/src/world/locations/shambalaGeometry.js",
@@ -1036,6 +1036,18 @@
     {
       "path": "kl-favicon.svg",
       "sha256": "b21fd8729f929ed3dcacc707272d3be6fc43313cb691bf1b8a4193fab5bda21d"
+    },
+    {
+      "path": "game/public/environment/previews/shambhala.glb",
+      "sha256": "7b30d37a22abed7e76479e6d6e3a556daf4240e4017bd6a014738149d7e9db1e"
+    },
+    {
+      "path": "game/public/environment/previews/shambhala-frontage.glb",
+      "sha256": "39a77056838e1f81e6a29acc1461dcfba47852e7c4e9fdf94cb58fce0998ab38"
+    },
+    {
+      "path": "game/public/environment/kashi/stone-color.jpg",
+      "sha256": "a58111224570bb33eba3c348bc7e3207255b5efb07f9cf274209c56b71d6825c"
     }
   ],
   "bytePreservation": "Release paths use -text attributes to preserve verified original byte hashes across Windows/Linux."

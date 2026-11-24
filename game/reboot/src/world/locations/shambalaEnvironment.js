@@ -7,7 +7,7 @@ import {requireCondition} from '../../campaign/contracts.js'
 import {SHAMBALA_LAYOUT as layout,terrainHeight,landscapeHeight,riverX,routeDistance} from './shambalaLayout.js'
 import {terrainGeometry,extractCedar} from './shambalaGeometry.js'
 
-export const SHAMBALA_ASSETS=Object.freeze({valley:'/environment/previews/shambhala.glb',lodge:'/environment/previews/shambhala-frontage.glb'})
+export const SHAMBALA_ASSETS=Object.freeze({valley:new URL('../../../../public/environment/previews/shambhala.glb',import.meta.url).href,lodge:new URL('../../../../public/environment/previews/shambhala-frontage.glb',import.meta.url).href})
 export async function prepareShambala({host,signal,own=()=>{},loadAsset,onTravel=()=>{},onError=()=>{},cityExpansion=false,cityStage=1}){
  requireCondition(host?.scene?.isScene&&host.world&&host.rapier&&!signal.aborted,'SHAMBALA_UNAVAILABLE','Live native world required')
  requireCondition(!host.scene.getObjectByName(layout.id),'DUPLICATE_LOCATION','Shambala already mounted')
@@ -21,7 +21,7 @@ export async function prepareShambala({host,signal,own=()=>{},loadAsset,onTravel
   body=host.world.createRigidBody(host.rapier.RigidBodyDesc.fixed())
   let loader;if(!loadAsset){decoder=new DRACOLoader().setDecoderPath(import.meta.env.BASE_URL+'environment/kashi/draco/').setWorkerLimit(1);loader=new GLTFLoader().setDRACOLoader(decoder)}
   for(const url of Object.values(SHAMBALA_ASSETS)){const asset=await (loadAsset??(u=>loader.loadAsync(u)))(url);if(closed||signal.aborted){disposeAsset(asset);check()}requireCondition(asset?.scene?.isObject3D,'SHAMBALA_ASSET_UNAVAILABLE','Authored Shambala model unavailable');assets.push(asset);asset.scene.traverse(o=>{if(o.isMesh){geometry(o.geometry);for(const m of Array.isArray(o.material)?o.material:[o.material])material(m)}})}
-  const stone=loadAsset?null:await new TextureLoader().loadAsync('/environment/kashi/stone-color.jpg');if(stone){if(closed||signal.aborted){stone.dispose();check()}stone.colorSpace=SRGBColorSpace;stone.wrapS=stone.wrapT=RepeatWrapping;textures.add(stone)}
+  const stone=loadAsset?null:await new TextureLoader().loadAsync(new URL('../../../../public/environment/kashi/stone-color.jpg',import.meta.url).href);if(stone){if(closed||signal.aborted){stone.dispose();check()}stone.colorSpace=SRGBColorSpace;stone.wrapS=stone.wrapT=RepeatWrapping;textures.add(stone)}
   for(const a of assets)a.scene.traverse(o=>{if(!o.isMesh)return;o.frustumCulled=true;o.castShadow=false;o.receiveShadow=true;for(const m of Array.isArray(o.material)?o.material:[o.material]){if(/Green patina/.test(m.name)){m.color.set('#42684d');m.metalness=0;m.roughness=.95}else if(/Sandstone|limestone/.test(m.name)){m.map=stone;m.roughness=.9}else if(/Teal/.test(m.name)){m.emissive.set('#143e3b');m.emissiveIntensity=.25}}})
   root.add(assets[0].scene)
   const boxGeometry=geometry(new BoxGeometry(1,1,1)),rockGeometry=geometry(new IcosahedronGeometry(1,1)),matrix=new Matrix4(),rotation=new Quaternion(),axis=new Vector3(0,1,0)
