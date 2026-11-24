@@ -535,8 +535,8 @@
     },
     {
       "path": "game/reboot/src/main.jsx",
-      "bytes": 16731,
-      "sha256": "d9606b13b6a23d5892e040483afa657ddef4371130e183edc1d9a831d96b9560"
+      "bytes": 16774,
+      "sha256": "1140af3bafa16a49f8c0611c9cd42574d10a7b48420a962da2d5b4c971eabe93"
     },
     {
       "path": "game/reboot/src/missions/checkpoints.js",
