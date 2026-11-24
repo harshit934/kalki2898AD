@@ -979,8 +979,8 @@
     },
     {
       "path": "game/reboot/src/world/playerFlight.js",
-      "bytes": 16360,
-      "sha256": "ee4ddd9eafc7479f1865ee214743362c96a3f6ce83ef36bcbf045c7483c93e38"
+      "bytes": 16986,
+      "sha256": "7beb6353d943ad90bbddef9a5cd5fb55a5b86ae6fa5e18514288e47d12eb0c25"
     },
     {
       "path": "game/reboot/src/world/skimmerLanding.js",

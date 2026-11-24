@@ -27,6 +27,9 @@ export function createPlayerFlight({host,signal,ownerId,player,controls,worldCon
  requireCondition(!host.scene.getObjectByName(PLAYER_SKIMMER_ID),'DUPLICATE_PLAYER_VEHICLE','Only one exploration skimmer may exist')
  const root=new Group();root.name=PLAYER_SKIMMER_ID;root.userData={ownerId,role:'player-flight-prototype'}
  let geometry,material,padGeometry,padMaterial,body=null,collider=null,controller=null,keyboard=null,cameraLease=null,stop=null,closed=false,releaseFailure=null,state='parked',message='',yaw=Math.PI,landHeld=false
+ let flightFrames=0,lastInput=null,lastMove=null
+ const diagnostics=host.renderer.domElement.dataset
+ function trace(){if(diagnostics){diagnostics.skimmerOwner=ownerId;diagnostics.skimmerFlight=JSON.stringify({mode:state,position:position.toArray(),input,pendingTakeoff,frames:flightFrames,lastInput,lastMove})}}
  let input={x:0,y:0,up:false,down:false},pendingTakeoff=false,takeoffBaseY=0,position=new Vector3(162,.6475,59),velocity=new Vector3(),turn=0,landingPad=null
  const cameraPosition=new Vector3(),cameraTarget=new Vector3(),forward=new Vector3(),desiredCamera=new Vector3(),desiredLook=new Vector3()
  const occupied=()=>['landed','taking-off','flying','landing','faulted'].includes(state)
@@ -79,8 +82,8 @@ export function createPlayerFlight({host,signal,ownerId,player,controls,worldCon
    body=world.createRigidBody(rapier.RigidBodyDesc.kinematicPositionBased().setTranslation(position.x,position.y,position.z))
    collider=world.createCollider(rapier.ColliderDesc.cuboid(2.2,.8,2.2),body)
    controller=world.createCharacterController(.04);controller.setSlideEnabled(true)
-   cameraLease=leaseCamera({camera,sessionId:ownerId+'-skimmer',signal});cameraLease.resume();cameraPosition.copy(from.position);cameraTarget.copy(from.target);cameraLease.update(cameraPosition,cameraTarget)
-   keyboard=bindKeyboard({target,sessionId:ownerId+'-skimmer',signal,onMove:value=>{input.x=value.x;input.y=value.y},onAttack:()=>{},onInteract:()=>dismount(),extraKeys:[' ','shift','l'],onKeys:keys=>{
+   cameraLease=leaseCamera({camera,sessionId:ownerId+'-skimmer',signal});cameraLease.resume();cameraPosition.copy(from.position);cameraTarget.copy(from.target);cameraLease.update(cameraPosition,cameraTarget);trace()
+   keyboard=bindKeyboard({target,sessionId:ownerId+'-skimmer',signal,onMove:value=>{input.x=value.x;input.y=value.y},onAttack:()=>{},onInteract:()=>dismount(),onDiagnostic:(kind,detail)=>{lastInput={kind,...detail};trace()},extraKeys:[' ','shift','l'],onKeys:keys=>{
     const up=keys.includes(' ');if(up&&!input.up)pendingTakeoff=true;input.up=up;input.down=keys.includes('shift')||keys.includes('l');const land=keys.includes('l');if(land&&!landHeld&&state!=='landed')requestLanding();landHeld=land
    },onError})
    state='landed';input={x:0,y:0,up:false,down:false};velocity.set(0,0,0);turn=0;keyboard.resume();stop=host.subscribeFrame(tick)
@@ -99,7 +102,7 @@ export function createPlayerFlight({host,signal,ownerId,player,controls,worldCon
   if(closed||signal.aborted||!body||state==='faulted')return
   try{
    requireCondition(Number.isFinite(delta)&&delta>0&&delta<=.1,'INVALID_FRAME','Bounded flight delta required')
-   position.copy(body.translation())
+   position.copy(body.translation());flightFrames++
    if(state==='flying'&&landHeld&&!input.up){const ground=groundAt(position.x,position.z);if(ground!==null&&position.y-(ground+.84)<=3)requestLanding()}
    const freshTakeoff=pendingTakeoff;pendingTakeoff=false
    if(state==='landed'&&(input.up||freshTakeoff)){state='taking-off';takeoffBaseY=position.y;landingPad=null}
@@ -121,7 +124,7 @@ export function createPlayerFlight({host,signal,ownerId,player,controls,worldCon
    const traffic=worldContent?.livingCity?.snapshot().vehicles??[]
    for(const actor of traffic){const p=new Vector3(...actor.position);if(next.distanceTo(p)<8&&next.distanceTo(p)<position.distanceTo(p)){next.copy(position);velocity.set(0,0,0);message='Holding for ambient traffic';break}}
    controller.computeColliderMovement(collider,{x:next.x-position.x,y:next.y-position.y,z:next.z-position.z},rapier.QueryFilterFlags.EXCLUDE_SENSORS,undefined,c=>c.handle!==collider.handle)
-   const move=controller.computedMovement();position.add(new Vector3(move.x,move.y,move.z));body.setNextKinematicTranslation(position);root.children[0].position.copy(position);root.children[0].rotation.set(0,yaw,clamp(-turn*.07,-.1,.1))
+   const move=controller.computedMovement();lastMove={requested:{x:next.x-position.x,y:next.y-position.y,z:next.z-position.z},actual:{x:move.x,y:move.y,z:move.z}};position.add(new Vector3(move.x,move.y,move.z));body.setNextKinematicTranslation(position);root.children[0].position.copy(position);root.children[0].rotation.set(0,yaw,clamp(-turn*.07,-.1,.1))
    if(state==='taking-off'&&position.y-takeoffBaseY>=2.2)state='flying'
    if(state==='landing'&&Math.hypot(position.x-landingPad.position[0],position.z-landingPad.position[2])<.15&&Math.abs(position.y-(landingPad.position[1]+.84))<.065){state='landed';velocity.set(0,0,0);message='Landed. E to dismount | Space to take off'}
    desiredCamera.copy(position).addScaledVector(forward,-8);desiredCamera.y+=3.8;desiredLook.copy(position).addScaledVector(forward,2);desiredLook.y+=.5
@@ -148,7 +151,7 @@ export function createPlayerFlight({host,signal,ownerId,player,controls,worldCon
  function release(){
   if(closed){if(releaseFailure)throw releaseFailure;return}closed=true;const errors=[],attempt=fn=>{try{fn()}catch(error){errors.push(error)}}
   signal.removeEventListener('abort',abort);attempt(cleanFlight);root.removeFromParent()
-  target.removeEventListener('kalki-input-reset',resetTakeoff)
+  target.removeEventListener('kalki-input-reset',resetTakeoff);if(diagnostics?.skimmerOwner===ownerId){delete diagnostics.skimmerOwner;delete diagnostics.skimmerFlight}
   for(const resource of [geometry,material,padGeometry,padMaterial])attempt(()=>resource?.dispose())
   if(errors.length){releaseFailure=new AggregateError(errors,'Player vehicle cleanup failed');throw releaseFailure}
  }
