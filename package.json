@@ -6,8 +6,9 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "lint": "oxlint src",
-    "preview": "vite preview"
+    "lint": "oxlint game/reboot/src",
+    "preview": "vite preview",
+    "verify:publication": "node tools/verify-publication.mjs"
   },
   "dependencies": {
     "@react-three/drei": "^10.7.9",

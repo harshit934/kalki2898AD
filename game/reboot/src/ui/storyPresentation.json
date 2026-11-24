@@ -1,0 +1,756 @@
+{
+  "arcs": [
+    {
+      "id": 1,
+      "title": "Kashi contracts",
+      "region": "KASHI"
+    },
+    {
+      "id": 2,
+      "title": "A partner, not a tool",
+      "region": "KASHI OUTSKIRTS"
+    },
+    {
+      "id": 3,
+      "title": "The price above",
+      "region": "KASHI / COMPLEX APPROACH"
+    },
+    {
+      "id": 4,
+      "title": "A name on the wire",
+      "region": "KASHI / ESCAPE ROUTES"
+    },
+    {
+      "id": 5,
+      "title": "Hunters in the dust",
+      "region": "DESERT FRONTIER"
+    },
+    {
+      "id": 6,
+      "title": "The immortal in the road",
+      "region": "FRONTIER TRANSPORT"
+    },
+    {
+      "id": 7,
+      "title": "The cost of losing",
+      "region": "KASHI RETURN ROUTE"
+    },
+    {
+      "id": 8,
+      "title": "The concealed road",
+      "region": "SHAMBHALA APPROACH"
+    },
+    {
+      "id": 9,
+      "title": "When the walls shake",
+      "region": "SHAMBHALA"
+    },
+    {
+      "id": 10,
+      "title": "Echoes of Karna",
+      "region": "SHAMBHALA / ANCIENT MEMORY"
+    }
+  ],
+  "missions": [
+    {
+      "id": "mission-1",
+      "title": "A BOUNTY IN THE DUST",
+      "description": "Game-original adaptation · Recover crystals and defeat the Arena Warden.",
+      "region": "KASHI // ARC 01",
+      "objective": "Recover crystals and defeat the Arena Warden."
+    },
+    {
+      "id": "mission-2",
+      "title": "THE GLASS WASTES",
+      "description": "Game-original adaptation · Synchronize three pylons and defeat the Prism Sovereign.",
+      "region": "GLASS WASTES // SECTOR 02",
+      "objective": "Synchronize three pylons and defeat the Prism Sovereign."
+    },
+    {
+      "id": "mission-3",
+      "title": "ONE MORE JOB",
+      "description": "Game-original adaptation · Secure contract beacons and defeat the enforcer.",
+      "region": "KASHI // ARC 01",
+      "objective": "Secure contract beacons and defeat the enforcer."
+    },
+    {
+      "id": "mission-4",
+      "title": "THE DRIVER’S DEBT",
+      "description": "Game-original adaptation · Recover engine parts and stop the convoy breaker.",
+      "region": "KASHI // ARC 01",
+      "objective": "Recover engine parts and stop the convoy breaker."
+    },
+    {
+      "id": "mission-5",
+      "title": "A CITY OF TIERS",
+      "description": "Game-original adaptation · Activate tier-lift relays and defeat district security.",
+      "region": "KASHI // ARC 01",
+      "objective": "Activate tier-lift relays and defeat district security."
+    },
+    {
+      "id": "mission-6",
+      "title": "THE BOUNTY BOARD",
+      "description": "Game-original adaptation · Trace competing claim markers and face the claim enforcer.",
+      "region": "KASHI // ARC 01",
+      "objective": "Trace competing claim markers and face the claim enforcer."
+    },
+    {
+      "id": "mission-7",
+      "title": "THE MASKED PURSUIT",
+      "description": "Game-original adaptation · Follow trail markers and defeat the masked fugitive.",
+      "region": "KASHI // ARC 01",
+      "objective": "Follow trail markers and defeat the masked fugitive."
+    },
+    {
+      "id": "mission-8",
+      "title": "THE ARENA CIRCUIT",
+      "description": "Game-original adaptation · Cross circuit markers and face the champion.",
+      "region": "KASHI // ARC 01",
+      "objective": "Cross circuit markers and face the champion."
+    },
+    {
+      "id": "mission-9",
+      "title": "A DEBT COLLECTED",
+      "description": "Game-original adaptation · Follow bargain markers and defeat the collector.",
+      "region": "KASHI // ARC 01",
+      "objective": "Follow bargain markers and defeat the collector."
+    },
+    {
+      "id": "mission-10",
+      "title": "THE ROAD OUT",
+      "description": "Game-original adaptation · Clear departure markers and the final roadblock.",
+      "region": "KASHI // ARC 01",
+      "objective": "Clear departure markers and the final roadblock."
+    },
+    {
+      "id": "mission-11",
+      "title": "THE DIAGNOSTIC",
+      "description": "Game-original adaptation · Ask Bujji to identify the damaged subsystem.",
+      "region": "KASHI OUTSKIRTS // ARC 02",
+      "objective": "Ask Bujji to identify the damaged subsystem."
+    },
+    {
+      "id": "mission-12",
+      "title": "THREE WAYS THROUGH",
+      "description": "Game-original adaptation · Survey a narrow passage, exposed ramp and service tunnel.",
+      "region": "KASHI OUTSKIRTS // ARC 02",
+      "objective": "Survey a narrow passage, exposed ramp and service tunnel."
+    },
+    {
+      "id": "mission-13",
+      "title": "A BORROWED CHARGE",
+      "description": "Game-original adaptation · Trade recovered scrap for a power cell.",
+      "region": "KASHI OUTSKIRTS // ARC 02",
+      "objective": "Trade recovered scrap for a power cell."
+    },
+    {
+      "id": "mission-14",
+      "title": "SIGNAL IN THE RUBBLE",
+      "description": "Game-original adaptation · Follow Bujji’s intermittent scan to a buried junction.",
+      "region": "KASHI OUTSKIRTS // ARC 02",
+      "objective": "Follow Bujji’s intermittent scan to a buried junction."
+    },
+    {
+      "id": "mission-15",
+      "title": "HANDS OFF THE CONSOLE",
+      "description": "Game-original adaptation · Keep one scavenger away from the repair console.",
+      "region": "KASHI OUTSKIRTS // ARC 02",
+      "objective": "Keep one scavenger away from the repair console."
+    },
+    {
+      "id": "mission-16",
+      "title": "THE QUIET DETOUR",
+      "description": "Game-original adaptation · Guide the vehicle through an unlit service lane.",
+      "region": "KASHI OUTSKIRTS // ARC 02",
+      "objective": "Guide the vehicle through an unlit service lane."
+    },
+    {
+      "id": "mission-17",
+      "title": "A MORE ACCURATE MAP",
+      "description": "Game-original adaptation · Compare ground landmarks against Bujji’s route prediction.",
+      "region": "KASHI OUTSKIRTS // ARC 02",
+      "objective": "Compare ground landmarks against Bujji’s route prediction."
+    },
+    {
+      "id": "mission-18",
+      "title": "PARTS WITH A PAST",
+      "description": "Game-original adaptation · Choose a reliable heavy part or an unstable light part.",
+      "region": "KASHI OUTSKIRTS // ARC 02",
+      "objective": "Choose a reliable heavy part or an unstable light part."
+    },
+    {
+      "id": "mission-19",
+      "title": "ONE DRIVER, TWO OPINIONS",
+      "description": "Game-original adaptation · Complete a controlled ground-movement test.",
+      "region": "KASHI OUTSKIRTS // ARC 02",
+      "objective": "Complete a controlled ground-movement test."
+    },
+    {
+      "id": "mission-20",
+      "title": "THE SPARE ROUTE",
+      "description": "Game-original adaptation · Mark a fallback path before leaving the outskirts.",
+      "region": "KASHI OUTSKIRTS // ARC 02",
+      "objective": "Mark a fallback path before leaving the outskirts."
+    },
+    {
+      "id": "mission-21",
+      "title": "BELOW THE SHADOW",
+      "description": "Game-original adaptation · Find a viewpoint of the Complex from the lower tiers.",
+      "region": "KASHI / COMPLEX APPROACH // ARC 03",
+      "objective": "Find a viewpoint of the Complex from the lower tiers."
+    },
+    {
+      "id": "mission-22",
+      "title": "THE WATER QUEUE",
+      "description": "Game-original adaptation · Retrieve a lost ration token for a local resident.",
+      "region": "KASHI / COMPLEX APPROACH // ARC 03",
+      "objective": "Retrieve a lost ration token for a local resident."
+    },
+    {
+      "id": "mission-23",
+      "title": "A FREIGHT WINDOW",
+      "description": "Game-original adaptation · Cross a service yard between freight movements.",
+      "region": "KASHI / COMPLEX APPROACH // ARC 03",
+      "objective": "Cross a service yard between freight movements."
+    },
+    {
+      "id": "mission-24",
+      "title": "THE WRONG PERMIT",
+      "description": "Game-original adaptation · Determine why a purchased permit is invalid.",
+      "region": "KASHI / COMPLEX APPROACH // ARC 03",
+      "objective": "Determine why a purchased permit is invalid."
+    },
+    {
+      "id": "mission-25",
+      "title": "SCRAP FOR PASSAGE",
+      "description": "Game-original adaptation · Choose which salvage to exchange for a passage fee.",
+      "region": "KASHI / COMPLEX APPROACH // ARC 03",
+      "objective": "Choose which salvage to exchange for a passage fee."
+    },
+    {
+      "id": "mission-26",
+      "title": "EYES ON THE GANTRY",
+      "description": "Game-original adaptation · Observe a guard rotation without entering the Complex.",
+      "region": "KASHI / COMPLEX APPROACH // ARC 03",
+      "objective": "Observe a guard rotation without entering the Complex."
+    },
+    {
+      "id": "mission-27",
+      "title": "THE TOLL KEEPER",
+      "description": "Game-original adaptation · Defeat one original toll enforcer to recover disputed salvage.",
+      "region": "KASHI / COMPLEX APPROACH // ARC 03",
+      "objective": "Defeat one original toll enforcer to recover disputed salvage."
+    },
+    {
+      "id": "mission-28",
+      "title": "NO INVITATION",
+      "description": "Game-original adaptation · Return to Bujji after the failed access attempt.",
+      "region": "KASHI / COMPLEX APPROACH // ARC 03",
+      "objective": "Return to Bujji after the failed access attempt."
+    },
+    {
+      "id": "mission-29",
+      "title": "WHISPERS OF A TRANSFER",
+      "description": "Game-original adaptation · Compare conflicting transfer notices.",
+      "region": "KASHI / COMPLEX APPROACH // ARC 03",
+      "objective": "Compare conflicting transfer notices."
+    },
+    {
+      "id": "mission-30",
+      "title": "A LARGER NUMBER",
+      "description": "Game-original adaptation · Inspect the new high-value contract.",
+      "region": "KASHI / COMPLEX APPROACH // ARC 03",
+      "objective": "Inspect the new high-value contract."
+    },
+    {
+      "id": "mission-31",
+      "title": "A BROKEN NOTICE",
+      "description": "Game-original adaptation · Reconstruct a damaged bounty transmission.",
+      "region": "KASHI / ESCAPE ROUTES // ARC 04",
+      "objective": "Reconstruct a damaged bounty transmission."
+    },
+    {
+      "id": "mission-32",
+      "title": "EMPTY QUARTERS",
+      "description": "Game-original adaptation · Search an abandoned room for a departure route.",
+      "region": "KASHI / ESCAPE ROUTES // ARC 04",
+      "objective": "Search an abandoned room for a departure route."
+    },
+    {
+      "id": "mission-33",
+      "title": "TWO WITNESSES",
+      "description": "Game-original adaptation · Compare two accounts of a fleeing transport.",
+      "region": "KASHI / ESCAPE ROUTES // ARC 04",
+      "objective": "Compare two accounts of a fleeing transport."
+    },
+    {
+      "id": "mission-34",
+      "title": "THE SERVICE DOOR",
+      "description": "Game-original adaptation · Find the service exit used by recent traffic.",
+      "region": "KASHI / ESCAPE ROUTES // ARC 04",
+      "objective": "Find the service exit used by recent traffic."
+    },
+    {
+      "id": "mission-35",
+      "title": "A PAID RUMOR",
+      "description": "Game-original adaptation · Decide whether to buy an unverified location report.",
+      "region": "KASHI / ESCAPE ROUTES // ARC 04",
+      "objective": "Decide whether to buy an unverified location report."
+    },
+    {
+      "id": "mission-36",
+      "title": "BOOTPRINTS AND WHEELS",
+      "description": "Game-original adaptation · Distinguish foot traffic from a transport trail.",
+      "region": "KASHI / ESCAPE ROUTES // ARC 04",
+      "objective": "Distinguish foot traffic from a transport trail."
+    },
+    {
+      "id": "mission-37",
+      "title": "RIVAL ON THE WIRE",
+      "description": "Game-original adaptation · Disengage a rival trying to seize the scanner.",
+      "region": "KASHI / ESCAPE ROUTES // ARC 04",
+      "objective": "Disengage a rival trying to seize the scanner."
+    },
+    {
+      "id": "mission-38",
+      "title": "SIGNAL HANDOFF",
+      "description": "Game-original adaptation · Keep sight of successive relay points while Bujji scans.",
+      "region": "KASHI / ESCAPE ROUTES // ARC 04",
+      "objective": "Keep sight of successive relay points while Bujji scans."
+    },
+    {
+      "id": "mission-39",
+      "title": "THE EXIT ACCOUNT",
+      "description": "Game-original adaptation · Choose scouting priority before departure.",
+      "region": "KASHI / ESCAPE ROUTES // ARC 04",
+      "objective": "Choose scouting priority before departure."
+    },
+    {
+      "id": "mission-40",
+      "title": "TOWARD THE DUST",
+      "description": "Game-original adaptation · Reach the departure point and board for pursuit.",
+      "region": "KASHI / ESCAPE ROUTES // ARC 04",
+      "objective": "Reach the departure point and board for pursuit."
+    },
+    {
+      "id": "mission-41",
+      "title": "TRACKS IN OPEN GROUND",
+      "description": "Game-original adaptation · Read wheel tracks across exposed terrain.",
+      "region": "DESERT FRONTIER // ARC 05",
+      "objective": "Read wheel tracks across exposed terrain."
+    },
+    {
+      "id": "mission-42",
+      "title": "LOW ON THE HORIZON",
+      "description": "Game-original adaptation · Keep the target transport within sensor range.",
+      "region": "DESERT FRONTIER // ARC 05",
+      "objective": "Keep the target transport within sensor range."
+    },
+    {
+      "id": "mission-43",
+      "title": "THE CROSSING LINE",
+      "description": "Game-original adaptation · Choose a wide bend or a short rough crossing.",
+      "region": "DESERT FRONTIER // ARC 05",
+      "objective": "Choose a wide bend or a short rough crossing."
+    },
+    {
+      "id": "mission-44",
+      "title": "CLOSE ENOUGH TO SEE",
+      "description": "Game-original adaptation · Use a cockpit scan to identify the pursued transport.",
+      "region": "DESERT FRONTIER // ARC 05",
+      "objective": "Use a cockpit scan to identify the pursued transport."
+    },
+    {
+      "id": "mission-45",
+      "title": "THE INTERCEPTOR",
+      "description": "Game-original adaptation · Repel one original interceptor during a scripted stop.",
+      "region": "DESERT FRONTIER // ARC 05",
+      "objective": "Repel one original interceptor during a scripted stop."
+    },
+    {
+      "id": "mission-46",
+      "title": "BUJJI’S ESTIMATE",
+      "description": "Game-original adaptation · Respond to a low-confidence intercept prediction.",
+      "region": "DESERT FRONTIER // ARC 05",
+      "objective": "Respond to a low-confidence intercept prediction."
+    },
+    {
+      "id": "mission-47",
+      "title": "THE ROUGH DESCENT",
+      "description": "Game-original adaptation · Guide the scripted route around a broken descent.",
+      "region": "DESERT FRONTIER // ARC 05",
+      "objective": "Guide the scripted route around a broken descent."
+    },
+    {
+      "id": "mission-48",
+      "title": "AN UNREADY MODE",
+      "description": "Game-original adaptation · Experience the failed flight attempt through bounded staging.",
+      "region": "DESERT FRONTIER // ARC 05",
+      "objective": "Experience the failed flight attempt through bounded staging."
+    },
+    {
+      "id": "mission-49",
+      "title": "BACK ON THE TRAIL",
+      "description": "Game-original adaptation · Recover the target’s bearing after the interruption.",
+      "region": "DESERT FRONTIER // ARC 05",
+      "objective": "Recover the target’s bearing after the interruption."
+    },
+    {
+      "id": "mission-50",
+      "title": "SOMEONE IN THE ROAD",
+      "description": "Game-original adaptation · Approach the guardian beside the transport.",
+      "region": "DESERT FRONTIER // ARC 05",
+      "objective": "Approach the guardian beside the transport."
+    },
+    {
+      "id": "mission-51",
+      "title": "MEASURE THE STRANGER",
+      "description": "Game-original adaptation · Inspect the guardian’s reach and stance from a safe distance.",
+      "region": "FRONTIER TRANSPORT // ARC 06",
+      "objective": "Inspect the guardian’s reach and stance from a safe distance."
+    },
+    {
+      "id": "mission-52",
+      "title": "A CONFIDENT APPROACH",
+      "description": "Game-original adaptation · Approach the protected transport as a hunter.",
+      "region": "FRONTIER TRANSPORT // ARC 06",
+      "objective": "Approach the protected transport as a hunter."
+    },
+    {
+      "id": "mission-53",
+      "title": "BEYOND REACH",
+      "description": "Game-original adaptation · Survive the first guarded exchange.",
+      "region": "FRONTIER TRANSPORT // ARC 06",
+      "objective": "Survive the first guarded exchange."
+    },
+    {
+      "id": "mission-54",
+      "title": "ACROSS THE DECK",
+      "description": "Game-original adaptation · Move across the transport deck during the confrontation.",
+      "region": "FRONTIER TRANSPORT // ARC 06",
+      "objective": "Move across the transport deck during the confrontation."
+    },
+    {
+      "id": "mission-55",
+      "title": "A SHORT OPENING",
+      "description": "Game-original adaptation · Attempt a bounded counter and disengage.",
+      "region": "FRONTIER TRANSPORT // ARC 06",
+      "objective": "Attempt a bounded counter and disengage."
+    },
+    {
+      "id": "mission-56",
+      "title": "THE PASSENGER’S DISTANCE",
+      "description": "Game-original adaptation · Reach a vantage point without inventing a successful capture.",
+      "region": "FRONTIER TRANSPORT // ARC 06",
+      "objective": "Reach a vantage point without inventing a successful capture."
+    },
+    {
+      "id": "mission-57",
+      "title": "BUJJI, ANOTHER ROUTE",
+      "description": "Game-original adaptation · Ask Bujji to identify a retreat path.",
+      "region": "FRONTIER TRANSPORT // ARC 06",
+      "objective": "Ask Bujji to identify a retreat path."
+    },
+    {
+      "id": "mission-58",
+      "title": "THE WEIGHT OF A BLOW",
+      "description": "Game-original adaptation · Play the recovery beats of an overwhelming counter.",
+      "region": "FRONTIER TRANSPORT // ARC 06",
+      "objective": "Play the recovery beats of an overwhelming counter."
+    },
+    {
+      "id": "mission-59",
+      "title": "THE EMPTY ROAD",
+      "description": "Game-original adaptation · Reach Bujji after the transport has moved on.",
+      "region": "FRONTIER TRANSPORT // ARC 06",
+      "objective": "Reach Bujji after the transport has moved on."
+    },
+    {
+      "id": "mission-60",
+      "title": "NOT THIS TIME",
+      "description": "Game-original adaptation · Return from the failed encounter.",
+      "region": "FRONTIER TRANSPORT // ARC 06",
+      "objective": "Return from the failed encounter."
+    },
+    {
+      "id": "mission-61",
+      "title": "A NOTICE AT THE GATE",
+      "description": "Game-original adaptation · Read the loss-of-access notice with Bujji.",
+      "region": "KASHI RETURN ROUTE // ARC 07",
+      "objective": "Read the loss-of-access notice with Bujji."
+    },
+    {
+      "id": "mission-62",
+      "title": "COUNT WHAT REMAINS",
+      "description": "Game-original adaptation · Inventory remaining equipment after the loss.",
+      "region": "KASHI RETURN ROUTE // ARC 07",
+      "objective": "Inventory remaining equipment after the loss."
+    },
+    {
+      "id": "mission-63",
+      "title": "A PLACE TO STOP",
+      "description": "Game-original adaptation · Find a quiet repair point outside the main traffic.",
+      "region": "KASHI RETURN ROUTE // ARC 07",
+      "objective": "Find a quiet repair point outside the main traffic."
+    },
+    {
+      "id": "mission-64",
+      "title": "THE LOST CLAIM",
+      "description": "Game-original adaptation · Separate the failed bounty from unrelated small debts.",
+      "region": "KASHI RETURN ROUTE // ARC 07",
+      "objective": "Separate the failed bounty from unrelated small debts."
+    },
+    {
+      "id": "mission-65",
+      "title": "ONE HONEST REPAIR",
+      "description": "Game-original adaptation · Repair the damaged scanner with recovered parts.",
+      "region": "KASHI RETURN ROUTE // ARC 07",
+      "objective": "Repair the damaged scanner with recovered parts."
+    },
+    {
+      "id": "mission-66",
+      "title": "SOMEONE STILL ASKING",
+      "description": "Game-original adaptation · Hear Luke’s request without rewriting Bhairava’s response.",
+      "region": "KASHI RETURN ROUTE // ARC 07",
+      "objective": "Hear Luke’s request without rewriting Bhairava’s response."
+    },
+    {
+      "id": "mission-67",
+      "title": "BEFORE THE COMMANDER",
+      "description": "Game-original adaptation · Reach the meeting with Manas.",
+      "region": "KASHI RETURN ROUTE // ARC 07",
+      "objective": "Reach the meeting with Manas."
+    },
+    {
+      "id": "mission-68",
+      "title": "THE OFFER REOPENED",
+      "description": "Game-original adaptation · Hear the renewed offer to retrieve the passenger.",
+      "region": "KASHI RETURN ROUTE // ARC 07",
+      "objective": "Hear the renewed offer to retrieve the passenger."
+    },
+    {
+      "id": "mission-69",
+      "title": "PREPARE, NOT CELEBRATE",
+      "description": "Game-original adaptation · Check Bujji’s systems before departure.",
+      "region": "KASHI RETURN ROUTE // ARC 07",
+      "objective": "Check Bujji’s systems before departure."
+    },
+    {
+      "id": "mission-70",
+      "title": "A ROAD KEPT HIDDEN",
+      "description": "Game-original adaptation · Follow the lead toward the concealed route.",
+      "region": "KASHI RETURN ROUTE // ARC 07",
+      "objective": "Follow the lead toward the concealed route."
+    },
+    {
+      "id": "mission-71",
+      "title": "TRUST THE BEARING",
+      "description": "Game-original adaptation · Compare Luke’s bearing with Bujji’s sensor report.",
+      "region": "SHAMBHALA APPROACH // ARC 08",
+      "objective": "Compare Luke’s bearing with Bujji’s sensor report."
+    },
+    {
+      "id": "mission-72",
+      "title": "NO VISIBLE GATE",
+      "description": "Game-original adaptation · Search the approach without inventing an exposed entrance.",
+      "region": "SHAMBHALA APPROACH // ARC 08",
+      "objective": "Search the approach without inventing an exposed entrance."
+    },
+    {
+      "id": "mission-73",
+      "title": "THE LAST TURN",
+      "description": "Game-original adaptation · Follow the instructed final turn.",
+      "region": "SHAMBHALA APPROACH // ARC 08",
+      "objective": "Follow the instructed final turn."
+    },
+    {
+      "id": "mission-74",
+      "title": "A DIFFERENT SKY",
+      "description": "Game-original adaptation · Observe the sanctuary after entry.",
+      "region": "SHAMBHALA APPROACH // ARC 08",
+      "objective": "Observe the sanctuary after entry."
+    },
+    {
+      "id": "mission-75",
+      "title": "THE FORMALITIES",
+      "description": "Game-original adaptation · Wait while Luke handles the entry exchange.",
+      "region": "SHAMBHALA APPROACH // ARC 08",
+      "objective": "Wait while Luke handles the entry exchange."
+    },
+    {
+      "id": "mission-76",
+      "title": "STAY WITH THE VEHICLE",
+      "description": "Game-original adaptation · Give Bujji a local parking/scouting instruction.",
+      "region": "SHAMBHALA APPROACH // ARC 08",
+      "objective": "Give Bujji a local parking/scouting instruction."
+    },
+    {
+      "id": "mission-77",
+      "title": "WATER AND STONE",
+      "description": "Game-original adaptation · Inspect a short permitted route through the settlement.",
+      "region": "SHAMBHALA APPROACH // ARC 08",
+      "objective": "Inspect a short permitted route through the settlement."
+    },
+    {
+      "id": "mission-78",
+      "title": "THE ESCORT’S PACE",
+      "description": "Game-original adaptation · Follow the escort without breaking the route.",
+      "region": "SHAMBHALA APPROACH // ARC 08",
+      "objective": "Follow the escort without breaking the route."
+    },
+    {
+      "id": "mission-79",
+      "title": "AN UNFINISHED INTENTION",
+      "description": "Game-original adaptation · Check in with Bujji before moving farther.",
+      "region": "SHAMBHALA APPROACH // ARC 08",
+      "objective": "Check in with Bujji before moving farther."
+    },
+    {
+      "id": "mission-80",
+      "title": "THE TREE AHEAD",
+      "description": "Game-original adaptation · Reach the next established encounter point.",
+      "region": "SHAMBHALA APPROACH // ARC 08",
+      "objective": "Reach the next established encounter point."
+    },
+    {
+      "id": "mission-81",
+      "title": "ALARM ACROSS THE STONE",
+      "description": "Game-original adaptation · Read the first alarm and identify safe local movement.",
+      "region": "SHAMBHALA // ARC 09",
+      "objective": "Read the first alarm and identify safe local movement."
+    },
+    {
+      "id": "mission-82",
+      "title": "A ROUTE THROUGH SMOKE",
+      "description": "Game-original adaptation · Find a passage through debris and smoke.",
+      "region": "SHAMBHALA // ARC 09",
+      "objective": "Find a passage through debris and smoke."
+    },
+    {
+      "id": "mission-83",
+      "title": "THE CONTRACT REMAINS",
+      "description": "Game-original adaptation · Locate the passenger’s direction amid the assault.",
+      "region": "SHAMBHALA // ARC 09",
+      "objective": "Locate the passenger’s direction amid the assault."
+    },
+    {
+      "id": "mission-84",
+      "title": "ONE BLOCKING UNIT",
+      "description": "Game-original adaptation · Clear one original assault unit from the chosen route.",
+      "region": "SHAMBHALA // ARC 09",
+      "objective": "Clear one original assault unit from the chosen route."
+    },
+    {
+      "id": "mission-85",
+      "title": "BUJJI AT THE TURN",
+      "description": "Game-original adaptation · Reach the partner’s marked pickup point.",
+      "region": "SHAMBHALA // ARC 09",
+      "objective": "Reach the partner’s marked pickup point."
+    },
+    {
+      "id": "mission-86",
+      "title": "A PASSAGE FOR OTHERS",
+      "description": "Game-original adaptation · Choose whether to open a nearby evacuation passage.",
+      "region": "SHAMBHALA // ARC 09",
+      "objective": "Choose whether to open a nearby evacuation passage."
+    },
+    {
+      "id": "mission-87",
+      "title": "THE HEAVY STEP",
+      "description": "Game-original adaptation · Survive an original heavy unit long enough to pass.",
+      "region": "SHAMBHALA // ARC 09",
+      "objective": "Survive an original heavy unit long enough to pass."
+    },
+    {
+      "id": "mission-88",
+      "title": "WHERE THE LINES CROSS",
+      "description": "Game-original adaptation · Reach the established convergence of guardian, passenger and hunter.",
+      "region": "SHAMBHALA // ARC 09",
+      "objective": "Reach the established convergence of guardian, passenger and hunter."
+    },
+    {
+      "id": "mission-89",
+      "title": "BEHIND THE BARRIER",
+      "description": "Game-original adaptation · Find an accessible route around a combat barrier.",
+      "region": "SHAMBHALA // ARC 09",
+      "objective": "Find an accessible route around a combat barrier."
+    },
+    {
+      "id": "mission-90",
+      "title": "THE WEAPON’S MOMENT",
+      "description": "Game-original adaptation · Enter the established weapon-related turning point.",
+      "region": "SHAMBHALA // ARC 09",
+      "objective": "Enter the established weapon-related turning point."
+    },
+    {
+      "id": "mission-91",
+      "title": "A FAMILIAR WEIGHT",
+      "description": "Game-original adaptation · Approach the weapon at the established turning point.",
+      "region": "SHAMBHALA / ANCIENT MEMORY // ARC 10",
+      "objective": "Approach the weapon at the established turning point."
+    },
+    {
+      "id": "mission-92",
+      "title": "A BREAK IN THE ASSAULT",
+      "description": "Game-original adaptation · Play a short original counter within the established confrontation.",
+      "region": "SHAMBHALA / ANCIENT MEMORY // ARC 10",
+      "objective": "Play a short original counter within the established confrontation."
+    },
+    {
+      "id": "mission-93",
+      "title": "THE GUARDIAN LOOKS AGAIN",
+      "description": "Game-original adaptation · Observe Ashwatthama’s recognition reaction.",
+      "region": "SHAMBHALA / ANCIENT MEMORY // ARC 10",
+      "objective": "Observe Ashwatthama’s recognition reaction."
+    },
+    {
+      "id": "mission-94",
+      "title": "SUN ON THE BATTLEFIELD",
+      "description": "Game-original adaptation · Experience a brief bounded ancient-war image.",
+      "region": "SHAMBHALA / ANCIENT MEMORY // ARC 10",
+      "objective": "Experience a brief bounded ancient-war image."
+    },
+    {
+      "id": "mission-95",
+      "title": "THE ARCHER’S SILHOUETTE",
+      "description": "Game-original adaptation · Read the chariot and archer imagery.",
+      "region": "SHAMBHALA / ANCIENT MEMORY // ARC 10",
+      "objective": "Read the chariot and archer imagery."
+    },
+    {
+      "id": "mission-96",
+      "title": "THE NAME KARNA",
+      "description": "Game-original adaptation · Reach the film’s established identification.",
+      "region": "SHAMBHALA / ANCIENT MEMORY // ARC 10",
+      "objective": "Reach the film’s established identification."
+    },
+    {
+      "id": "mission-97",
+      "title": "BACK TO THE PURSUIT",
+      "description": "Game-original adaptation · Return from memory imagery to the current escape.",
+      "region": "SHAMBHALA / ANCIENT MEMORY // ARC 10",
+      "objective": "Return from memory imagery to the current escape."
+    },
+    {
+      "id": "mission-98",
+      "title": "KEEP MOVING, BUJJI",
+      "description": "Game-original adaptation · Complete a bounded vehicle departure beat.",
+      "region": "SHAMBHALA / ANCIENT MEMORY // ARC 10",
+      "objective": "Complete a bounded vehicle departure beat."
+    },
+    {
+      "id": "mission-99",
+      "title": "A THREAT STILL ABOVE",
+      "description": "Game-original adaptation · Observe the established continuing threat from Yaskin.",
+      "region": "SHAMBHALA / ANCIENT MEMORY // ARC 10",
+      "objective": "Observe the established continuing threat from Yaskin."
+    },
+    {
+      "id": "mission-100",
+      "title": "AT THE UNFINISHED HORIZON",
+      "description": "Game-original adaptation · Close the adaptation at the film’s known horizon.",
+      "region": "SHAMBHALA / ANCIENT MEMORY // ARC 10",
+      "objective": "Close the adaptation at the film’s known horizon."
+    }
+  ]
+}

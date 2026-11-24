@@ -1,0 +1,23 @@
+export const EARLY_MISSIONS = Object.freeze({
+  'mission-1': { title:'A BOUNTY IN THE DUST', location:'Kashi salvage road', theme:'salvage',
+    objective:'Accept the contract, verify three salvage crystals, compare the relay, clear the patrols and recover the Warden relic.',
+    tasks:[{id:'accept-contract',label:'Accept the salvage contract with Bujji',at:[0,-.22,6]}, {id:'compare-relay',label:'Compare the salvage relay with the marked claim',at:[2.8,-.22,5]}],
+    outcome:'Contract settled. The Glass Wastes route is available.', tint:'#a78962', camera:[6,5,7],focus:[0,1,-17]},
+  'mission-2': {title:'THE GLASS WASTES',location:'Glass Wastes corridor',theme:'prism',
+    objective:'Activate all three pylons, verify their resonance, clear the sentinel waves and recover the Sovereign relic.',
+    tasks:[{id:'verify-grid',label:'Verify the three-pylon resonance grid',at:[0,-.22,-52]}],
+    outcome:'The resonance route is secure. Return to the paying markets.', tint:'#718c9d',camera:[-5,5,2],focus:[0,1,-30]},
+  'mission-3': {title:'ONE MORE JOB',location:'Kashi market edges',theme:'market',
+    objective:'Read all three beacons, confirm the matching contract evidence, then resolve the patrol and Enforcer encounter.',
+    tasks:[{id:'verify-contract',label:'Confirm the contract after comparing all three beacons',at:[0,-.22,-45]}],
+    outcome:'The verified contract pays toward the vehicle debt.',tint:'#ab8265',camera:[5,4,1],focus:[0,1,-24]},
+  'mission-4': {title:'THE DRIVER’S DEBT',location:'Wreck recovery court',theme:'repair',
+    objective:'Recover all three engine parts, hold the calibration station steady and recover the Convoy Breaker relic.',
+    tasks:[{id:'calibrate-engine',label:'Calibrate the recovered engine: remain still for 3 seconds',at:[0,-.22,-51],holdMs:3000}],
+    outcome:'Engine calibration holds. The tiered district route opens.',tint:'#94745d',camera:[-5,3,3],focus:[0,1,-25]},
+  'mission-5': {title:'A CITY OF TIERS',location:'Kashi tier relay street',theme:'tiers',
+    objective:'Read the lower, middle and upper relays, confirm the connected route and resolve the district encounter.',
+    tasks:[{id:'confirm-route',label:'Confirm that the relay chain connects the district route',at:[-3,-.22,-49]}],
+    outcome:'The district route is recorded. The competitive bounty board is next.',tint:'#8e9d95',camera:[-4,3,5],focus:[0,7,-38]},
+})
+export const earlyMission = id => EARLY_MISSIONS[id] ?? null

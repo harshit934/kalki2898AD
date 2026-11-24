@@ -1,0 +1,6 @@
+.gameplay-fullscreen-control{position:absolute;top:16px;right:16px;z-index:4;display:flex;gap:8px;align-items:center;font:12px system-ui;color:#f0e5cb}
+.gameplay-fullscreen-control button{cursor:pointer;border:1px solid #a88a57;border-radius:4px;padding:8px 12px;background:#14211fe8;color:inherit;font:inherit}
+.gameplay-fullscreen-control button:disabled{cursor:default;opacity:.65}
+#kashi-gameplay-view:fullscreen{width:100vw;height:100vh;background:#14211f;overflow:hidden;box-sizing:border-box}
+#kashi-gameplay-view:fullscreen>p,#kashi-gameplay-view:fullscreen>h1{display:none}
+#kashi-gameplay-view:fullscreen>#reboot-session-canvas{width:100%!important;height:100%!important;border-radius:0!important}

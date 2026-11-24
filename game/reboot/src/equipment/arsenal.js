@@ -1,0 +1,17 @@
+import {requireCondition} from '../campaign/contracts.js'
+// Existing validated sword presentation; two named melee configurations, no new GLBs.
+export const WEAPONS=Object.freeze([{id:'sunblade',name:'Sunblade',price:120,light:24,heavy:48},{id:'arcblade',name:'Arcblade',price:180,light:30,heavy:54}].map(Object.freeze))
+export const SHOP_OFFERS=Object.freeze(Object.fromEntries(WEAPONS.flatMap(w=>[['weapon:'+w.id,Object.freeze({cost:w.price})],...[1,2].map(level=>['upgrade:'+w.id+':'+level,Object.freeze({cost:level===1?80:140,requiresReceipt:level===1?'purchase:weapon:'+w.id:'purchase:upgrade:'+w.id+':'+(level-1)})])])))
+export const EQUIPMENT_KEY='kalki:phase5-staging:equipment:v1'
+export function createArsenal({wallet,storage}){
+ let equipped=null,error=null,view;const listeners=new Set()
+ function rows(){return WEAPONS.map(w=>{const owned=wallet.hasReceipt('purchase:weapon:'+w.id),level=owned?([1,2].filter(n=>wallet.hasReceipt('purchase:upgrade:'+w.id+':'+n)).length):0;return {...w,owned,level,light:Math.round(w.light*(1+level*.25)),heavy:Math.round(w.heavy*(1+level*.25)),nextCost:level<2?(level===0?80:140):null}})}
+ function publish(){const weapons=rows();view=Object.freeze({weapons:Object.freeze(weapons),equipped,error,ready:wallet.snapshot().ready});for(const fn of [...listeners])fn()}
+ function reload(){try{const raw=storage.getItem(EQUIPMENT_KEY),value=raw===null?null:JSON.parse(raw);requireCondition(value===null||(value.version===1&&WEAPONS.some(w=>w.id===value.equipped)&&wallet.hasReceipt('purchase:weapon:'+value.equipped)),'INVALID_EQUIPMENT','Equipment save invalid; preserved');equipped=value?.equipped??null;error=null}catch(e){equipped=null;error=e.message}publish();return view}
+ function equip(id){requireCondition(!error,'EQUIPMENT_UNAVAILABLE','Resolve equipment save error before writing');requireCondition(rows().some(w=>w.id===id&&w.owned),'WEAPON_NOT_OWNED','Purchase this weapon first');const raw=JSON.stringify({version:1,equipped:id});try{try{storage.setItem(EQUIPMENT_KEY,raw)}catch(e){if(storage.getItem(EQUIPMENT_KEY)!==raw)throw e}requireCondition(storage.getItem(EQUIPMENT_KEY)===raw,'EQUIPMENT_SAVE_FAILED','Equipment write failed');equipped=id;error=null;publish()}catch(e){error=e.message;publish();throw e}}
+ function purchase(id){const weapon=WEAPONS.find(w=>w.id===id);requireCondition(weapon,'INVALID_WEAPON','Unknown weapon');const result=wallet.purchase({offerId:'weapon:'+id,transactionId:'weapon:'+id});publish();return result}
+ function upgrade(id,fromLevel){const row=rows().find(w=>w.id===id);requireCondition(row?.owned,'WEAPON_NOT_OWNED','Purchase weapon before upgrading');requireCondition(Number.isInteger(fromLevel)&&fromLevel>=0&&fromLevel<2,'UPGRADE_LIMIT','Maximum upgrade level2');if(row.level===fromLevel+1)return {duplicate:true};requireCondition(row.level===fromLevel,'UPGRADE_CONFLICT','Refresh weapon level before upgrading');const result=wallet.purchase({offerId:'upgrade:'+id+':'+(fromLevel+1),transactionId:'upgrade:'+id+':'+(fromLevel+1)});publish();return result}
+ function combatProfile(){const row=rows().find(w=>w.id===equipped&&w.owned);return row?{id:row.id,name:row.name,level:row.level,light:row.light,heavy:row.heavy}:null}
+ const stop=wallet.subscribe(publish);reload()
+ return Object.freeze({snapshot:()=>view,subscribe(fn){listeners.add(fn);return()=>listeners.delete(fn)},purchase,equip,upgrade,combatProfile,reload,release(){stop();listeners.clear()}})
+}

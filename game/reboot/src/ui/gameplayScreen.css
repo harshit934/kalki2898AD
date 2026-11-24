@@ -1,0 +1,35 @@
+/* Only the world screen changes; restored menu and campaign layouts stay intact. */
+.gameplay-active{position:fixed;inset:0;overflow:hidden;background:#14211f}
+.gameplay-active>.world-view,.gameplay-active #kashi-gameplay-view{width:100%;height:100%;margin:0;padding:0;overflow:hidden}
+.gameplay-active #kashi-gameplay-view>p,.gameplay-active #kashi-gameplay-view>h1,.gameplay-active>.runtime-panel{display:none}
+.gameplay-active #reboot-session-canvas{width:100%!important;height:100%!important;border-radius:0!important}
+.gameplay-actions{position:absolute;inset:0;pointer-events:none;z-index:6;color:#fff0df;font:14px system-ui}
+.gameplay-actions button{pointer-events:auto;padding:10px 16px;color:#fff0df;background:#14211ff2;border:1px solid #a88a57;border-radius:4px;cursor:pointer;font:inherit;min-height:42px}
+.gameplay-actions button:disabled{opacity:.5;cursor:not-allowed}
+.gameplay-toolbar{position:absolute;top:16px;left:16px;right:190px;display:flex;gap:8px;flex-wrap:wrap}
+.gameplay-result{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px;gap:12px}
+.gameplay-result.victory{background:#102018dc}
+.gameplay-result.defeat{justify-content:flex-start;padding-top:calc(50svh + 72px)}
+.gameplay-result h1{font-size:clamp(32px,6vw,72px);letter-spacing:6px;margin:0}
+.gameplay-result p{margin:0;color:inherit}
+.result-buttons{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;max-width:650px}
+.next-unavailable{max-width:540px;font-size:13px}
+.victory-score{font-size:22px}
+.gameplay-paused{position:absolute;top:80px;left:50%;transform:translateX(-50%);font-size:28px;font-weight:bold}
+.gameplay-interaction{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);max-width:60%;text-align:center}
+.gameplay-error{position:absolute;top:100px;left:20%;right:20%;padding:12px;background:#431e1ef5;color:#fff;overflow-wrap:anywhere}
+@media(max-width:650px){.gameplay-toolbar{right:130px;gap:4px}.gameplay-actions button{font-size:12px;padding:8px}.gameplay-result.defeat{padding-top:calc(50svh + 55px)}.gameplay-interaction{bottom:12px}}
+@media(max-height:480px){.gameplay-result.defeat{padding-top:calc(50svh + 30px)}.gameplay-result{gap:6px}.gameplay-actions button{min-height:32px;padding:5px 10px}}
+
+.gameplay-objective{position:absolute;top:76px;left:16px;max-width:min(380px,70vw);background:#14211fe8;border:1px solid #a88a57;padding:10px 12px;font:13px system-ui;line-height:1.5}
+@media(max-width:650px){.gameplay-objective{top:120px;font-size:11px;max-width:65vw}}
+
+.gameplay-flight-instructions{position:absolute;bottom:70px;left:50%;transform:translateX(-50%);max-width:min(720px,80vw);padding:8px 12px;margin:0;border:1px solid #a88a57;background:#14211fe8;color:#f0e5cb;text-align:center;font:13px system-ui;line-height:1.5}
+
+/* Gameplay toolbar: match the existing black and gold controls. */
+.gameplay-toolbar{scrollbar-color:#b79451 #111512;scrollbar-width:thin;color-scheme:dark}
+.gameplay-toolbar::-webkit-scrollbar{height:10px;background:#111512}
+.gameplay-toolbar::-webkit-scrollbar-track,.gameplay-toolbar::-webkit-scrollbar-corner{background:#111512}
+.gameplay-toolbar::-webkit-scrollbar-thumb{background:#b79451;border:2px solid #111512;border-radius:8px}
+.gameplay-toolbar::-webkit-scrollbar-thumb:hover{background:#d1b575}
+.gameplay-toolbar::-webkit-scrollbar-button{background:#111512}

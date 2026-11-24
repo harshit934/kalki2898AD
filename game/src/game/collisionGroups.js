@@ -1,0 +1,3 @@
+export const CAMERA_COLLIDER_GROUPS = 0x00040004
+export const CAMERA_QUERY_GROUPS = 0x00070007
+export const GAMEPLAY_QUERY_GROUPS = 0xfffbffff

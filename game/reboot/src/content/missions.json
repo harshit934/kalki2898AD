@@ -1,0 +1,702 @@
+[
+  {
+    "id": "mission-1",
+    "number": 1,
+    "arcId": 1,
+    "title": "A BOUNTY IN THE DUST",
+    "designSource": "phase8/phase8.9-story-design/phase89-arc1-missions01-10.md"
+  },
+  {
+    "id": "mission-2",
+    "number": 2,
+    "arcId": 1,
+    "title": "THE GLASS WASTES",
+    "designSource": "phase8/phase8.9-story-design/phase89-arc1-missions01-10.md"
+  },
+  {
+    "id": "mission-3",
+    "number": 3,
+    "arcId": 1,
+    "title": "ONE MORE JOB",
+    "designSource": "phase8/phase8.9-story-design/phase89-arc1-missions01-10.md"
+  },
+  {
+    "id": "mission-4",
+    "number": 4,
+    "arcId": 1,
+    "title": "THE DRIVER’S DEBT",
+    "designSource": "phase8/phase8.9-story-design/phase89-arc1-missions01-10.md"
+  },
+  {
+    "id": "mission-5",
+    "number": 5,
+    "arcId": 1,
+    "title": "A CITY OF TIERS",
+    "designSource": "phase8/phase8.9-story-design/phase89-arc1-missions01-10.md"
+  },
+  {
+    "id": "mission-6",
+    "number": 6,
+    "arcId": 1,
+    "title": "THE BOUNTY BOARD",
+    "designSource": "phase8/phase8.9-story-design/phase89-arc1-missions01-10.md"
+  },
+  {
+    "id": "mission-7",
+    "number": 7,
+    "arcId": 1,
+    "title": "THE MASKED PURSUIT",
+    "designSource": "phase8/phase8.9-story-design/phase89-arc1-missions01-10.md"
+  },
+  {
+    "id": "mission-8",
+    "number": 8,
+    "arcId": 1,
+    "title": "THE ARENA CIRCUIT",
+    "designSource": "phase8/phase8.9-story-design/phase89-arc1-missions01-10.md"
+  },
+  {
+    "id": "mission-9",
+    "number": 9,
+    "arcId": 1,
+    "title": "A DEBT COLLECTED",
+    "designSource": "phase8/phase8.9-story-design/phase89-arc1-missions01-10.md"
+  },
+  {
+    "id": "mission-10",
+    "number": 10,
+    "arcId": 1,
+    "title": "THE ROAD OUT",
+    "designSource": "phase8/phase8.9-story-design/phase89-arc1-missions01-10.md"
+  },
+  {
+    "id": "mission-11",
+    "number": 11,
+    "arcId": 2,
+    "title": "THE DIAGNOSTIC",
+    "designSource": "phase8/phase8.9-story-design/phase89-arc2-missions11-20.md"
+  },
+  {
+    "id": "mission-12",
+    "number": 12,
+    "arcId": 2,
+    "title": "THREE WAYS THROUGH",
+    "designSource": "phase8/phase8.9-story-design/phase89-arc2-missions11-20.md"
+  },
+  {
+    "id": "mission-13",
+    "number": 13,
+    "arcId": 2,
+    "title": "A BORROWED CHARGE",
+    "designSource": "phase8/phase8.9-story-design/phase89-arc2-missions11-20.md"
+  },
+  {
+    "id": "mission-14",
+    "number": 14,
+    "arcId": 2,
+    "title": "SIGNAL IN THE RUBBLE",
+    "designSource": "phase8/phase8.9-story-design/phase89-arc2-missions11-20.md"
+  },
+  {
+    "id": "mission-15",
+    "number": 15,
+    "arcId": 2,
+    "title": "HANDS OFF THE CONSOLE",
+    "designSource": "phase8/phase8.9-story-design/phase89-arc2-missions11-20.md"
+  },
+  {
+    "id": "mission-16",
+    "number": 16,
+    "arcId": 2,
+    "title": "THE QUIET DETOUR",
+    "designSource": "phase8/phase8.9-story-design/phase89-arc2-missions11-20.md"
+  },
+  {
+    "id": "mission-17",
+    "number": 17,
+    "arcId": 2,
+    "title": "A MORE ACCURATE MAP",
+    "designSource": "phase8/phase8.9-story-design/phase89-arc2-missions11-20.md"
+  },
+  {
+    "id": "mission-18",
+    "number": 18,
+    "arcId": 2,
+    "title": "PARTS WITH A PAST",
+    "designSource": "phase8/phase8.9-story-design/phase89-arc2-missions11-20.md"
+  },
+  {
+    "id": "mission-19",
+    "number": 19,
+    "arcId": 2,
+    "title": "ONE DRIVER, TWO OPINIONS",
+    "designSource": "phase8/phase8.9-story-design/phase89-arc2-missions11-20.md"
+  },
+  {
+    "id": "mission-20",
+    "number": 20,
+    "arcId": 2,
+    "title": "THE SPARE ROUTE",
+    "designSource": "phase8/phase8.9-story-design/phase89-arc2-missions11-20.md"
+  },
+  {
+    "id": "mission-21",
+    "number": 21,
+    "arcId": 3,
+    "title": "BELOW THE SHADOW",
+    "designSource": "phase8/phase8.9-story-design/phase89-arc3-missions21-30.md"
+  },
+  {
+    "id": "mission-22",
+    "number": 22,
+    "arcId": 3,
+    "title": "THE WATER QUEUE",
+    "designSource": "phase8/phase8.9-story-design/phase89-arc3-missions21-30.md"
+  },
+  {
+    "id": "mission-23",
+    "number": 23,
+    "arcId": 3,
+    "title": "A FREIGHT WINDOW",
+    "designSource": "phase8/phase8.9-story-design/phase89-arc3-missions21-30.md"
+  },
+  {
+    "id": "mission-24",
+    "number": 24,
+    "arcId": 3,
+    "title": "THE WRONG PERMIT",
+    "designSource": "phase8/phase8.9-story-design/phase89-arc3-missions21-30.md"
+  },
+  {
+    "id": "mission-25",
+    "number": 25,
+    "arcId": 3,
+    "title": "SCRAP FOR PASSAGE",
+    "designSource": "phase8/phase8.9-story-design/phase89-arc3-missions21-30.md"
+  },
+  {
+    "id": "mission-26",
+    "number": 26,
+    "arcId": 3,
+    "title": "EYES ON THE GANTRY",
+    "designSource": "phase8/phase8.9-story-design/phase89-arc3-missions21-30.md"
+  },
+  {
+    "id": "mission-27",
+    "number": 27,
+    "arcId": 3,
+    "title": "THE TOLL KEEPER",
+    "designSource": "phase8/phase8.9-story-design/phase89-arc3-missions21-30.md"
+  },
+  {
+    "id": "mission-28",
+    "number": 28,
+    "arcId": 3,
+    "title": "NO INVITATION",
+    "designSource": "phase8/phase8.9-story-design/phase89-arc3-missions21-30.md"
+  },
+  {
+    "id": "mission-29",
+    "number": 29,
+    "arcId": 3,
+    "title": "WHISPERS OF A TRANSFER",
+    "designSource": "phase8/phase8.9-story-design/phase89-arc3-missions21-30.md"
+  },
+  {
+    "id": "mission-30",
+    "number": 30,
+    "arcId": 3,
+    "title": "A LARGER NUMBER",
+    "designSource": "phase8/phase8.9-story-design/phase89-arc3-missions21-30.md"
+  },
+  {
+    "id": "mission-31",
+    "number": 31,
+    "arcId": 4,
+    "title": "A BROKEN NOTICE",
+    "designSource": "phase8/phase8.9-story-design/phase89-arc4-missions31-40.md"
+  },
+  {
+    "id": "mission-32",
+    "number": 32,
+    "arcId": 4,
+    "title": "EMPTY QUARTERS",
+    "designSource": "phase8/phase8.9-story-design/phase89-arc4-missions31-40.md"
+  },
+  {
+    "id": "mission-33",
+    "number": 33,
+    "arcId": 4,
+    "title": "TWO WITNESSES",
+    "designSource": "phase8/phase8.9-story-design/phase89-arc4-missions31-40.md"
+  },
+  {
+    "id": "mission-34",
+    "number": 34,
+    "arcId": 4,
+    "title": "THE SERVICE DOOR",
+    "designSource": "phase8/phase8.9-story-design/phase89-arc4-missions31-40.md"
+  },
+  {
+    "id": "mission-35",
+    "number": 35,
+    "arcId": 4,
+    "title": "A PAID RUMOR",
+    "designSource": "phase8/phase8.9-story-design/phase89-arc4-missions31-40.md"
+  },
+  {
+    "id": "mission-36",
+    "number": 36,
+    "arcId": 4,
+    "title": "BOOTPRINTS AND WHEELS",
+    "designSource": "phase8/phase8.9-story-design/phase89-arc4-missions31-40.md"
+  },
+  {
+    "id": "mission-37",
+    "number": 37,
+    "arcId": 4,
+    "title": "RIVAL ON THE WIRE",
+    "designSource": "phase8/phase8.9-story-design/phase89-arc4-missions31-40.md"
+  },
+  {
+    "id": "mission-38",
+    "number": 38,
+    "arcId": 4,
+    "title": "SIGNAL HANDOFF",
+    "designSource": "phase8/phase8.9-story-design/phase89-arc4-missions31-40.md"
+  },
+  {
+    "id": "mission-39",
+    "number": 39,
+    "arcId": 4,
+    "title": "THE EXIT ACCOUNT",
+    "designSource": "phase8/phase8.9-story-design/phase89-arc4-missions31-40.md"
+  },
+  {
+    "id": "mission-40",
+    "number": 40,
+    "arcId": 4,
+    "title": "TOWARD THE DUST",
+    "designSource": "phase8/phase8.9-story-design/phase89-arc4-missions31-40.md"
+  },
+  {
+    "id": "mission-41",
+    "number": 41,
+    "arcId": 5,
+    "title": "TRACKS IN OPEN GROUND",
+    "designSource": "phase8/phase8.9-story-design/phase89-arc5-missions41-50.md"
+  },
+  {
+    "id": "mission-42",
+    "number": 42,
+    "arcId": 5,
+    "title": "LOW ON THE HORIZON",
+    "designSource": "phase8/phase8.9-story-design/phase89-arc5-missions41-50.md"
+  },
+  {
+    "id": "mission-43",
+    "number": 43,
+    "arcId": 5,
+    "title": "THE CROSSING LINE",
+    "designSource": "phase8/phase8.9-story-design/phase89-arc5-missions41-50.md"
+  },
+  {
+    "id": "mission-44",
+    "number": 44,
+    "arcId": 5,
+    "title": "CLOSE ENOUGH TO SEE",
+    "designSource": "phase8/phase8.9-story-design/phase89-arc5-missions41-50.md"
+  },
+  {
+    "id": "mission-45",
+    "number": 45,
+    "arcId": 5,
+    "title": "THE INTERCEPTOR",
+    "designSource": "phase8/phase8.9-story-design/phase89-arc5-missions41-50.md"
+  },
+  {
+    "id": "mission-46",
+    "number": 46,
+    "arcId": 5,
+    "title": "BUJJI’S ESTIMATE",
+    "designSource": "phase8/phase8.9-story-design/phase89-arc5-missions41-50.md"
+  },
+  {
+    "id": "mission-47",
+    "number": 47,
+    "arcId": 5,
+    "title": "THE ROUGH DESCENT",
+    "designSource": "phase8/phase8.9-story-design/phase89-arc5-missions41-50.md"
+  },
+  {
+    "id": "mission-48",
+    "number": 48,
+    "arcId": 5,
+    "title": "AN UNREADY MODE",
+    "designSource": "phase8/phase8.9-story-design/phase89-arc5-missions41-50.md"
+  },
+  {
+    "id": "mission-49",
+    "number": 49,
+    "arcId": 5,
+    "title": "BACK ON THE TRAIL",
+    "designSource": "phase8/phase8.9-story-design/phase89-arc5-missions41-50.md"
+  },
+  {
+    "id": "mission-50",
+    "number": 50,
+    "arcId": 5,
+    "title": "SOMEONE IN THE ROAD",
+    "designSource": "phase8/phase8.9-story-design/phase89-arc5-missions41-50.md"
+  },
+  {
+    "id": "mission-51",
+    "number": 51,
+    "arcId": 6,
+    "title": "MEASURE THE STRANGER",
+    "designSource": "phase8/phase8.9-story-design/phase89-arc6-missions51-60.md"
+  },
+  {
+    "id": "mission-52",
+    "number": 52,
+    "arcId": 6,
+    "title": "A CONFIDENT APPROACH",
+    "designSource": "phase8/phase8.9-story-design/phase89-arc6-missions51-60.md"
+  },
+  {
+    "id": "mission-53",
+    "number": 53,
+    "arcId": 6,
+    "title": "BEYOND REACH",
+    "designSource": "phase8/phase8.9-story-design/phase89-arc6-missions51-60.md"
+  },
+  {
+    "id": "mission-54",
+    "number": 54,
+    "arcId": 6,
+    "title": "ACROSS THE DECK",
+    "designSource": "phase8/phase8.9-story-design/phase89-arc6-missions51-60.md"
+  },
+  {
+    "id": "mission-55",
+    "number": 55,
+    "arcId": 6,
+    "title": "A SHORT OPENING",
+    "designSource": "phase8/phase8.9-story-design/phase89-arc6-missions51-60.md"
+  },
+  {
+    "id": "mission-56",
+    "number": 56,
+    "arcId": 6,
+    "title": "THE PASSENGER’S DISTANCE",
+    "designSource": "phase8/phase8.9-story-design/phase89-arc6-missions51-60.md"
+  },
+  {
+    "id": "mission-57",
+    "number": 57,
+    "arcId": 6,
+    "title": "BUJJI, ANOTHER ROUTE",
+    "designSource": "phase8/phase8.9-story-design/phase89-arc6-missions51-60.md"
+  },
+  {
+    "id": "mission-58",
+    "number": 58,
+    "arcId": 6,
+    "title": "THE WEIGHT OF A BLOW",
+    "designSource": "phase8/phase8.9-story-design/phase89-arc6-missions51-60.md"
+  },
+  {
+    "id": "mission-59",
+    "number": 59,
+    "arcId": 6,
+    "title": "THE EMPTY ROAD",
+    "designSource": "phase8/phase8.9-story-design/phase89-arc6-missions51-60.md"
+  },
+  {
+    "id": "mission-60",
+    "number": 60,
+    "arcId": 6,
+    "title": "NOT THIS TIME",
+    "designSource": "phase8/phase8.9-story-design/phase89-arc6-missions51-60.md"
+  },
+  {
+    "id": "mission-61",
+    "number": 61,
+    "arcId": 7,
+    "title": "A NOTICE AT THE GATE",
+    "designSource": "phase8/phase8.9-story-design/phase89-arc7-missions61-70.md"
+  },
+  {
+    "id": "mission-62",
+    "number": 62,
+    "arcId": 7,
+    "title": "COUNT WHAT REMAINS",
+    "designSource": "phase8/phase8.9-story-design/phase89-arc7-missions61-70.md"
+  },
+  {
+    "id": "mission-63",
+    "number": 63,
+    "arcId": 7,
+    "title": "A PLACE TO STOP",
+    "designSource": "phase8/phase8.9-story-design/phase89-arc7-missions61-70.md"
+  },
+  {
+    "id": "mission-64",
+    "number": 64,
+    "arcId": 7,
+    "title": "THE LOST CLAIM",
+    "designSource": "phase8/phase8.9-story-design/phase89-arc7-missions61-70.md"
+  },
+  {
+    "id": "mission-65",
+    "number": 65,
+    "arcId": 7,
+    "title": "ONE HONEST REPAIR",
+    "designSource": "phase8/phase8.9-story-design/phase89-arc7-missions61-70.md"
+  },
+  {
+    "id": "mission-66",
+    "number": 66,
+    "arcId": 7,
+    "title": "SOMEONE STILL ASKING",
+    "designSource": "phase8/phase8.9-story-design/phase89-arc7-missions61-70.md"
+  },
+  {
+    "id": "mission-67",
+    "number": 67,
+    "arcId": 7,
+    "title": "BEFORE THE COMMANDER",
+    "designSource": "phase8/phase8.9-story-design/phase89-arc7-missions61-70.md"
+  },
+  {
+    "id": "mission-68",
+    "number": 68,
+    "arcId": 7,
+    "title": "THE OFFER REOPENED",
+    "designSource": "phase8/phase8.9-story-design/phase89-arc7-missions61-70.md"
+  },
+  {
+    "id": "mission-69",
+    "number": 69,
+    "arcId": 7,
+    "title": "PREPARE, NOT CELEBRATE",
+    "designSource": "phase8/phase8.9-story-design/phase89-arc7-missions61-70.md"
+  },
+  {
+    "id": "mission-70",
+    "number": 70,
+    "arcId": 7,
+    "title": "A ROAD KEPT HIDDEN",
+    "designSource": "phase8/phase8.9-story-design/phase89-arc7-missions61-70.md"
+  },
+  {
+    "id": "mission-71",
+    "number": 71,
+    "arcId": 8,
+    "title": "TRUST THE BEARING",
+    "designSource": "phase8/phase8.9-story-design/phase89-arc8-missions71-80.md"
+  },
+  {
+    "id": "mission-72",
+    "number": 72,
+    "arcId": 8,
+    "title": "NO VISIBLE GATE",
+    "designSource": "phase8/phase8.9-story-design/phase89-arc8-missions71-80.md"
+  },
+  {
+    "id": "mission-73",
+    "number": 73,
+    "arcId": 8,
+    "title": "THE LAST TURN",
+    "designSource": "phase8/phase8.9-story-design/phase89-arc8-missions71-80.md"
+  },
+  {
+    "id": "mission-74",
+    "number": 74,
+    "arcId": 8,
+    "title": "A DIFFERENT SKY",
+    "designSource": "phase8/phase8.9-story-design/phase89-arc8-missions71-80.md"
+  },
+  {
+    "id": "mission-75",
+    "number": 75,
+    "arcId": 8,
+    "title": "THE FORMALITIES",
+    "designSource": "phase8/phase8.9-story-design/phase89-arc8-missions71-80.md"
+  },
+  {
+    "id": "mission-76",
+    "number": 76,
+    "arcId": 8,
+    "title": "STAY WITH THE VEHICLE",
+    "designSource": "phase8/phase8.9-story-design/phase89-arc8-missions71-80.md"
+  },
+  {
+    "id": "mission-77",
+    "number": 77,
+    "arcId": 8,
+    "title": "WATER AND STONE",
+    "designSource": "phase8/phase8.9-story-design/phase89-arc8-missions71-80.md"
+  },
+  {
+    "id": "mission-78",
+    "number": 78,
+    "arcId": 8,
+    "title": "THE ESCORT’S PACE",
+    "designSource": "phase8/phase8.9-story-design/phase89-arc8-missions71-80.md"
+  },
+  {
+    "id": "mission-79",
+    "number": 79,
+    "arcId": 8,
+    "title": "AN UNFINISHED INTENTION",
+    "designSource": "phase8/phase8.9-story-design/phase89-arc8-missions71-80.md"
+  },
+  {
+    "id": "mission-80",
+    "number": 80,
+    "arcId": 8,
+    "title": "THE TREE AHEAD",
+    "designSource": "phase8/phase8.9-story-design/phase89-arc8-missions71-80.md"
+  },
+  {
+    "id": "mission-81",
+    "number": 81,
+    "arcId": 9,
+    "title": "ALARM ACROSS THE STONE",
+    "designSource": "phase8/phase8.9-story-design/phase89-arc9-missions81-90.md"
+  },
+  {
+    "id": "mission-82",
+    "number": 82,
+    "arcId": 9,
+    "title": "A ROUTE THROUGH SMOKE",
+    "designSource": "phase8/phase8.9-story-design/phase89-arc9-missions81-90.md"
+  },
+  {
+    "id": "mission-83",
+    "number": 83,
+    "arcId": 9,
+    "title": "THE CONTRACT REMAINS",
+    "designSource": "phase8/phase8.9-story-design/phase89-arc9-missions81-90.md"
+  },
+  {
+    "id": "mission-84",
+    "number": 84,
+    "arcId": 9,
+    "title": "ONE BLOCKING UNIT",
+    "designSource": "phase8/phase8.9-story-design/phase89-arc9-missions81-90.md"
+  },
+  {
+    "id": "mission-85",
+    "number": 85,
+    "arcId": 9,
+    "title": "BUJJI AT THE TURN",
+    "designSource": "phase8/phase8.9-story-design/phase89-arc9-missions81-90.md"
+  },
+  {
+    "id": "mission-86",
+    "number": 86,
+    "arcId": 9,
+    "title": "A PASSAGE FOR OTHERS",
+    "designSource": "phase8/phase8.9-story-design/phase89-arc9-missions81-90.md"
+  },
+  {
+    "id": "mission-87",
+    "number": 87,
+    "arcId": 9,
+    "title": "THE HEAVY STEP",
+    "designSource": "phase8/phase8.9-story-design/phase89-arc9-missions81-90.md"
+  },
+  {
+    "id": "mission-88",
+    "number": 88,
+    "arcId": 9,
+    "title": "WHERE THE LINES CROSS",
+    "designSource": "phase8/phase8.9-story-design/phase89-arc9-missions81-90.md"
+  },
+  {
+    "id": "mission-89",
+    "number": 89,
+    "arcId": 9,
+    "title": "BEHIND THE BARRIER",
+    "designSource": "phase8/phase8.9-story-design/phase89-arc9-missions81-90.md"
+  },
+  {
+    "id": "mission-90",
+    "number": 90,
+    "arcId": 9,
+    "title": "THE WEAPON’S MOMENT",
+    "designSource": "phase8/phase8.9-story-design/phase89-arc9-missions81-90.md"
+  },
+  {
+    "id": "mission-91",
+    "number": 91,
+    "arcId": 10,
+    "title": "A FAMILIAR WEIGHT",
+    "designSource": "phase8/phase8.9-story-design/phase89-arc10-missions91-100.md"
+  },
+  {
+    "id": "mission-92",
+    "number": 92,
+    "arcId": 10,
+    "title": "A BREAK IN THE ASSAULT",
+    "designSource": "phase8/phase8.9-story-design/phase89-arc10-missions91-100.md"
+  },
+  {
+    "id": "mission-93",
+    "number": 93,
+    "arcId": 10,
+    "title": "THE GUARDIAN LOOKS AGAIN",
+    "designSource": "phase8/phase8.9-story-design/phase89-arc10-missions91-100.md"
+  },
+  {
+    "id": "mission-94",
+    "number": 94,
+    "arcId": 10,
+    "title": "SUN ON THE BATTLEFIELD",
+    "designSource": "phase8/phase8.9-story-design/phase89-arc10-missions91-100.md"
+  },
+  {
+    "id": "mission-95",
+    "number": 95,
+    "arcId": 10,
+    "title": "THE ARCHER’S SILHOUETTE",
+    "designSource": "phase8/phase8.9-story-design/phase89-arc10-missions91-100.md"
+  },
+  {
+    "id": "mission-96",
+    "number": 96,
+    "arcId": 10,
+    "title": "THE NAME KARNA",
+    "designSource": "phase8/phase8.9-story-design/phase89-arc10-missions91-100.md"
+  },
+  {
+    "id": "mission-97",
+    "number": 97,
+    "arcId": 10,
+    "title": "BACK TO THE PURSUIT",
+    "designSource": "phase8/phase8.9-story-design/phase89-arc10-missions91-100.md"
+  },
+  {
+    "id": "mission-98",
+    "number": 98,
+    "arcId": 10,
+    "title": "KEEP MOVING, BUJJI",
+    "designSource": "phase8/phase8.9-story-design/phase89-arc10-missions91-100.md"
+  },
+  {
+    "id": "mission-99",
+    "number": 99,
+    "arcId": 10,
+    "title": "A THREAT STILL ABOVE",
+    "designSource": "phase8/phase8.9-story-design/phase89-arc10-missions91-100.md"
+  },
+  {
+    "id": "mission-100",
+    "number": 100,
+    "arcId": 10,
+    "title": "THE LAST WAR",
+    "designSource": "phase8/phase8.9-story-design/phase89-arc10-missions91-100.md"
+  }
+]
