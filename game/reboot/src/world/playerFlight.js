@@ -7,7 +7,7 @@ import {cameraClearance} from '../../../src/game/player/cameraCollision.js'
 import {deepFreeze,requireCondition} from '../campaign/contracts.js'
 
 export const PLAYER_SKIMMER_ID='kashi-player-skimmer'
-export const FLIGHT_BOUNDS=deepFreeze({minX:108,maxX:364,minZ:-20,maxZ:116,maxY:54})
+export const FLIGHT_BOUNDS=CRAFT_LOCATIONS.kashi
 export const LANDING_PADS=deepFreeze([
  {id:'salvage-avenue',position:[162,-.1925,59]},
  {id:'east-spine',position:[292,-.1925,60]},

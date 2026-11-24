@@ -1,9 +1,7 @@
+import {LOCATION_DEFINITIONS} from './locations/definitions.js'
 // Local world coordinates; old saves without a location belong to Kashi.
-export const CRAFT_LOCATIONS=Object.freeze({
- kashi:Object.freeze({minX:108,maxX:364,minZ:-20,maxZ:116,maxY:54}),
- shambala:Object.freeze({minX:-55,maxX:445,minZ:-60,maxZ:238,maxY:90}),
- complex:Object.freeze({minX:-34,maxX:450,minZ:-190,maxZ:150,maxY:90})
-})
+// Flight shares the full registered outdoor footprint instead of the old arrival quarter.
+export const CRAFT_LOCATIONS=Object.freeze(Object.fromEntries(LOCATION_DEFINITIONS.filter(d=>['kashi','shambala','complex'].includes(d.id)).map(d=>[d.id,Object.freeze({minX:Math.min(...d.regions.map(r=>r.minX)),maxX:Math.max(...d.regions.map(r=>r.maxX)),minZ:Math.min(...d.regions.map(r=>r.minZ)),maxZ:Math.max(...d.regions.map(r=>r.maxZ)),maxY:160})])))
 export function craftLocation(saved){return saved?.locationId??'kashi'}
 export function validCraftPosition(position,locationId='kashi'){
  const bounds=CRAFT_LOCATIONS[locationId]

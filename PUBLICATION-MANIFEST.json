@@ -725,7 +725,8 @@
     },
     {
       "path": "game/reboot/src/world/craftLocations.js",
-      "sha256": "9b5ce0e72a3581211e977c44681e2ea89af4a1c7a2238d14a93701b5f76eda40"
+      "sha256": "304b12360d108fefe9e3cb3c17456006633ebf9ba515e82aec218c1377145110",
+      "bytes": 1016
     },
     {
       "path": "game/reboot/src/world/districtInteractions.js",
@@ -978,8 +979,8 @@
     },
     {
       "path": "game/reboot/src/world/playerFlight.js",
-      "bytes": 16396,
-      "sha256": "b7b2454e8ad0d6a2cfd412aff66c8988f5c9c4b2dcc41d09307841c153e36d63"
+      "bytes": 16360,
+      "sha256": "ee4ddd9eafc7479f1865ee214743362c96a3f6ce83ef36bcbf045c7483c93e38"
     },
     {
       "path": "game/reboot/src/world/skimmerLanding.js",
@@ -1186,8 +1187,8 @@
     },
     {
       "path": "tools/world-runtime.test.mjs",
-      "sha256": "ce6e140cc9b9e1f7263438b7e61893a7df6a3bbfd39006af46809d99508b01aa",
-      "bytes": 13487
+      "sha256": "5c0ca914eb0f249429ce385072d244b913d70011be39c5cfffd2c201d0dbd794",
+      "bytes": 14467
     },
     {
       "path": "vite.config.js",
