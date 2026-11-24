@@ -1,7 +1,7 @@
 import {CRAFT_LOCATIONS,craftLocation} from './craftLocations.js'
 import {findSkimmerLanding} from './skimmerLanding.js'
-import {Group,Mesh,MeshStandardMaterial,MeshBasicMaterial,RingGeometry,Vector3} from 'three'
-import {createKashiVehicleGeometry} from './livingKashi.js'
+import {Group,Mesh,MeshBasicMaterial,RingGeometry,Vector3} from 'three'
+import {createJetModel} from './vehicleModels.js'
 import {bindKeyboard,leaseCamera} from '../gameplay/playerBindings.js'
 import {cameraClearance} from '../../../src/game/player/cameraCollision.js'
 import {deepFreeze,requireCondition} from '../campaign/contracts.js'
@@ -26,8 +26,8 @@ export function createPlayerFlight({host,signal,ownerId,player,controls,worldCon
  requireCondition(!signal.aborted&&player?.body&&controls?.pause&&controls?.resume,'FLIGHT_UNAVAILABLE','Live character and exploration controls required')
  requireCondition(!host.scene.getObjectByName(PLAYER_SKIMMER_ID),'DUPLICATE_PLAYER_VEHICLE','Only one exploration skimmer may exist')
  const root=new Group();root.name=PLAYER_SKIMMER_ID;root.userData={ownerId,role:'player-flight-prototype'}
- let geometry,material,padGeometry,padMaterial,body=null,collider=null,controller=null,keyboard=null,cameraLease=null,stop=null,closed=false,releaseFailure=null,state='parked',flightPaused=false,message='',yaw=Math.PI,landHeld=false
- let flightFrames=0,lastInput=null,lastMove=null
+ let model,padGeometry,padMaterial,body=null,collider=null,controller=null,keyboard=null,cameraLease=null,stop=null,closed=false,releaseFailure=null,state='parked',flightPaused=false,message='',yaw=Math.PI,landHeld=false
+ let visualTime=0,flightFrames=0,lastInput=null,lastMove=null
  const diagnostics=host.renderer.domElement.dataset
  function trace(){if(diagnostics){diagnostics.skimmerOwner=ownerId;diagnostics.skimmerFlight=JSON.stringify({mode:state,position:position.toArray(),input,pendingTakeoff,frames:flightFrames,lastInput,lastMove})}}
  let input={x:0,y:0,up:false,down:false},pendingTakeoff=false,takeoffBaseY=0,position=new Vector3(162,.6475,59),velocity=new Vector3(),turn=0,landingPad=null
@@ -102,7 +102,7 @@ export function createPlayerFlight({host,signal,ownerId,player,controls,worldCon
   if(closed||signal.aborted||!body||state==='faulted'||flightPaused)return
   try{
    requireCondition(Number.isFinite(delta)&&delta>0&&delta<=.1,'INVALID_FRAME','Bounded flight delta required')
-   position.copy(body.translation());flightFrames++
+   position.copy(body.translation());flightFrames++;visualTime+=delta
    if(state==='flying'&&landHeld&&!input.up){const ground=groundAt(position.x,position.z);if(ground!==null&&position.y-(ground+.84)<=3)requestLanding()}
    const freshTakeoff=pendingTakeoff;pendingTakeoff=false
    if(state==='landed'&&(input.up||freshTakeoff)){state='taking-off';takeoffBaseY=position.y;landingPad=null}
@@ -127,7 +127,7 @@ export function createPlayerFlight({host,signal,ownerId,player,controls,worldCon
    // Exclude that owned driver explicitly from shape casts after hiding it;
    // Rapier may retain its collider in queries despite the disabled body.
    controller.computeColliderMovement(collider,{x:next.x-position.x,y:next.y-position.y,z:next.z-position.z},rapier.QueryFilterFlags.EXCLUDE_SENSORS,undefined,c=>c.handle!==collider.handle&&c.parent()?.handle!==player.body.handle)
-   const move=controller.computedMovement();lastMove={requested:{x:next.x-position.x,y:next.y-position.y,z:next.z-position.z},actual:{x:move.x,y:move.y,z:move.z}};position.add(new Vector3(move.x,move.y,move.z));body.setNextKinematicTranslation(position);root.children[0].position.copy(position);root.children[0].rotation.set(0,yaw,clamp(-turn*.07,-.1,.1))
+   const move=controller.computedMovement();lastMove={requested:{x:next.x-position.x,y:next.y-position.y,z:next.z-position.z},actual:{x:move.x,y:move.y,z:move.z}};position.add(new Vector3(move.x,move.y,move.z));body.setNextKinematicTranslation(position);root.children[0].position.copy(position);root.children[0].rotation.set(0,yaw,clamp(-turn*.07,-.1,.1));model.update({speed:velocity.length(),time:visualTime,up:input.up})
    if(state==='taking-off'&&position.y-takeoffBaseY>=2.2)state='flying'
    if(state==='landing'&&Math.hypot(position.x-landingPad.position[0],position.z-landingPad.position[2])<.15&&Math.abs(position.y-(landingPad.position[1]+.84))<.065){state='landed';velocity.set(0,0,0);message='Landed. E to dismount | Space to take off'}
    desiredCamera.copy(position).addScaledVector(forward,-8);desiredCamera.y+=3.8;desiredLook.copy(position).addScaledVector(forward,2);desiredLook.y+=.5
@@ -155,14 +155,14 @@ export function createPlayerFlight({host,signal,ownerId,player,controls,worldCon
   if(closed){if(releaseFailure)throw releaseFailure;return}closed=true;const errors=[],attempt=fn=>{try{fn()}catch(error){errors.push(error)}}
   signal.removeEventListener('abort',abort);attempt(cleanFlight);root.removeFromParent()
   target.removeEventListener('kalki-input-reset',resetTakeoff);if(diagnostics?.skimmerOwner===ownerId){delete diagnostics.skimmerOwner;delete diagnostics.skimmerFlight}
-  for(const resource of [geometry,material,padGeometry,padMaterial])attempt(()=>resource?.dispose())
+  attempt(()=>model?.release());for(const resource of [padGeometry,padMaterial])attempt(()=>resource?.dispose())
   if(errors.length){releaseFailure=new AggregateError(errors,'Player vehicle cleanup failed');throw releaseFailure}
  }
  const abort=()=>{try{release()}catch{/* Exploration cleanup reports retained errors. */}}
  const resetTakeoff=()=>{pendingTakeoff=false;input.up=false;input.down=false;landHeld=false}
  try{
-  geometry=createKashiVehicleGeometry('courier');material=new MeshStandardMaterial({vertexColors:true,roughness:.6,metalness:.35,emissive:'#285d68',emissiveIntensity:.18})
-  const mesh=new Mesh(geometry,material);mesh.name='player-courier-hull';mesh.position.copy(position);mesh.rotation.y=yaw;root.add(mesh)
+  model=createJetModel();
+  const mesh=model.root;mesh.name='player-courier-hull';mesh.position.copy(position);mesh.rotation.y=yaw;root.add(mesh)
   if(personal){const saved=personal.snapshot();mesh.visible=false;if(saved.ready&&craftLocation(saved)===locationId&&saved.summoned&&saved.position){const site=landingSite({x:saved.position[0],y:saved.position[1],z:saved.position[2]});if(site){position.set(saved.position[0],site.position[1]+.84,saved.position[2]);yaw=saved.yaw;mesh.position.copy(position);mesh.rotation.y=yaw;mesh.visible=true}}}
   padGeometry=new RingGeometry(2.7,2.9,24);padMaterial=new MeshBasicMaterial({color:'#d7b679',transparent:true,opacity:.8,depthWrite:false})
   for(const pad of pads){const ring=new Mesh(padGeometry,padMaterial);ring.name='landing-pad-'+pad.id;ring.rotation.x=-Math.PI/2;ring.position.set(pad.position[0],pad.position[1]+.012,pad.position[2]);root.add(ring)}

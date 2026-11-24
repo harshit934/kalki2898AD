@@ -440,8 +440,8 @@
     },
     {
       "path": "game/reboot/src/gameplay/foundationHost.js",
-      "bytes": 26752,
-      "sha256": "2a6a6a0778b647c435fb292d6b9461d38ce24d73eee01f6bff12428962c88d36"
+      "bytes": 27886,
+      "sha256": "5ad610ef40917eec6f9162c5e0a403cc0f2f864cebc0029c9ba96c64b08ad489"
     },
     {
       "path": "game/reboot/src/gameplay/frameHost.js",
@@ -535,8 +535,8 @@
     },
     {
       "path": "game/reboot/src/main.jsx",
-      "bytes": 18468,
-      "sha256": "f85297a889cd64cf560dcc974e4c318d9106cfd3607a756b4c4d0cf3f2aaefdd"
+      "bytes": 18775,
+      "sha256": "fcce907c261742fbbeda5edd5dbda89dc7f4f62295de7c82835da16f0f6fdd2e"
     },
     {
       "path": "game/reboot/src/missions/checkpoints.js",
@@ -620,8 +620,8 @@
     },
     {
       "path": "game/reboot/src/ui/EquipmentPanel.js",
-      "bytes": 5173,
-      "sha256": "5f6ac6190fc24f438ae07a50220cbfee40b4082f11375e5859790af5ced2604e"
+      "bytes": 5773,
+      "sha256": "45dd1b27872c2873aa0692002124a591acf2b78841bbfdfdefa9df7ac0467a81"
     },
     {
       "path": "game/reboot/src/ui/foundationRoot.js",
@@ -675,8 +675,8 @@
     },
     {
       "path": "game/reboot/src/ui/MobileControls.js",
-      "bytes": 3248,
-      "sha256": "9592df44f65ad02dc362345196d8f634bed7972db40c0e562f4fecf820297756"
+      "bytes": 3369,
+      "sha256": "183360d47b0572d4d5a176a01b4dccfb30379788cdfcbbb42dfa52c7c5895a3a"
     },
     {
       "path": "game/reboot/src/ui/StoryCinematic.js",
@@ -979,8 +979,8 @@
     },
     {
       "path": "game/reboot/src/world/playerFlight.js",
-      "bytes": 17833,
-      "sha256": "79f7eba24c05f5e04560dacb9e0ed02ad64acb44b1a73de0c87faf9a4737a261"
+      "bytes": 17738,
+      "sha256": "7f04b747845f8a9394277c6ab88828b161a4551387948c8328bb548694c95328"
     },
     {
       "path": "game/reboot/src/world/skimmerLanding.js",
@@ -1009,8 +1009,8 @@
     },
     {
       "path": "game/reboot/src/world/worldExploration.js",
-      "bytes": 7651,
-      "sha256": "22170edfb5598f089ef0d384e5473e25c83d67e860297c773da8d729d2dc5ff4"
+      "bytes": 8568,
+      "sha256": "626ff6839c7f6d23aca073b143b3e62b3dad35244fc0d083aa96ed044d7c2944"
     },
     {
       "path": "game/reboot/src/world/worldHost.js",
@@ -1087,8 +1087,8 @@
     },
     {
       "path": "game/reboot/tests/story-native-fixture.js",
-      "bytes": 5788,
-      "sha256": "4022568ac6f35512075218dc260ee10002f51804a109310f51f3d6c2b1aeca58"
+      "bytes": 5841,
+      "sha256": "8389ac79a37cd536345a0889ca157682064378a376d75b4cf3be9bdfe37dac8a"
     },
     {
       "path": "game/reboot/tests/weapon-shop-house.test.js",
@@ -1287,6 +1287,42 @@
     {
       "path": "game/reboot/tests/campaign-rewards.test.js",
       "sha256": "f3be1f133eecbf9d8d6b702fbdf3de99c8f245af2c9c069c473c3394455cfc56"
+    },
+    {
+      "path": "game/reboot/src/world/bikeDynamics.js",
+      "sha256": "fe1075c40256a5031a3848383838d8f0abd61abec31df2b0132a55cac7a29e15"
+    },
+    {
+      "path": "game/reboot/src/world/bikeRiderPose.js",
+      "sha256": "373e6e804d1295debcb3ec69099be52081fa99f9a50e29f57e11c5ee7038ed8e"
+    },
+    {
+      "path": "game/reboot/src/world/personalBike.js",
+      "sha256": "b026c87ce4572583d0ffa8955a65a69bd7b8b31f7706f45ba20565ecf919ff04"
+    },
+    {
+      "path": "game/reboot/src/world/playerBike.js",
+      "sha256": "c32d4428539907c278e14ffe690f7aa098363876b83d138c8dcb2b48af06812a"
+    },
+    {
+      "path": "game/reboot/src/world/vehicleModels.js",
+      "sha256": "cd21a4a01848a2a18d7224f43f9f9e99e690ccdcc3e57d2343a3f033a529969e"
+    },
+    {
+      "path": "game/reboot/tests/bike-integration.test.js",
+      "sha256": "539c649d9ab071cc48930c3eb0f45b117c08ba85258345310db97d5a746b5a5f"
+    },
+    {
+      "path": "game/reboot/tests/bike-native.test.js",
+      "sha256": "82d0330adb82d0a612f8c31ba78a9de48f281700e159f1be3522b2aaa811aa35"
+    },
+    {
+      "path": "game/reboot/tests/bike-ui.test.js",
+      "sha256": "d6afb498ae958bd9f622171ee45afb462002cd555279286ffab447bfaec3e4cb"
+    },
+    {
+      "path": "game/reboot/tests/reward-service-fixture.js",
+      "sha256": "e4f8860570d166de33f6527cf392d06f9ce11ccfd421edc110de6dfb411d1c78"
     }
   ],
   "bytePreservation": "Release paths use -text attributes to preserve verified original byte hashes across Windows/Linux.",
