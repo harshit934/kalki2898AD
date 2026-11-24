@@ -13,7 +13,7 @@ export default function GameplayActions({session,completed=false,score=0,busy=fa
 
  const button=(label,action,disabled=false)=>h('button',{type:'button',disabled:busy||disabled,onClick:action,key:label},label)
 
- const actions=()=>[completed?button('Next Mission',onNext,!nextPlayable):null,button('Main Menu',onHome),button('Restart',onRestart),button('Mission Selection',onMissions),defeated?button('Revive Here',onRevive,!onRevive):null]
+ const actions=()=>[completed?button('Next Mission',onNext,!nextPlayable):null,button('Main Menu',onHome),button('Restart',onRestart),button('Mission Selection',onMissions),defeated&&session?.missionId==='mission-1'?button('Revive Here',onRevive,!onRevive):null]
 
  return h('div',{className:'gameplay-actions'},
 

@@ -1,0 +1,13 @@
+import {getEventListeners} from 'node:events'
+import test from 'node:test'
+import assert from 'node:assert/strict'
+import {PerspectiveCamera,Vector3} from 'three'
+import {createStoryCinematic} from '../src/presentation/storyCinematic.js'
+import {leaseCamera} from '../src/gameplay/playerBindings.js'
+
+function fixture(){const camera=new PerspectiveCamera(42,1,.1,180);camera.position.set(0,3,5);const target=new EventTarget(),frames=new Set(),abort=new AbortController(),states=[],gestures=[],player={body:{translation:()=>({x:0,y:0,z:0}),collider:()=>null}},host={camera,renderer:{domElement:{ownerDocument:{defaultView:target}}},world:{castShape:()=>null},rapier:{Ball:class{},QueryFilterFlags:{EXCLUDE_SENSORS:1}},subscribeFrame(fn){frames.add(fn);return()=>frames.delete(fn)}};return {target,camera,frames,abort,states,gestures,start:()=>createStoryCinematic({host,signal:abort.signal,ownerId:'test',player,subject:{x:1,y:0,z:0},title:'Original dialogue',text:'Verify the relay.',duration:2,onState:s=>states.push(s),onGesture:s=>gestures.push(s)}),step(n){for(let i=0;i<n;i++)for(const fn of [...frames])fn(1/60)}}}
+
+test('scripted camera moves in the actual borrowed scene then restores projection and pose',async()=>{const f=fixture(),position=f.camera.position.clone(),rotation=f.camera.quaternion.clone(),s=f.start();f.step(60);assert.ok(f.camera.position.distanceTo(position)>.1);assert.equal(s.snapshot().elapsed>0,true);f.step(61);assert.equal((await s.done).reason,'completed');assert.ok(f.camera.position.equals(position));assert.ok(f.camera.quaternion.equals(rotation));assert.equal(f.camera.fov,42);assert.equal(f.frames.size,0);assert.deepEqual(f.gestures,[true,false]);assert.equal(f.states.at(-1),null)})
+test('skip and interruption are idempotent and release the exclusive camera for gameplay',async()=>{for(const cancel of ['skip','abort']){const f=fixture(),s=f.start();f.step(5);if(cancel==='skip'){s.skip();s.skip()}else f.abort.abort();assert.equal((await s.done).reason,cancel==='skip'?'skipped':'interrupted');assert.equal(f.frames.size,0);const nextAbort=new AbortController(),lease=leaseCamera({camera:f.camera,sessionId:'gameplay',signal:nextAbort.signal});lease.resume();lease.update(new Vector3(0,2,3),new Vector3());lease.release();s.release();assert.deepEqual(f.gestures,[true,false])}})
+
+test('repeated scenes remove their skip listeners and Escape skips once',async()=>{const f=fixture();for(let n=0;n<20;n++){const s=f.start(),event=new Event('keydown',{cancelable:true});Object.defineProperty(event,'key',{value:'Escape'});f.target.dispatchEvent(event);assert.equal((await s.done).reason,'skipped');assert.equal(getEventListeners(f.target,'keydown').length,0);assert.equal(f.frames.size,0)}})

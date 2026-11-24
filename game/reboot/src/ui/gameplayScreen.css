@@ -33,3 +33,5 @@
 .gameplay-toolbar::-webkit-scrollbar-thumb{background:#b79451;border:2px solid #111512;border-radius:8px}
 .gameplay-toolbar::-webkit-scrollbar-thumb:hover{background:#d1b575}
 .gameplay-toolbar::-webkit-scrollbar-button{background:#111512}
+
+.story-cinematic{position:absolute;inset:auto 8% 8%;z-index:40;padding:1rem 1.5rem;background:rgba(10,19,17,.94);color:#f0dfb7;border:1px solid #b39a60;text-align:center;max-width:52rem;margin:auto}.story-cinematic p{line-height:1.55}.story-cinematic button{padding:.6rem 1rem;border:1px solid #b39a60;background:#203029;color:#f0dfb7}
