@@ -276,7 +276,7 @@
     {
       "path": "game/reboot/src/main.jsx",
       "bytes": 16651,
-      "sha256": "9eb2719f322dd8a758243776af5566c32ccb1e22bf1dd8c8253b2b4f6a581b13"
+      "sha256": "6922669e36a54431821e95e00028d85d0c62d8cebd2c4e3d1c277320297424d6"
     },
     {
       "path": "game/reboot/src/style.css",
@@ -401,7 +401,7 @@
     {
       "path": "game/reboot/src/gameplay/foundationHost.js",
       "bytes": 19958,
-      "sha256": "ae875bbc6135efbc8f69d086ee8f0d68535803a35e36aaa0f682c004dd7ee553"
+      "sha256": "c809c722b3448f98dca5efe945dafff2606790e172f1d500cc8139d8a51e16ef"
     },
     {
       "path": "game/reboot/src/gameplay/frameHost.js",
@@ -486,7 +486,7 @@
     {
       "path": "game/reboot/src/gameplay/travelFoundation.js",
       "bytes": 9701,
-      "sha256": "5e17e45012eb76ec128087f80ca9153a1206c961c918b344f2b754fdea04f843"
+      "sha256": "03895c908fa037035b9e5ce144702f4f7878575f4e58e332f05c2a64f34420ea"
     },
     {
       "path": "game/reboot/src/missions/checkpoints.js",
@@ -611,7 +611,7 @@
     {
       "path": "game/reboot/src/ui/MobileControls.js",
       "bytes": 3121,
-      "sha256": "4b4cc9e508c3f1b5034f5ea05d767591c3163b8a94ef7d9bd9b6b520185e3cfe"
+      "sha256": "9592df44f65ad02dc362345196d8f634bed7972db40c0e562f4fecf820297756"
     },
     {
       "path": "game/reboot/src/ui/StoryConversation.js",
@@ -706,12 +706,12 @@
     {
       "path": "game/reboot/src/world/personalCraft.js",
       "bytes": 1646,
-      "sha256": "ec806bed75e369f386948091c436f9cb1b494181dd2f1ed461763e28edeeb995"
+      "sha256": "36910ff8b2b37e831d6615e8ce8fd7dfff2ca0b381f353745c3b621698f19e09"
     },
     {
       "path": "game/reboot/src/world/playerFlight.js",
       "bytes": 15995,
-      "sha256": "96c51e4d753924bcf1d3d74bb0fcf9f5644bd408fbbc169c074a1f39b8fb640d"
+      "sha256": "135505ca2efc8d7ec022d751c280f2a8f593b1b32ab7e1cb18c9731ba46464f2"
     },
     {
       "path": "game/reboot/src/world/skimmerLanding.js",
@@ -731,7 +731,7 @@
     {
       "path": "game/reboot/src/world/worldExploration.js",
       "bytes": 7291,
-      "sha256": "4b1979a95d3d32411907fc69aa531a5cfad8192f6ca31b6fca0e1310706c41aa"
+      "sha256": "22170edfb5598f089ef0d384e5473e25c83d67e860297c773da8d729d2dc5ff4"
     },
     {
       "path": "game/reboot/src/world/worldHost.js",
@@ -831,7 +831,7 @@
     {
       "path": "game/reboot/src/world/locations/complexEnvironment.js",
       "bytes": 9401,
-      "sha256": "f5c403e186f3e64bb71d72610e1bc6b3cfab14d24e77ead6c9669b86620a0bde"
+      "sha256": "960de4f17ec419d8982239228034b864f0a6a1e6dfaa110528aaf1e9c11b54b6"
     },
     {
       "path": "game/reboot/src/world/locations/complexLayout.js",
@@ -1001,7 +1001,7 @@
     {
       "path": "package.json",
       "bytes": 662,
-      "sha256": "9c49cc4b975029956e35b67bea67b7c0b6bd198261ae667ccdfc1013731c12b3"
+      "sha256": "7f7fb72a5aca39005db337aa77fc1af17cb83cc929b264db735c200eddf26f96"
     },
     {
       "path": "package-lock.json",
@@ -1021,17 +1021,17 @@
     {
       "path": "tools/verify-publication.mjs",
       "bytes": 871,
-      "sha256": "b4abe44bdc19c941b8b7f314fa09cc2a30df8775f865c652efd07bb6ea8e5f54"
+      "sha256": "b8f878614525a6c73873774f1f21dbcd349c205c5141d693c0c722025d7d50ee"
     },
     {
       "path": ".github/workflows/deploy.yml",
       "bytes": 975,
-      "sha256": "9b61926133537833f5fb5b95f016f47bca739cfce392cf644b2b1f7b1e3ddb98"
+      "sha256": "2ef76c1139e5ac4c18ae43415f9306ce63aea9f7dfe5edd75b884da47f1944c9"
     },
     {
       "path": ".gitattributes",
       "bytes": 244,
-      "sha256": "bd07b2eb795fdfde7251e2e262790e373a7345173115a62f9dc10e85f0779d68"
+      "sha256": "89917d023a7a4570f6ed7b62476a28983a2f536a1634713137c8f87bb54d1d4b"
     },
     {
       "path": "kl-favicon.svg",
@@ -1048,7 +1048,121 @@
     {
       "path": "game/public/environment/kashi/stone-color.jpg",
       "sha256": "a58111224570bb33eba3c348bc7e3207255b5efb07f9cf274209c56b71d6825c"
+    },
+    {
+      "path": "game/public/environment/previews/complex.glb",
+      "sha256": "dbd71ee64e2527e7e8ab92236b214ba4f62a5f024d0338b719dcdeb8ee515e64"
+    },
+    {
+      "path": "game/public/environment/previews/complex-frontage.glb",
+      "sha256": "39cfa7d540358333cf22624fcbf4072ef32c643bd655d5a62e5a3a62f52fbdbf"
+    },
+    {
+      "path": "game/reboot/src/world/craftLocations.js",
+      "sha256": "9b5ce0e72a3581211e977c44681e2ea89af4a1c7a2238d14a93701b5f76eda40"
+    },
+    {
+      "path": "game/reboot/src/world/explorationBujji.js",
+      "sha256": "c52c0f5c41f6c8aeb25448dab7e8ef3962dbadcfe7832a65a2f9a9d573aaa232"
+    },
+    {
+      "path": "game/reboot/tests/building-interiors.test.js",
+      "sha256": "c5cb78309a369c8dfa00c98479214e23268b0b76ca5b588809cd65a0e745bf78"
+    },
+    {
+      "path": "game/reboot/tests/campaign-journey.test.js",
+      "sha256": "af6ab7dd070593f52e2e1fd7548c203988306150f33acf0d065754f485424436"
+    },
+    {
+      "path": "game/reboot/tests/checkpoints-completion.test.js",
+      "sha256": "84a1ec4f21e23cf22e0141b34006db139bd06c2a7680d63f749ce7bc954b4595"
+    },
+    {
+      "path": "game/reboot/tests/combat-hud.test.js",
+      "sha256": "dd5f91ff57b0cb8ff72f987e3180f21036235d60bfbb4d9c716da5c4ffe2bf89"
+    },
+    {
+      "path": "game/reboot/tests/crystal-real-completion.test.js",
+      "sha256": "24e49fbea6001546b6b651ad734103578254ca3219ae7152f75a2a12360096ab"
+    },
+    {
+      "path": "game/reboot/tests/global-camera.test.js",
+      "sha256": "86b07600228751f97a789da929fad0a4badc7bf6777d0c6b185d2683c42ee6e1"
+    },
+    {
+      "path": "game/reboot/tests/mobile-controls.test.js",
+      "sha256": "7f77c34e58394bd1c5f9c59e37de265991d8e9eb90e7469e2b3e87412f192272"
+    },
+    {
+      "path": "game/reboot/tests/personal-craft.test.js",
+      "sha256": "7d44017fb18697348f4181351308852fae259077a9f019d6f3a6de2a1094705c"
+    },
+    {
+      "path": "game/reboot/tests/phase5-locations.test.js",
+      "sha256": "b04afa5ec5dde4d9eee5bd02ac96fe6be25176d9dc93cec6f464c09375f5196c"
+    },
+    {
+      "path": "game/reboot/tests/phase6h-runtime-compatibility.test.js",
+      "sha256": "0ea10c0877b30ce69a10eb4d3c050fb56704bd817e43b1986f5618913a819820"
+    },
+    {
+      "path": "game/reboot/tests/phase6h-world-integration.test.js",
+      "sha256": "5c51bac388ad9998c4d315fc0f2ebf3462b6dc2dab9e5aa2325abc6e745cddf7"
+    },
+    {
+      "path": "game/reboot/tests/phase7b-characters.test.js",
+      "sha256": "dce6d8fe618700bc0487bef903a3d1091be54f63616215c1a2f0cc07cc17f398"
+    },
+    {
+      "path": "game/reboot/tests/phase7b-runtime.test.js",
+      "sha256": "33a4814dc6b89d298ffa7ffc99ed76f186ec370d7978491175dc130b3409dd4b"
+    },
+    {
+      "path": "game/reboot/tests/weapon-shop-house.test.js",
+      "sha256": "edb5b5b17713ffbee00fd0ddf10388638ba8632e984ffca4464e98ff09e6957e"
+    },
+    {
+      "path": "game/reboot/tests/weapon-shop.test.js",
+      "sha256": "2bdcf3f8645471b6e96bdba1ab763e3a54aeea98ddf2de12ee2e679aa852c252"
+    },
+    {
+      "path": "game/reboot/tests/weapon-upgrades.test.js",
+      "sha256": "646c2e6f6199858e913abdf8105b0fbd250afa0c1c6f4a5214b4ac4ec58bca45"
+    },
+    {
+      "path": "game/reboot/tests/world-audio-fixture.js",
+      "sha256": "6899f56af776d2cb908756fa505bf314940aee2fc84ad7b46c73c5ac0ae8a905"
+    },
+    {
+      "path": "game/reboot/tests/world6-audio-traversal.js",
+      "sha256": "c15976359952520dc764141ffd32fff47478b0f1eb8ae0c9d24df354c21601cb"
+    },
+    {
+      "path": "game/reboot/tests/world6-native-fixture.js",
+      "sha256": "edd87da293fb6590d59e27617af7bd2eeb7be7f6e031a42a8825e1d1c04eb8b9"
+    },
+    {
+      "path": "tools/world-runtime.test.mjs",
+      "sha256": "c374de735d308f3df37542d2ed303d40f21c2d5c3aa010b441e5fa7f7a0e34e4"
+    },
+    {
+      "path": "tools/verify-world-assets.mjs",
+      "sha256": "e5529d8277251c595a6d9981415769fbcbce4744d46de5aef481f054833ff066"
+    },
+    {
+      "path": "tools/capture-menu-baseline.mjs",
+      "sha256": "051763884845e02e76486a0e1e63a48f6e45b2ffcd2b44be3aa610cdb5291ef8"
+    },
+    {
+      "path": "tools/menu-baseline.json",
+      "sha256": "f22b3415c95f60b499b27d8c00fcc9bc3661789bd3f80ac741ff22501d800b43"
     }
   ],
-  "bytePreservation": "Release paths use -text attributes to preserve verified original byte hashes across Windows/Linux."
+  "bytePreservation": "Release paths use -text attributes to preserve verified original byte hashes across Windows/Linux.",
+  "deploymentRepair": {
+    "scope": "Complex assets, shared outdoor skimmer/Bujji, menu-to-exploration checkpoint handoff, touch flight detection and bounded Space input",
+    "baseline": "402b74b6c1739e355ab75ffeb8aa9a31403eb5ab",
+    "renderedGameplay": "NOT TESTED; browser control unavailable",
+    "originalAssets": "Copied without alteration; no personal saves used in tests"
+  }
 }

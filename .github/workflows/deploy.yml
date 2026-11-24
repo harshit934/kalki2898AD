@@ -21,6 +21,7 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run verify:publication
+      - run: npm run test:runtime
       - run: npm run lint
       - run: npm run build
         env:

@@ -1,0 +1,12 @@
+{
+  "revision": "402b74b6c1739e355ab75ffeb8aa9a31403eb5ab",
+  "calls": {
+    "MainMenu": "<MainMenu onLevels={()=>setScreen('missions')} onContinue={continueGame} continuation={continuation} completedMissionIds={view?.progress.completedMissionIds??[]} onExplore={explore} busy={busy} saveStatus={boot.runtime?'saved':'unavailable'}/>",
+    "MissionSelect": "<MissionSelect missions={cards} selectedMissionId={mission?.id} onSelect={select} onStart={start} onBack={()=>setScreen('home')} busy={busy}/>"
+  },
+  "hashes": {
+    "MainMenu.jsx": "4ca1cc252a7b375316381f9c31b8b65c69287bb53944d2491bd781e0d3432335",
+    "MissionSelect.jsx": "51a88113e6fdabf94afd9f5dc5f2b5490e235ad095df90924cbe198e3e9b4b6c",
+    "menuScreens.css": "30f1ff4841399a65b6611742522e2f178b38573d9b4d5a76facc4e8d813501c9"
+  }
+}

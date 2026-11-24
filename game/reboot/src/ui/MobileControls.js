@@ -1,5 +1,6 @@
 import {Component,createElement as h} from 'react'
 import {createTouchInput,joystickKeys} from './touchInput.js'
+export function isFlightPrompt(prompt){return ['Exit skimmer','Dismount skimmer','Dismount requires landing'].includes(prompt)}
 export default class MobileControls extends Component{
  state={knob:{x:0,y:0}}
  bridge=null

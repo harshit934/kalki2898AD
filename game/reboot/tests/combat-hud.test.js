@@ -1,0 +1,12 @@
+import test from 'node:test'
+import assert from 'node:assert/strict'
+import {createElement} from 'react'
+import {renderToStaticMarkup} from 'react-dom/server'
+import CombatHUD from '../src/ui/CombatHUD.js'
+import {readFileSync} from 'node:fs'
+const render=session=>renderToStaticMarkup(createElement(CombatHUD,{session}))
+const session={missionId:'mission-1',state:'active',playerResources:{health:76,maxHealth:100},actorStates:[{actorId:'roadside',instanceId:'i',category:'regular',state:'active-combat',health:26,maxHealth:50},{actorId:'warden',instanceId:'w',category:'boss',state:'active-combat',health:600,maxHealth:720}]}
+test('HUD renders actual player, regular enemy and separate boss health without gameplay side effects',()=>{const original=JSON.stringify(session),markup=render(session);assert.match(markup,/Bhairava: 76 \/ 100/);assert.match(markup,/roadside: 26 \/ 50/);assert.match(markup,/Warden: 600 \/ 720/);assert.match(markup,/Finisher unavailable/);assert.match(markup,/pointer-events:none/);assert.equal(JSON.stringify(session),original)})
+test('HUD hides outside mission gameplay and does not display removed or defeated enemies',()=>{for(const s of [null,{...session,missionId:'mission-50'},{...session,state:'completed'},{...session,playerResources:null}])assert.equal(render(s),'');const markup=render({...session,actorStates:session.actorStates.map(a=>({...a,state:'removed'}))});assert.doesNotMatch(markup,/roadside:|Warden:/)})
+test('HUD clearly distinguishes player defeat and pause without inventing victory or rewards',()=>{assert.match(render({...session,playerResources:{health:0,maxHealth:100}}),/Bhairava defeated/);assert.match(render({...session,state:'suspended'}),/Combat paused/);assert.doesNotMatch(render(session),/victory|reward|completed/i)})
+test('HUD integration is confined to world view and preserves exact menu component calls',()=>{const source=readFileSync(new URL('../src/main.jsx',import.meta.url),'utf8'),before=JSON.parse(readFileSync(new URL('../../../tools/menu-baseline.json',import.meta.url),'utf8')).calls;for(const name of ['MainMenu','MissionSelect']){const tag=new RegExp('<'+name+' [^>]*(?:=>[^>]*>[^>]*)?');assert.ok(source.includes('<'+name));const extract=s=>s.slice(s.indexOf('<'+name),s.indexOf('/>',s.indexOf('<'+name))+2);assert.equal(extract(source),before[name]);assert.ok(tag.test(source))}assert.ok(source.includes('screen==="world"&&<CombatHUD session={view?.session} hint={hostState.combatHint} location={hostState.combatLocation} action={hostState.combatAction}/>'))})
