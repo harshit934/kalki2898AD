@@ -310,8 +310,8 @@
     },
     {
       "path": "game/reboot/src/audio/worldAudioSession.js",
-      "bytes": 336,
-      "sha256": "2a1f6c2da001ce52ec9aaff06b9a0c9549ee3f0479a3c963bb83f578c80475e9"
+      "bytes": 474,
+      "sha256": "3d6c1543374e5e020f8de4cb9f707570d141bed8e1bfe51560e290b088538261"
     },
     {
       "path": "game/reboot/src/audio/worldSoundscape.js",
@@ -515,8 +515,8 @@
     },
     {
       "path": "game/reboot/src/gameplay/storyMissions.js",
-      "bytes": 11811,
-      "sha256": "2b47e983f63f8e2c18a4268bbe23da919e3ef6868d8074cc15f6e74f47ccf12c"
+      "bytes": 11838,
+      "sha256": "6ae9aac3f591b006266002552aa8bcf5a8d56c9b6acc87925152f7d10f3eeb9d"
     },
     {
       "path": "game/reboot/src/gameplay/strongholdVisibility.js",
@@ -1081,8 +1081,8 @@
     },
     {
       "path": "game/reboot/tests/story-missions.test.js",
-      "bytes": 6054,
-      "sha256": "f9d2c3fb090a57314e8bbe8c539c88375c40d5a7e67852bd6ff22558c3595d9b"
+      "bytes": 6169,
+      "sha256": "86bde0350531171970fcecda118a0a491975d37d29446437f5a67b70b5160347"
     },
     {
       "path": "game/reboot/tests/story-native-fixture.js",
