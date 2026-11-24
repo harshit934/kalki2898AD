@@ -305,8 +305,8 @@
     },
     {
       "path": "game/reboot/src/audio/worldAudio.js",
-      "bytes": 10122,
-      "sha256": "12b58a91f9f8edb81a736d6e59500083902a5e44519427c4b8624ffb98d538c9"
+      "bytes": 10155,
+      "sha256": "f15afaf4df57cdc1bcb99857e1e9a78975b949b08cfd6f2057edd17b4a72458b"
     },
     {
       "path": "game/reboot/src/audio/worldAudioSession.js",
@@ -1338,7 +1338,7 @@
     },
     {
       "path": "game/reboot/tests/phase8-audio.test.js",
-      "sha256": "f9599f8fd6d417417331960d6dbd29f8501d9aa8702e82f9ff4f422bcede5f80"
+      "sha256": "a799b214bceafc0721c1bf74ad393a353e7cce55e00d3512fc1259b026741c1f"
     },
     {
       "path": "game/reboot/src/presentation/storyShots.js",
