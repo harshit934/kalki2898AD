@@ -31,8 +31,8 @@ export function bindKeyboard({target,sessionId,signal,onMove,onAttack,onInteract
  function queued(action,callback){const queuedEpoch=epoch;Promise.resolve().then(()=>{if(live()&&epoch===queuedEpoch){record('input-dispatched',{action});return callback()}record('stale-input-rejected',{action,queuedEpoch})}).catch(onError)}
  function down(event){
   if(!live()||event.target?.isContentEditable||event.target?.matches?.('input,textarea,select')||event.target?.closest?.('dialog,[aria-modal="true"]'))return
-  const key=event.key?.toLowerCase(),action=onAction?(key==='f'?'block':key==='q'||key==='shift'?'dodge':key===' '?'jump':key==='r'?'finisher':null):null
-  if(!movementKeys.has(key)&&!extraKeys.includes(key)&&!action&&!['e','j','k'].includes(key)&&!(key==='h'&&onHeal))return
+  const key=event.key?.toLowerCase(),action=onAction?(key==='f'?'block':key==='q'||key==='shift'?'dodge':key===' '?'jump':null):null
+  if(!movementKeys.has(key)&&!extraKeys.includes(key)&&!action&&!['e','j','k','r'].includes(key)&&!(key==='h'&&onHeal))return
   event.preventDefault()
   // A resume/blur boundary invalidates held keys. OS repeat is not a new press.
   if(event.repeat||keys.has(key)){record('input-repeat-rejected',{key});return}
@@ -40,7 +40,7 @@ export function bindKeyboard({target,sessionId,signal,onMove,onAttack,onInteract
   if(action)onAction(action,true)
   if(key==='h'&&onHeal)queued('heal',onHeal)
   if(key==='e'&&onInteract)queued('interact',onInteract)
-  if(key==='j'||key==='k')queued('attack',()=>onAttack(key==='j'?'light':'heavy'))
+  if(key==='j'||key==='k'||key==='r')queued('attack',()=>onAttack(key==='r'?'special':key==='j'?'light':'heavy'))
  }
  function up(event){if(!live())return;const key=event.key?.toLowerCase();if(!keys.has(key))return;keys.delete(key);if(key==='f')onAction?.('block',false);record('input-released',{key});move()}
  function blur(){if(live())clear()}

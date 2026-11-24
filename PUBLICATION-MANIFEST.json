@@ -440,8 +440,8 @@
     },
     {
       "path": "game/reboot/src/gameplay/foundationHost.js",
-      "bytes": 26608,
-      "sha256": "44aa3e9545cff1d877abacbcbf5a057904d97503c88355f425ac3d72e3821ed5"
+      "bytes": 26752,
+      "sha256": "2a6a6a0778b647c435fb292d6b9461d38ce24d73eee01f6bff12428962c88d36"
     },
     {
       "path": "game/reboot/src/gameplay/frameHost.js",
@@ -455,8 +455,8 @@
     },
     {
       "path": "game/reboot/src/gameplay/mission1Combat.js",
-      "bytes": 19830,
-      "sha256": "2b3134025b163278ca318df5bf045fae7bab66924e6a96f789c7b02e12629593"
+      "bytes": 20156,
+      "sha256": "55b4bdf69ae8571703756a1803b3f86533c08f92c46e0ca73b053071e6e17bf1"
     },
     {
       "path": "game/reboot/src/gameplay/mission1Environment.js",
@@ -490,8 +490,8 @@
     },
     {
       "path": "game/reboot/src/gameplay/playerBindings.js",
-      "bytes": 20813,
-      "sha256": "244a356400154ed690f4ccfe18dd77fcaa9285a717ec96753ea30ce2456e0e49"
+      "bytes": 20694,
+      "sha256": "fd05cfc424ed226da1a6cfe40b108f0f3215a8aadeec0d0da306ebd6f951710e"
     },
     {
       "path": "game/reboot/src/gameplay/playerModel.js",
@@ -500,8 +500,8 @@
     },
     {
       "path": "game/reboot/src/gameplay/sessionAdapter.js",
-      "bytes": 12661,
-      "sha256": "4bbdbbf93f0dd60d4bad50077848d3fe6000ea1be6afe3f36b262990401a1042"
+      "bytes": 13032,
+      "sha256": "a7cba291ef02d279a97aa1fea0ee31ae254b3edbd9a9acab703cc90d0379782a"
     },
     {
       "path": "game/reboot/src/gameplay/socketWeapon.js",
@@ -515,8 +515,8 @@
     },
     {
       "path": "game/reboot/src/gameplay/storyMissions.js",
-      "bytes": 11964,
-      "sha256": "131b5b616205b40ced74badc968721840f1d06c4c3d1ac036c6c1e9282923179"
+      "bytes": 13094,
+      "sha256": "fd5b99e51a903907cfc2be0297f176619d59503b0b2131059dfb40f85a2eb5a2"
     },
     {
       "path": "game/reboot/src/gameplay/strongholdVisibility.js",
@@ -535,13 +535,13 @@
     },
     {
       "path": "game/reboot/src/main.jsx",
-      "bytes": 17764,
-      "sha256": "dafffb97bbcfdb53ddfbed60b53509c55e38b78cb7b50cc3450c10dd87113e18"
+      "bytes": 17913,
+      "sha256": "f045343f26fbc0b96e4429810c2f8fa956b37c4dbc1c890630cc8a8ba585592f"
     },
     {
       "path": "game/reboot/src/missions/checkpoints.js",
-      "bytes": 9059,
-      "sha256": "dc85d66bca72797b917df65dd11453e2bb7982771dfb7c82f39674036df5c53b"
+      "bytes": 9598,
+      "sha256": "7b06d68291d304aa39ca36c48b89533fd902f8d1b64e6863ecf6c83b78c79a68"
     },
     {
       "path": "game/reboot/src/missions/encounters.js",
@@ -1082,8 +1082,8 @@
     },
     {
       "path": "game/reboot/tests/story-missions.test.js",
-      "bytes": 6848,
-      "sha256": "74f562f6d36c650eea99c3b2edc4ff9c85314ac8716f446320e1fb982cd29401"
+      "bytes": 6995,
+      "sha256": "ae4761cc6459de4208ab29e0e34bded7c5b8b3c7b1c8ad75455532b156eb0ca4"
     },
     {
       "path": "game/reboot/tests/story-native-fixture.js",
@@ -1222,11 +1222,43 @@
     },
     {
       "path": "game/reboot/tests/mission-activities.test.js",
-      "sha256": "6687822b6ea2d1e2b28f325a8c7904416ba100e12b10999a366f0ac65ffc5601"
+      "sha256": "8f2d0a28070786174eb0938fc9836967324770c24805fb597571e5fee7c93ade"
     },
     {
       "path": "game/reboot/tests/mission-checkpoint.test.js",
       "sha256": "5ff6d56ce23798d82a36b9f48fab42f6830d680b6c3f193645368dae4b18c980"
+    },
+    {
+      "path": "game/reboot/src/content/storyBattles.js",
+      "sha256": "b0f8f73c27df776820ebf24e99cee5f727ce3090cb345203eb7ad69e116cb5a5"
+    },
+    {
+      "path": "game/reboot/src/gameplay/battleArena.js",
+      "sha256": "e306cc1b4172702b15a4341650f8d8180e1b1653710126732c2cca751e2eb7e0"
+    },
+    {
+      "path": "game/reboot/src/gameplay/combatTactics.js",
+      "sha256": "fea479fd548f348d7b04a28fea2e7fd5f58bb7b3d2ca8d63adaf59ff365e3218"
+    },
+    {
+      "path": "game/reboot/src/gameplay/storyBattleBrain.js",
+      "sha256": "70c75dcbe71c4a105c6760a440a91afdcf068f3ad7cfdf83292e39dbf4b011b1"
+    },
+    {
+      "path": "game/reboot/src/ui/BattleEncounter.js",
+      "sha256": "d8a9126f323a3b766e5e71ff15c9f04bdfafc9f1c6070e95100c57816dae2c93"
+    },
+    {
+      "path": "game/reboot/tests/battle-controls.test.js",
+      "sha256": "6e1744a9e79322de18beddb7a4685422824715979316f531c95a417fd257305c"
+    },
+    {
+      "path": "game/reboot/tests/battle-native-fixture.js",
+      "sha256": "796899e60232a1d5bed4ed82f8254811c4aacfdb94005d149f58ba51c56b0205"
+    },
+    {
+      "path": "game/reboot/tests/story-battles.test.js",
+      "sha256": "7dd0532886dd1194ff43c0eeafde28bac0521391f8add2c82034ff387e955191"
     }
   ],
   "bytePreservation": "Release paths use -text attributes to preserve verified original byte hashes across Windows/Linux.",

@@ -1,3 +1,4 @@
+import {defeatStoryBoss} from './battle-native-fixture.js'
 import test from 'node:test'
 import assert from 'node:assert/strict'
 import {harness,finish,asset,tick} from './story-native-fixture.js'
@@ -30,7 +31,7 @@ test('native story journey uses real dialogue, physical terminals, encounters, r
    await talk(Object.keys(content.story.briefings)[1])
    for(const index of content.story.order){const at=content.story.terminals[index].at;await place([at[0]+1.4,at[1],at[2]]);assert.equal((await f.integration.interact(f.runtime.snapshot().session.id)).accepted,true);await idle()}
    if(content.encounters.length){await f.frames(20);const first=f.enemy(content.missionId+'-guard-a').translation();await place([content.story.arena[0]+5,content.story.arena[1],content.story.arena[2]+7]);await f.frames(50);const moved=f.enemy(content.missionId+'-guard-a').translation();assert.ok(Math.hypot(moved.x-first.x,moved.z-first.z)>.1,'Real security AI moves in its authored arena');for(const suffix of ['a','b']){const id=content.missionId+'-guard-'+suffix;assert.ok(f.enemy(id),id);for(let n=0;f.runtime.snapshot().session.actorStates.find(a=>a.actorId===id)?.health>0&&n<35;n++){const enemy=f.enemy(id).translation();await place([enemy.x,enemy.y,enemy.z+2.2]);await f.hit(id);await idle()};assert.equal(f.runtime.snapshot().session.actorStates.find(a=>a.actorId===id).health,0,id)}}
-   await talk(content.story.finalCharacter,{close:false});await idle();assert.equal(f.runtime.snapshot().session,null)
+   await defeatStoryBoss(f,content.missionId,{testDefeat:content.missionId==='mission-2'});await talk(content.story.finalCharacter,{close:false});await idle();assert.equal(f.runtime.snapshot().session,null)
    assert.equal(f.integration.campaign.snapshot().conversation,null,'Successful mission completion dismisses its final dialogue before the victory UI')
    assert.ok(f.integration.campaign.snapshot().characters[content.story.finalCharacter].flags.includes('contract-reviewed'),'Dialogue presentation cleanup preserves recorded character progression')
    assert.ok(f.runtime.snapshot().progress.completedMissionIds.includes(content.missionId))

@@ -37,6 +37,12 @@ export function validateCheckpointEnvelope(checkpoint,catalogue){
  return clone(checkpoint)
 }
 export function validateCheckpoint(checkpoint,content,catalogue){
+ // Additive upgrade: validate the exact old graph first. Preserve every earned
+ // outcome; only an empty pending encounter is introduced. No fabricated kills.
+ if(content.legacyBattleContent&&checkpoint.encounterState&&!checkpoint.encounterState.some(e=>e.encounterId==='story-boss')){
+  const previous=validateCheckpoint(checkpoint,content.legacyBattleContent,catalogue)
+  checkpoint={...previous,encounterState:[...previous.encounterState,{encounterId:'story-boss',defeatedActorIds:[],failed:false}],phase:'active',conclusion:null}
+ }
  const cp=validateCheckpointEnvelope(checkpoint,catalogue)
  requireCondition(cp.missionId===content.missionId,'CHECKPOINT_MISSION_MISMATCH','Checkpoint belongs to another mission')
  requireCondition(cp.contentVersion===content.contentVersion,'CONTENT_VERSION_MISMATCH','Checkpoint requires explicit compatible content; no reset or fallback')
